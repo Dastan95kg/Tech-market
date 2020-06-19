@@ -1,0 +1,26 @@
+@import "../utils/variables.scss";
+
+.footer {
+    background: #000000;
+
+    &__inner {
+        padding: 40px 100px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__col {
+        display: flex;
+        flex-direction: column;
+
+        a {
+            margin: 5px 0;
+            font-family: $Montserrat;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 20px;
+            color: #ffffff;
+        }
+    }
+}

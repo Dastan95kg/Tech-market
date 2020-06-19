@@ -1,0 +1,152 @@
+@import "../utils/variables";
+
+.header {
+    height: 120px;
+    width: 100%;
+    display: flex;
+
+    &__logo {
+        height: 100%;
+        width: 155px;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 36px;
+        line-height: 33px;
+        letter-spacing: -0.06em;
+        color: #fff;
+        font-family: $Montserrat-Subrayada;
+
+        &:hover {
+            color: #fff;
+        }
+
+        & .market {
+            font-family: $Montserrat-Alternates;
+            font-size: 18px;
+            line-height: 22px;
+            letter-spacing: -0.06em;
+            color: #ffffff;
+        }
+
+        & .tech span {
+            color: #1d97f0;
+        }
+
+        & .tech .t {
+            margin-right: 5px;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        &-links,
+        &-search {
+            height: 60px;
+        }
+
+        &-links {
+            background: #e8eaec;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            font-family: $Montserrat;
+
+            & .title {
+                font-size: 13px;
+                line-height: 16px;
+                color: rgba(0, 0, 0, 0.81);
+            }
+
+            & .container {
+                & a {
+                    margin: 0 30px;
+                    font-size: 16px;
+                    line-height: 20px;
+                    color: #000000;
+                }
+            }
+        }
+
+        &-search {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background: #000000;
+            font-family: $Montserrat;
+
+            .track {
+                font-size: 14px;
+                line-height: 17px;
+                text-transform: uppercase;
+                color: #ffffff;
+            }
+
+            .search-form {
+                display: flex;
+                align-items: center;
+
+                .searchSvg {
+                    display: flex;
+                    align-items: center;
+                    margin-left: 10px;
+                }
+
+                .searchSvg svg {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+
+            .cart {
+                display: flex;
+                align-items: center;
+                height: 35px;
+
+                &__data {
+                    color: #fff;
+                    margin-left: 10px;
+
+                    .goods-num {
+                        background: #1d97f0;
+                        border-radius: 13px;
+                        width: 28px;
+                        height: 15px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 10px;
+                        line-height: 12px;
+                        margin: 0 0 3px 0;
+                    }
+
+                    .goods-label {
+                        font-size: 11px;
+                        line-height: 13px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// SEMANTIC UI REACT CUSTOM CSS
+.ui.action.input:not([class*="left action"]) > input {
+    width: 360px;
+}
+
+.ui.dropdown > .dropdown.icon:before {
+    color: #1d97f0;
+}
+
+.ui.dropdown > .text {
+    font-family: $Montserrat;
+    font-size: 12px;
+    line-height: 15px;
+}
