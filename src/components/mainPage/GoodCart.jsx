@@ -1,6 +1,6 @@
 import React from 'react';
 import { Rating } from 'semantic-ui-react';
-import TV from '../assets/images/tv.png';
+import TV from '../../assets/images/tv.png';
 
 const GoodCart = () => {
     return (

@@ -31,6 +31,8 @@ module.exports = {
         "react/prop-types": 0,
         "eslint linebreak-style": 0,
         "eol-last": 0,
-        "arrow-body-style": 0
+        "arrow-body-style": 0,
+        "arrow-parens": 0,
+        "react/prefer-stateless-function": 0
     },
 };

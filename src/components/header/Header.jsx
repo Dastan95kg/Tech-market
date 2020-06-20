@@ -1,7 +1,7 @@
 import React from 'react';
 import { Select, Input } from 'semantic-ui-react';
 import './Header.scss';
-import cartImg from '../assets/images/supermarket.png';
+import cartImg from '../../assets/images/supermarket.png';
 
 const options = [
     { key: 'all', text: 'По всем категориям', value: 'all' },

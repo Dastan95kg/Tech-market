@@ -1,0 +1,68 @@
+@import "../../utils/variables.scss";
+
+.catalog {
+    width: 275px;
+
+    &__header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background: #000000;
+        padding: 18px 15px;
+
+        &-burger {
+            width: 34px;
+        }
+
+        &-title {
+            font-family: $Montserrat;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 21px;
+            line-height: 26px;
+            color: #ffffff;
+        }
+    }
+
+    &__content {
+        background: #ffffff;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px;
+
+        &-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-basis: 90%;
+            padding: 0 10px;
+        }
+
+        &-img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-basis: 10%;
+        }
+
+        &-text {
+            font-family: $Montserrat;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 17px;
+            color: #000000;
+            margin: 0 5px;
+        }
+
+        &-line {
+            width: 12px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+    }
+}

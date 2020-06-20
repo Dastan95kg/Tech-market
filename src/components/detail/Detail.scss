@@ -1,0 +1,14 @@
+.detail {
+    padding: 57px 0;
+    background: #e5e5e5;
+
+    &__wrapper {
+        display: flex;
+    }
+
+    &__main {
+        margin: 0 auto;
+        width: 95%;
+        padding: 0 100px;
+    }
+}
