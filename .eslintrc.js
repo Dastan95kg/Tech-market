@@ -33,6 +33,7 @@ module.exports = {
         "eol-last": 0,
         "arrow-body-style": 0,
         "arrow-parens": 0,
-        "react/prefer-stateless-function": 0
+        "react/prefer-stateless-function": 0,
+        "max-len": 0
     },
 };

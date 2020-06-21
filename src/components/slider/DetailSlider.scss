@@ -1,6 +1,7 @@
 .carousel-root {
     display: flex;
     align-items: flex-end;
+    width: 100%;
 }
 
 // top slider
@@ -8,15 +9,30 @@
     background: #ffffff;
     border-radius: 7px 0px 7px 7px;
     padding: 30px 10px;
-    width: 600px;
+    width: 48% !important;
 }
 
 // lower slider
 .carousel {
+    width: 52% !important;
+}
+
+.carousel .thumbs-wrapper,
+.carousel .thumbs,
+.carousel .thumb {
+    height: 100px !important;
+}
+
+.carousel .thumbs-wrapper {
+    margin-bottom: 30px !important;
+}
+
+.carousel .thumb {
+    width: 110px !important;
+    margin: 0 15px;
 }
 
 .ui.rating {
-    width: 60%;
     margin-bottom: 11px;
 }
 
