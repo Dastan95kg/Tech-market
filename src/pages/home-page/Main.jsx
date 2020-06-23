@@ -1,7 +1,7 @@
 import React from 'react';
 import GoodCart from './GoodCart';
 import Slider from '../slider/Slider';
-import Categories from '../categories/Categories';
+import Categories from './Categories';
 import './Main.scss';
 
 const Main = () => {

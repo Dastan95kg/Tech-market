@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Header from '../header/Header';
 import Main from './Main';
 import Footer from '../footer/Footer';
-import Detail from '../detail/Detail';
+import Detail from '../detail-page/Detail';
 
 const MainPage = () => {
     return (

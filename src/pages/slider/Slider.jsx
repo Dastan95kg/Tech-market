@@ -1,7 +1,7 @@
 import React from 'react';
 import SlickSlider from 'react-slick';
 import placeholder from '../../assets/images/background.png';
-import '../mainPage/Main.scss';
+import '../home-page/Main.scss';
 
 const Slider = () => {
     const settings = {

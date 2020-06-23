@@ -1,5 +1,5 @@
 import React from 'react';
-import MainCategory from '../mainPage/MainCategory';
+import MainCategory from './MainCategory';
 import images from '../../assets';
 
 const Categories = () => {

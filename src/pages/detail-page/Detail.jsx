@@ -1,9 +1,11 @@
 import React from 'react';
 import { Rating } from 'semantic-ui-react';
-import Categories from '../categories/Categories';
+import Categories from '../home-page/Categories';
 import DetailSlider from '../slider/DetailSlider';
-import GoodCart from '../mainPage/GoodCart';
+import GoodCart from '../home-page/GoodCart';
 import './Detail.scss';
+// import Characteristics from './Characteristics';
+import Feedbacks from './Feedbacks';
 
 const Detail = () => {
     return (
@@ -54,11 +56,7 @@ const Detail = () => {
                     </a>
                 </div>
                 <div className="detail__info-content">
-                    <p className="text">
-                        — Славная она, — говорил он, — у ней всегда можно денег достать. Богата как жид, может сразу пять тысяч выдать, а и рублевым закладом не брезгает. Наших много у ней перебывало. Только стерва ужасная...
-                        И он стал рассказывать, какая она злая, капризная, что стоит только одним днем просрочить заклад, и пропала вещь. Дает вчетверо меньше, чем стоит вещь, а процентов по пяти и даже по семи берет в месяц и т. д. Студент разболтался и сообщил, кроме того, что у старухи есть сестра, Лизавета, которую она, такая маленькая и гаденькая, бьет поминутно и держит в совершенном порабощении, как маленького ребенка, тогда как Лизавета, по крайней мере, восьми вершков росту...
-                    </p>
-                    <p className="text">Таблица характеристик: самая простая, прямоугольная, обводка 1рх черная.</p>
+                    <Feedbacks />
                 </div>
             </div>
             <div className="detail__similar">

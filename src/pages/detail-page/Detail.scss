@@ -206,6 +206,145 @@
                     margin: 48px 0;
                 }
             }
+
+            .form {
+                display: flex;
+                flex-direction: column;
+                font-size: 12px;
+                width: 300px;
+
+                input,
+                textarea {
+                    background: #ffffff;
+                    border: 1px solid #1d97f0;
+                    height: 30px;
+                    padding: 0 11px;
+                    margin: 4px 0;
+
+                    &::placeholder {
+                        font-family: $Montserrat;
+                        font-weight: 300;
+                        font-size: 12px;
+                        line-height: 15px;
+                        color: #c4c4c4;
+                    }
+                }
+
+                textarea {
+                    padding-top: 5px;
+                    height: 80px;
+                    resize: vertical;
+                    padding: 5px;
+                }
+
+                &__rating {
+                    display: flex;
+                    align-items: center;
+                    margin: 10px 0;
+                    font-family: $Montserrat;
+                    font-weight: 300;
+                    font-size: 12px;
+                    line-height: 15px;
+                    display: flex;
+                    align-items: center;
+                    color: #000000;
+
+                    .ui.rating {
+                        margin-left: 10px;
+                        margin-bottom: 0;
+                    }
+                }
+
+                &__btn {
+                    background: #1d97f0;
+                    border: 0;
+                    cursor: pointer;
+                    font-family: $Montserrat;
+                    font-weight: 300;
+                    font-size: 14px;
+                    line-height: 17px;
+                    color: #ffffff;
+                    width: 100%;
+                    height: 30px;
+                }
+            }
+
+            .line {
+                display: block;
+                height: 1px;
+                width: 100%;
+                background-color: #c4c4c4;
+                margin-top: 31px;
+            }
+
+            .feedbacks {
+                margin-top: 31px;
+
+                &__card {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 20px;
+
+                    &-title {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 7px;
+
+                        .ui.rating {
+                            display: block;
+                            margin: auto 10px;
+                        }
+                    }
+
+                    &-name {
+                        font-family: $Montserrat;
+                        font-size: 16px;
+                        line-height: 20px;
+                        color: #000000;
+                    }
+
+                    &-date {
+                        font-family: $Montserrat;
+                        font-weight: 300;
+                        font-size: 11px;
+                        line-height: 13px;
+                        color: #000000;
+
+                        .date {
+                            margin-right: 5px;
+                        }
+                    }
+
+                    &-text {
+                        font-family: $Montserrat;
+                        font-weight: 300;
+                        font-size: 14px;
+                        line-height: 17px;
+                        color: #000000;
+                    }
+                }
+
+                &__more {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    &-content {
+                        width: 200px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-family: $Montserrat;
+                        font-size: 14px;
+                        line-height: 17px;
+                        color: #3e3e3e;
+                    }
+
+                    .arrow {
+                        margin-left: 10px;
+                    }
+                }
+            }
         }
     }
 
