@@ -153,6 +153,23 @@
                 margin: 0 3px;
             }
         }
+
+        &-products {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        &-pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+
+            .ui.pagination.menu .item {
+                color: #1d97f0;
+            }
+        }
     }
 }
 

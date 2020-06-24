@@ -1,8 +1,9 @@
 import React from 'react';
-import { Select } from 'semantic-ui-react';
+import { Select, Pagination } from 'semantic-ui-react';
 import Categories from '../home-page/Categories';
 import arrow from '../../assets/images/list-arrow.png';
 import './List.scss';
+import GoodCart from '../home-page/GoodCart';
 
 const List = () => {
     const options = [
@@ -49,7 +50,29 @@ const List = () => {
                         </div>
                     </div>
                     <div className="list__content-products">
-
+                        <GoodCart />
+                        <GoodCart />
+                        <GoodCart />
+                        <GoodCart />
+                        <GoodCart />
+                        <GoodCart />
+                        <GoodCart />
+                        <GoodCart />
+                        <GoodCart />
+                        <GoodCart />
+                        <GoodCart />
+                        <GoodCart />
+                    </div>
+                    <div className="list__content-pagination">
+                        <Pagination
+                            boundaryRange={0}
+                            defaultActivePage={1}
+                            ellipsisItem={null}
+                            firstItem={null}
+                            lastItem={null}
+                            siblingRange={1}
+                            totalPages={10}
+                        />
                     </div>
                 </div>
             </div>
