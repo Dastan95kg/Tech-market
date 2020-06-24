@@ -1,0 +1,164 @@
+@import "../../utils/variables.scss";
+
+.list {
+    background: #e5e5e5;
+    padding: 55px 0;
+
+    &__wrapper {
+        display: flex;
+    }
+
+    &__content {
+        margin: 0 100px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        &-filterContainer {
+            background: #ffffff;
+            border-radius: 7px 7px 7px 0px;
+            display: flex;
+            flex-direction: column;
+            padding: 29px 0 0 38px;
+            font-family: $Montserrat;
+            font-weight: 300;
+            color: #000000;
+        }
+
+        &-categories {
+            display: flex;
+            align-items: center;
+            margin-bottom: 33px;
+        }
+
+        &-category {
+            font-size: 22px;
+            line-height: 27px;
+        }
+
+        &-arrow {
+            margin: 0 10px;
+        }
+
+        &-subcategory {
+            font-size: 26px;
+            line-height: 32px;
+        }
+
+        &-logic {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        &-sort {
+            &-title {
+                font-size: 16px;
+                line-height: 20px;
+                margin-right: 10px;
+            }
+
+            .ui.selection.dropdown,
+            .ui.selection.active.dropdown {
+                font-size: 15px;
+                line-height: 18px;
+                background: #ffffff;
+                border: 0.5px solid #000000;
+                box-sizing: border-box;
+                border-radius: 4px;
+                height: 31px;
+
+                .text {
+                    font-size: 15px;
+                    line-height: 18px;
+                }
+            }
+        }
+
+        &-filter {
+            display: flex;
+            align-items: center;
+            margin-left: 33px;
+
+            &-title {
+                font-size: 16px;
+                line-height: 20px;
+                margin-right: 10px;
+            }
+
+            button {
+                background: #1d97f0;
+                font-size: 10px;
+                line-height: 12px;
+                color: #ffffff;
+                border: 0;
+                width: 120px;
+                height: 30px;
+                cursor: pointer;
+            }
+        }
+
+        &-inputs {
+            margin-right: 17px;
+            display: flex;
+            align-items: center;
+
+            input {
+                width: 50px;
+                height: 30px;
+                background: #ffffff;
+                border: 0.3px solid #000000;
+
+                &:focus {
+                    outline: none !important;
+                    border: 0.3px solid #1d97f0;
+                }
+            }
+
+            .dash {
+                width: 9px;
+                height: 1px;
+                margin: 0 9px;
+                background-color: #000000;
+            }
+        }
+
+        &-pages {
+            font-size: 10px;
+            line-height: 12px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 10px;
+            margin-bottom: 10px;
+
+            input {
+                width: 20px;
+                height: 20px;
+                margin: 0 5px;
+            }
+        }
+
+        &-results {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 10px;
+            font-size: 8px;
+            line-height: 10px;
+            color: #3e3e3e;
+            margin-bottom: 5px;
+
+            span {
+                margin: 0 3px;
+            }
+        }
+    }
+}
+
+// delete default arrows
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

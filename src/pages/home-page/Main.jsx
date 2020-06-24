@@ -13,7 +13,7 @@ const Main = () => {
             </section>
 
             <section className="popular">
-                <h2>Популярное</h2>
+                <h2>Акционные товары</h2>
                 <div className="popular__goods">
                     <GoodCart />
                     <GoodCart />

@@ -60,7 +60,7 @@ const Detail = () => {
                 </div>
             </div>
             <div className="detail__similar">
-                <h3 className="detail__similar-title">Похожее</h3>
+                <h3 className="detail__similar-title">Акционные товары</h3>
                 <div className="detail__similar-content">
                     <GoodCart />
                     <GoodCart />
