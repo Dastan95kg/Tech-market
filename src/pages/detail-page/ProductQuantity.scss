@@ -1,0 +1,29 @@
+@import "../../utils/variables.scss";
+
+.container {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+
+    &-btn {
+        width: 35px;
+        height: 35px;
+        background: #ffffff;
+        border: 0.5px solid #000000;
+        opacity: 0.5;
+        cursor: pointer;
+
+        &:focus {
+            border: 0.5px solid #000000;
+        }
+    }
+
+    &-quantity {
+        margin: 0 26px;
+        font-family: $Montserrat;
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 29px;
+        color: #000000;
+    }
+}

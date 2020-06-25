@@ -5,6 +5,7 @@ import Main from './Main';
 import Footer from '../footer/Footer';
 import Detail from '../detail-page/Detail';
 import List from '../list-page/List';
+import Basket from '../basket-page/Basket';
 
 const MainPage = () => {
     return (
@@ -14,6 +15,7 @@ const MainPage = () => {
                 <Route path="/" exact component={Main} />
                 <Route path="/detail" component={Detail} />
                 <Route path="/list" component={List} />
+                <Route path="/basket" component={Basket} />
             </Switch>
             <Footer />
         </>

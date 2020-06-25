@@ -6,6 +6,7 @@ import GoodCart from '../home-page/GoodCart';
 import './Detail.scss';
 // import Characteristics from './Characteristics';
 import Feedbacks from './Feedbacks';
+import ProductQuantity from './ProductQuantity';
 
 const Detail = () => {
     return (
@@ -32,15 +33,7 @@ const Detail = () => {
                         </div>
                         <div className="detail__main-quantity">
                             Количество:
-                            <div className="container">
-                                <button type="button" className="container-btn">
-                                    <span>-</span>
-                                </button>
-                                <span className="container-quantity">1</span>
-                                <button type="button" className="container-btn">
-                                    <span>+</span>
-                                </button>
-                            </div>
+                            <ProductQuantity />
                         </div>
                         <button type="button" className="add-to-cart">Добавить в корзину</button>
                     </div>
