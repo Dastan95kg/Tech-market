@@ -1,5 +1,6 @@
 import React from 'react';
 import BasketItem from './BasketItem';
+import CartTotal from './CartTotal';
 import './Cart.scss';
 
 const Cart = () => {
@@ -11,17 +12,7 @@ const Cart = () => {
                 <BasketItem />
                 <BasketItem />
             </div>
-            <div className="basket__content-total">
-                <div className="basket__content-total-quantity">
-                    Количество:
-                    <span>3</span>
-                </div>
-                <div className="basket__content-total-price">
-                    Сумма заказа:
-                    <span>100500</span>
-                    сом
-                </div>
-            </div>
+            <CartTotal />
             <div className="basket__content-buttons">
                 <button type="button" className="return">Вернуться</button>
                 <button type="button" className="proceed">Перейти к оформлению заказа</button>

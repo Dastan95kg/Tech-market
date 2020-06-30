@@ -1,0 +1,28 @@
+.order__content-item {
+    padding: 15px 31px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #c4c4c4;
+
+    &-title {
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 5px;
+    }
+
+    &-number {
+        font-size: 24px;
+        line-height: 29px;
+    }
+
+    &-times {
+        margin: 0 10px;
+        font-size: 24px;
+    }
+
+    &-productPrice {
+        font-size: 21px;
+        line-height: 26px;
+    }
+}

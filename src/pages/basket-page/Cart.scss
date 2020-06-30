@@ -17,33 +17,6 @@
         padding: 0 26px;
     }
 
-    &-total {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 14px 26px;
-        margin-bottom: 30px;
-
-        &-quantity {
-            font-size: 16px;
-            line-height: 20px;
-
-            span {
-                margin-left: 5px;
-            }
-        }
-
-        &-price {
-            font-size: 18px;
-            line-height: 22px;
-
-            span {
-                color: #1d97f0;
-                margin: 0 5px;
-            }
-        }
-    }
-
     &-buttons {
         display: flex;
         align-items: center;
