@@ -1,5 +1,6 @@
 import React from 'react';
-import { Dropdown, Checkbox } from 'semantic-ui-react';
+import { Dropdown, Checkbox, Pagination } from 'semantic-ui-react';
+import GoodCart from '../home-page/GoodCart';
 import Categories from '../home-page/Categories';
 import PriceFilter from '../list-page/PriceFilter';
 import searchIcon from '../../assets/images/IconSearch.png';
@@ -56,8 +57,28 @@ const Search = () => {
                                 </div>
                             </div>
                         </nav>
-                        <div className="search__content-products">
-
+                        <div className="search__content-products-wrapper">
+                            <div className="search__content-products">
+                                <GoodCart />
+                                <GoodCart />
+                                <GoodCart />
+                                <GoodCart />
+                                <GoodCart />
+                                <GoodCart />
+                                <GoodCart />
+                                <GoodCart />
+                            </div>
+                            <div className="search__content-products-pagination">
+                                <Pagination
+                                    boundaryRange={0}
+                                    defaultActivePage={1}
+                                    ellipsisItem={null}
+                                    firstItem={null}
+                                    lastItem={null}
+                                    siblingRange={1}
+                                    totalPages={10}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
