@@ -4,6 +4,7 @@ import Categories from '../home-page/Categories';
 import arrow from '../../assets/images/list-arrow.png';
 import './List.scss';
 import GoodCart from '../home-page/GoodCart';
+import PriceFilter from './PriceFilter';
 
 const List = () => {
     const options = [
@@ -28,15 +29,7 @@ const List = () => {
                                 <span className="list__content-sort-title">Сортировка</span>
                                 <Select placeholder="По умолчанию" options={options} />
                             </div>
-                            <div className="list__content-filter">
-                                <div className="list__content-filter-title">Цена (сом)</div>
-                                <div className="list__content-inputs">
-                                    <input type="number" />
-                                    <span className="dash" />
-                                    <input type="number" />
-                                </div>
-                                <button type="button">Фильтровать</button>
-                            </div>
+                            <PriceFilter />
                         </div>
                         <div className="list__content-pages">
                             Выводить результаты по

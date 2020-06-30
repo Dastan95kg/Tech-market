@@ -7,6 +7,7 @@ import Detail from '../detail-page/Detail';
 import List from '../list-page/List';
 import Basket from '../basket-page/Basket';
 import Order from '../order-page/Order';
+import Search from '../search-page/Search';
 
 const MainPage = () => {
     return (
@@ -18,6 +19,7 @@ const MainPage = () => {
                 <Route path="/list" component={List} />
                 <Route path="/basket" component={Basket} />
                 <Route path="/order" component={Order} />
+                <Route path="/search" component={Search} />
             </Switch>
             <Footer />
         </>

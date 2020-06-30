@@ -1,0 +1,139 @@
+@import "../../utils/variables.scss";
+
+.search {
+    background: #e5e5e5;
+    padding: 55px 0;
+    font-family: $Montserrat;
+
+    &__wrapper {
+        display: flex;
+    }
+
+    &__content {
+        margin: 0 100px;
+        flex: 1;
+        color: #000;
+
+        &-navbar {
+            background: #ffffff;
+            border-radius: 7px 7px 7px 0px;
+            padding: 20px 38px;
+
+            &-title {
+                font-size: 24px;
+                line-height: 29px;
+                margin-bottom: 10px;
+            }
+
+            &-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            &-form {
+                display: flex;
+                align-items: center;
+
+                input {
+                    width: 500px;
+                    padding: 6px 10px;
+                    margin-right: 10px;
+                    background: #ffffff;
+                    border: 0.5px solid #000000;
+                    border-radius: 3px;
+                }
+
+                button {
+                    background: 0;
+                    border: 0;
+                }
+            }
+
+            &-sort {
+                display: flex;
+                align-items: center;
+
+                .ui {
+                    margin-left: 10px;
+                }
+            }
+
+            .list__content-filter {
+                margin: 12px 0 0 0;
+            }
+
+            &-results {
+                text-align: right;
+                font-size: 12px;
+                line-height: 12px;
+                color: #3e3e3e;
+            }
+
+            .ui.search.selection.dropdown {
+                min-width: 235px;
+            }
+        }
+
+        &-wrapper {
+            display: flex;
+        }
+
+        &-categories {
+            background: #ffffff;
+            padding: 6px 21px 48px;
+            width: 200px;
+
+            &-title {
+                font-size: 16px;
+                line-height: 15px;
+                margin-bottom: 5px;
+            }
+
+            &-checkboxes {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 15px;
+
+                label {
+                    margin: 5px 0;
+                }
+            }
+
+            &-subtitle {
+                margin-top: 15px;
+                margin-bottom: 5px;
+                font-size: 16px;
+                line-height: 15px;
+            }
+
+            &-results {
+                &-title {
+                    font-size: 14px;
+                    line-height: 14px;
+                    margin-bottom: 5px;
+                }
+
+                &-pages {
+                    input {
+                        padding: 5px;
+                        width: 30px;
+                        text-align: center;
+                        margin: 0 5px;
+                    }
+                }
+            }
+
+            .ui.search.selection.dropdown {
+                min-width: 150px;
+            }
+        }
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+}
