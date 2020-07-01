@@ -3,7 +3,7 @@ import { Dropdown, Checkbox, Pagination } from 'semantic-ui-react';
 import GoodCart from '../home-page/GoodCart';
 import Categories from '../home-page/Categories';
 import PriceFilter from '../list-page/PriceFilter';
-import searchIcon from '../../assets/images/IconSearch.png';
+import SearchForm from './SearchForm';
 import './Search.scss';
 
 const Search = () => {
@@ -21,12 +21,7 @@ const Search = () => {
                     <nav className="search__content-navbar">
                         <div className="search__content-navbar-title">Поиск</div>
                         <div className="search__content-navbar-container">
-                            <form className="search__content-navbar-form">
-                                <input type="text" placeholder="Введите название товара" />
-                                <button type="submit">
-                                    <img src={searchIcon} alt="search icon" />
-                                </button>
-                            </form>
+                            <SearchForm placeholder="Введите название товара" />
                             <div className="search__content-navbar-sort">
                                 Сортировка
                                 <Dropdown search selection options={options} />

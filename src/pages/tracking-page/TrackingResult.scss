@@ -1,0 +1,41 @@
+.tracking__results {
+    &-code {
+        display: flex;
+        align-items: center;
+        margin-bottom: 35px;
+
+        img {
+            width: 44px;
+            height: 48px;
+        }
+
+        span {
+            margin-left: 13px;
+            font-size: 22px;
+            line-height: 27px;
+        }
+    }
+
+    &-statuses {
+        display: flex;
+        flex-direction: column;
+        margin: 49px 0 0 100px;
+    }
+
+    &-radio {
+        margin: 20px 0;
+
+        input {
+            margin-right: 20px;
+            width: 32px;
+            height: 32px;
+        }
+
+        label {
+            font-size: 16px;
+            line-height: 20px;
+            display: flex;
+            align-items: center;
+        }
+    }
+}

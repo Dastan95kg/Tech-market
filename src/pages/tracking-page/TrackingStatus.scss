@@ -1,0 +1,28 @@
+.tracking-status {
+    background: #1d97f0;
+    display: flex;
+    align-items: center;
+    padding: 10px 23px;
+    color: #ffffff;
+    margin-left: 100px;
+
+    &__image {
+        margin-right: 18px;
+    }
+
+    &__message {
+        font-size: 22px;
+        line-height: 27px;
+    }
+
+    &__address {
+        font-size: 11px;
+        line-height: 13px;
+        margin: 5px 0;
+    }
+
+    &__date {
+        font-size: 8px;
+        line-height: 10px;
+    }
+}

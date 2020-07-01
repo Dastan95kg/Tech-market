@@ -1,0 +1,45 @@
+@import "../../utils/variables.scss";
+
+.tracking {
+    background: #e5e5e5;
+    padding: 55px 0;
+    font-family: $Montserrat;
+    color: #000;
+
+    &__wrapper {
+        display: flex;
+    }
+
+    &__content {
+        flex: 1;
+        margin: 0 100px;
+    }
+
+    &__search {
+        background: #ffffff;
+        border-radius: 7px 7px 7px 0px;
+        padding: 27px 38px 42px;
+
+        &-title {
+            font-size: 24px;
+            line-height: 29px;
+            margin-bottom: 15px;
+        }
+    }
+
+    &__results {
+        background: #ffffff;
+        margin-top: 37px;
+        padding: 18px 22px;
+
+        &-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 182px 0;
+            font-size: 26px;
+            line-height: 32px;
+            color: #3e3e3e;
+        }
+    }
+}
