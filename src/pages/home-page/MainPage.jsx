@@ -10,6 +10,8 @@ import Order from '../order-page/Order';
 import Search from '../search-page/Search';
 import Tracking from '../tracking-page/Tracking';
 import AboutUs from '../aboutUs-page/AboutUs';
+import Delivery from '../delivery-page/Delivery';
+import Contacts from '../contacts-page/Contacts';
 
 const MainPage = () => {
     return (
@@ -24,6 +26,8 @@ const MainPage = () => {
                 <Route path="/search" component={Search} />
                 <Route path="/tracking" component={Tracking} />
                 <Route path="/about" component={AboutUs} />
+                <Route path="/delivery" component={Delivery} />
+                <Route path="/contacts" component={Contacts} />
             </Switch>
             <Footer />
         </>

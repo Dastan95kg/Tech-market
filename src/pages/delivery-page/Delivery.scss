@@ -1,0 +1,30 @@
+@import "../../utils/variables.scss";
+
+.delivery {
+    background: #e5e5e5;
+    padding: 55px 0;
+
+    &__wrapper {
+        display: flex;
+    }
+
+    &__content {
+        margin: 0 100px;
+        background: #ffffff;
+        border-radius: 7px 7px 7px 0px;
+        padding: 27px 38px;
+        font-family: $Montserrat;
+        color: #000000;
+
+        &-title {
+            font-size: 24px;
+            line-height: 29px;
+            margin-bottom: 20px;
+        }
+
+        &-text {
+            font-size: 16px;
+            line-height: 20px;
+        }
+    }
+}
