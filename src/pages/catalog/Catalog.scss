@@ -2,13 +2,14 @@
 
 .catalog {
     width: 275px;
+    display: none;
 
     &__header {
         display: flex;
         justify-content: space-around;
         align-items: center;
         background: #000000;
-        padding: 18px 15px;
+        padding: 10px 15px 11px;
 
         &-burger {
             width: 34px;
@@ -32,7 +33,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 15px;
+        padding: 14px 15px 13px;
 
         &-content {
             display: flex;

@@ -80,10 +80,6 @@ const OrderForm = () => {
             <div className="order-form__payment">
                 <div className="order-form__title">Оплата</div>
                 <div className="order-form__subtitle">Оплата наличными при получении!</div>
-                <div className="order-form__payment-promo">
-                    <input type="text" placeholder="Промо-код" className="order-form__payment-promo-data" />
-                    <button type="button">Активировать</button>
-                </div>
                 <div className="order-form__payment-total">
                     К оплате:
                     <span>100500 сом</span>

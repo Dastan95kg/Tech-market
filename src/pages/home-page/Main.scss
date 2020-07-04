@@ -117,6 +117,16 @@
                     margin-bottom: 15px;
                 }
 
+                &__old-price {
+                    font-size: 18px;
+                    font-weight: 300;
+                    line-height: 22px;
+                    text-align: center;
+                    text-decoration-line: line-through;
+                    text-transform: uppercase;
+                    color: #a3a3a3;
+                }
+
                 &__price {
                     font-weight: 500;
                     font-size: 30px;

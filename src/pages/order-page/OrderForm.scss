@@ -57,27 +57,6 @@
     }
 
     &__payment {
-        &-promo {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-
-            &-data {
-                width: 230px !important;
-                margin-right: 10px;
-            }
-
-            button {
-                background: #1d97f0;
-                border-radius: 2px;
-                border: 0;
-                color: #fff;
-                font-size: 10px;
-                padding: 6px 15px;
-                cursor: pointer;
-            }
-        }
-
         &-total {
             font-size: 14px;
             line-height: 17px;
