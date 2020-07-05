@@ -4,9 +4,6 @@ import line from '../../assets/images/Line.png';
 const CatalogItem = ({ image, title }) => {
     return (
         <div className="catalog__item">
-            <div className="catalog__item-img">
-                <img src={image} alt={title} />
-            </div>
             <div className="catalog__item-content">
                 <div className="catalog__item-text">
                     {title}

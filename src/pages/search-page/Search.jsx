@@ -8,9 +8,18 @@ import './Search.scss';
 
 const Search = () => {
     const options = [
-        { key: 'af', value: 'af', text: 'Afghanistan' },
-        { key: 'ax', value: 'ax', text: 'Aland Islands' },
-        { key: 'al', value: 'al', text: 'Albania' }
+        { key: 'af', value: 'af', text: 'По умолчанию' },
+        { key: 'ax', value: 'ax', text: 'По алфавиту А-Я' },
+        { key: 'ay', value: 'ay', text: 'По алфавиту Я-А' },
+        { key: 'az', value: 'az', text: 'По возрастанию цены' },
+        { key: 'ac', value: 'ac', text: 'По убыванию цены' }
+    ];
+
+    const categories = [
+        { key: 'af', value: 'af', text: 'Холодильники' },
+        { key: 'ax', value: 'ax', text: 'Мобильные телефоны' },
+        { key: 'ay', value: 'ay', text: 'Стиральные машины' },
+        { key: 'az', value: 'az', text: 'Телевизоры' }
     ];
 
     return (
@@ -33,7 +42,7 @@ const Search = () => {
                     <div className="search__content-wrapper">
                         <nav className="search__content-categories">
                             <div className="search__content-categories-title">Категории</div>
-                            <Dropdown search selection options={options} />
+                            <Dropdown search selection options={categories} />
                             <div className="search__content-categories-subtitle">Подкатегории</div>
                             <div className="search__content-categories-checkboxes">
                                 <Checkbox label="подкатегория" />

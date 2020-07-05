@@ -11,7 +11,6 @@ import ProductQuantity from './ProductQuantity';
 const Detail = () => {
     return (
         <section className="detail">
-            <div className="detail__warehouse">Нет на складе</div>
             <div className="detail__wrapper">
                 <Categories />
                 <div className="detail__main">

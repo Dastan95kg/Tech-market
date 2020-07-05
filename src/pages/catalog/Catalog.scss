@@ -1,15 +1,19 @@
 @import "../../utils/variables.scss";
 
 .catalog {
-    width: 275px;
-    display: none;
+    width: 227px;
+    display: block;
+    position: absolute;
+    left: 75px;
+    top: 0;
+    z-index: 2;
+    transform: translateX(-300px);
 
     &__header {
         display: flex;
-        justify-content: space-around;
         align-items: center;
         background: #000000;
-        padding: 10px 15px 11px;
+        padding: 15px 10px 14px;
 
         &-burger {
             width: 34px;
@@ -32,15 +36,14 @@
     &__item {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        padding: 14px 15px 13px;
+        padding: 10px;
+        height: 66px;
 
         &-content {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            flex-basis: 90%;
-            padding: 0 10px;
+            align-items: center;
+            width: 100%;
         }
 
         &-img {
@@ -56,7 +59,7 @@
             font-size: 14px;
             line-height: 17px;
             color: #000000;
-            margin: 0 5px;
+            margin-right: 15px;
         }
 
         &-line {
@@ -65,5 +68,10 @@
             align-items: center;
             cursor: pointer;
         }
+    }
+
+    &.active {
+        transform: translateX(0);
+        transition: transform 0.1s linear;
     }
 }

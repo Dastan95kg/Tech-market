@@ -19,6 +19,7 @@
 .categories {
     display: flex;
     flex-direction: column;
+    position: relative;
 
     &__burger {
         background: #000000;

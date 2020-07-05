@@ -8,9 +8,11 @@ import PriceFilter from './PriceFilter';
 
 const List = () => {
     const options = [
-        { key: 'af', value: 'af', text: 'Afghanistan' },
-        { key: 'ax', value: 'ax', text: 'Aland Islands' },
-        { key: 'al', value: 'al', text: 'Albania' }
+        { key: 'af', value: 'af', text: 'По умолчанию' },
+        { key: 'ax', value: 'ax', text: 'По алфавиту А-Я' },
+        { key: 'ay', value: 'ay', text: 'По алфавиту Я-А' },
+        { key: 'az', value: 'az', text: 'По возрастанию цены' },
+        { key: 'ac', value: 'ac', text: 'По убыванию цены' }
     ];
 
     return (
