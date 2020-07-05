@@ -1,14 +1,12 @@
 import React from 'react';
 import GoodCart from './GoodCart';
 import Slider from '../slider/Slider';
-import Categories from './Categories';
 import './Main.scss';
 
 const Main = () => {
     return (
-        <div className="main-page">
+        <>
             <section className="slider-section">
-                <Categories />
                 <Slider />
             </section>
 
@@ -25,7 +23,7 @@ const Main = () => {
                     <GoodCart />
                 </div>
             </section>
-        </div>
+        </>
     );
 };
 

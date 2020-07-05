@@ -1,15 +1,8 @@
 @import "../../utils/variables.scss";
 
 .list {
-    background: #e5e5e5;
-    padding: 55px 0;
-
-    &__wrapper {
-        display: flex;
-    }
-
     &__content {
-        margin: 0 100px;
+        margin: 0 50px;
         display: flex;
         flex-direction: column;
         flex: 1;

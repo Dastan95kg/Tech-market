@@ -1,12 +1,18 @@
 @import "../../utils/variables.scss";
 
-.main-page {
+.main-container {
     background: #e5e5e5;
     font-family: $Montserrat;
+    padding: 55px 0;
+    position: relative;
+    min-height: 630px;
+}
+
+.content__container {
+    margin: 0 100px;
 }
 
 .slider-section {
-    padding: 55px 0;
     display: flex;
 
     & .slider {
@@ -19,7 +25,9 @@
 .categories {
     display: flex;
     flex-direction: column;
-    position: relative;
+    position: absolute;
+    top: 55px;
+    left: 0;
 
     &__burger {
         background: #000000;

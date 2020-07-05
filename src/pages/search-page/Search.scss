@@ -1,16 +1,10 @@
 @import "../../utils/variables.scss";
 
 .search {
-    background: #e5e5e5;
-    padding: 55px 0;
     font-family: $Montserrat;
 
-    &__wrapper {
-        display: flex;
-    }
-
     &__content {
-        margin: 0 100px;
+        margin: 0 50px;
         flex: 1;
         color: #000;
 
@@ -114,7 +108,7 @@
             display: flex;
             flex-wrap: wrap;
             flex: 1;
-            padding: 43px 49px;
+            padding: 43px 20px;
 
             .popular__goods-wrapper {
                 width: 33.333%;

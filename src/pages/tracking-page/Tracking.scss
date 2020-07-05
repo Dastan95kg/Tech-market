@@ -1,14 +1,8 @@
 @import "../../utils/variables.scss";
 
 .tracking {
-    background: #e5e5e5;
-    padding: 55px 0;
     font-family: $Montserrat;
     color: #000;
-
-    &__wrapper {
-        display: flex;
-    }
 
     &__content {
         flex: 1;

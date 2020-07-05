@@ -1,13 +1,7 @@
 @import "../../utils/variables.scss";
 
 .detail {
-    padding: 57px 0;
-    background: #e5e5e5;
-
-    &__wrapper {
-        display: flex;
-        margin-bottom: 32px;
-    }
+    margin: 0 50px;
 
     &__warehouse {
         text-align: right;
@@ -20,9 +14,8 @@
     }
 
     &__main {
-        margin: 0 auto;
+        margin: 0 auto 32px;
         width: 100%;
-        margin: 0 100px;
         position: relative;
 
         &-content {
@@ -139,8 +132,6 @@
     }
 
     &__info {
-        padding: 0 100px 0 175px;
-
         &-buttons {
             display: flex;
             align-items: center;
@@ -325,7 +316,6 @@
     }
 
     &__similar {
-        padding: 0 100px 0 175px;
         margin: 30px 0;
 
         &-title {

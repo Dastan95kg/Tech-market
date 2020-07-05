@@ -12,23 +12,30 @@ import Tracking from '../tracking-page/Tracking';
 import AboutUs from '../aboutUs-page/AboutUs';
 import Delivery from '../delivery-page/Delivery';
 import Contacts from '../contacts-page/Contacts';
+import Categories from './Categories';
+import './Main.scss';
 
 const MainPage = () => {
     return (
         <>
             <Header />
-            <Switch>
-                <Route path="/" exact component={Main} />
-                <Route path="/detail" component={Detail} />
-                <Route path="/list" component={List} />
-                <Route path="/basket" component={Basket} />
-                <Route path="/order" component={Order} />
-                <Route path="/search" component={Search} />
-                <Route path="/tracking" component={Tracking} />
-                <Route path="/about" component={AboutUs} />
-                <Route path="/delivery" component={Delivery} />
-                <Route path="/contacts" component={Contacts} />
-            </Switch>
+            <div className="main-container">
+                <Categories />
+                <div className="content__container">
+                    <Switch>
+                        <Route path="/" exact component={Main} />
+                        <Route path="/detail" component={Detail} />
+                        <Route path="/list" component={List} />
+                        <Route path="/basket" component={Basket} />
+                        <Route path="/order" component={Order} />
+                        <Route path="/search" component={Search} />
+                        <Route path="/tracking" component={Tracking} />
+                        <Route path="/about" component={AboutUs} />
+                        <Route path="/delivery" component={Delivery} />
+                        <Route path="/contacts" component={Contacts} />
+                    </Switch>
+                </div>
+            </div>
             <Footer />
         </>
     );

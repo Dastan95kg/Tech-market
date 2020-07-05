@@ -1,6 +1,5 @@
 import React from 'react';
 import { Rating } from 'semantic-ui-react';
-import Categories from '../home-page/Categories';
 import DetailSlider from '../slider/DetailSlider';
 import GoodCart from '../home-page/GoodCart';
 import './Detail.scss';
@@ -11,31 +10,28 @@ import ProductQuantity from './ProductQuantity';
 const Detail = () => {
     return (
         <section className="detail">
-            <div className="detail__wrapper">
-                <Categories />
-                <div className="detail__main">
-                    <DetailSlider />
-                    <div className="detail__main-content">
-                        <div className="secondary-info">
-                            <div className="code">Код товара: 12345678</div>
-                            <div className="is-present">В наличии</div>
-                        </div>
-                        <div className="title">Телевизор Philips ABC123QZ9</div>
-                        <div className="detail__main-rating">
-                            <Rating maxRating={5} clearable size="massive" disabled />
-                            <div className="votes">28 голосов</div>
-                        </div>
-                        <div className="detail__main-price">
-                            Цена
-                            <span className="price">12999</span>
-                            сом
-                        </div>
-                        <div className="detail__main-quantity">
-                            Количество:
-                            <ProductQuantity />
-                        </div>
-                        <button type="button" className="add-to-cart">Добавить в корзину</button>
+            <div className="detail__main">
+                <DetailSlider />
+                <div className="detail__main-content">
+                    <div className="secondary-info">
+                        <div className="code">Код товара: 12345678</div>
+                        <div className="is-present">В наличии</div>
                     </div>
+                    <div className="title">Телевизор Philips ABC123QZ9</div>
+                    <div className="detail__main-rating">
+                        <Rating maxRating={5} clearable size="massive" disabled />
+                        <div className="votes">28 голосов</div>
+                    </div>
+                    <div className="detail__main-price">
+                        Цена
+                        <span className="price">12999</span>
+                        сом
+                    </div>
+                    <div className="detail__main-quantity">
+                        Количество:
+                        <ProductQuantity />
+                    </div>
+                    <button type="button" className="add-to-cart">Добавить в корзину</button>
                 </div>
             </div>
             <div className="detail__info">

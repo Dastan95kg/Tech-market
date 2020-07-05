@@ -1,15 +1,8 @@
 @import "../../utils/variables.scss";
 
 .order {
-    padding: 56px 0;
-    background: #e5e5e5;
-
-    &__wrapper {
-        display: flex;
-    }
-
     &__content {
-        margin: 0 200px;
+        margin: 0 100px;
         background: #ffffff;
         border-radius: 7px;
         flex: 1;
