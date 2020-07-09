@@ -11,7 +11,7 @@ import Search from './pages/search-page/Search';
 import Tracking from './pages/tracking-page/Tracking';
 import AboutUs from './pages/aboutUs-page/AboutUs';
 import DeliveryContainer from './pages/delivery-page/DeliveryContainer';
-import Contacts from './pages/contacts-page/Contacts';
+import ContactsContainer from './pages/contacts-page/ContactsContainer';
 import Footer from './pages/footer/Footer';
 import './App.scss';
 
@@ -32,7 +32,7 @@ const App = () => {
                         <Route path="/tracking" component={Tracking} />
                         <Route path="/about" component={AboutUs} />
                         <Route path="/delivery" component={DeliveryContainer} />
-                        <Route path="/contacts" component={Contacts} />
+                        <Route path="/contacts" component={ContactsContainer} />
                     </Switch>
                 </div>
             </div>
