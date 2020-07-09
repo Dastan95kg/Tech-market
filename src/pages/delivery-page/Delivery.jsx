@@ -1,14 +1,17 @@
 import React from 'react';
 import './Delivery.scss';
 
-const Delivery = () => {
+const Delivery = ({ questions }) => {
     return (
         <section className="delivery">
             <div className="delivery__content">
                 <div className="delivery__content-title">Доставка и оплата</div>
-                <div className="delivery__content-text">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, suscipit aut. Id suscipit distinctio dolore laborum magni animi ipsum placeat fugiat neque doloribus exercitationem, nesciunt qui, accusamus quidem cumque aliquid?
-                </div>
+                {questions && questions.map(obj => (
+                    <div className="delivery__content-text" key={obj.id}>
+                        <div className="delivery__content-text-question">{obj.question}</div>
+                        <div className="delivery__content-text-answer">{obj.answer}</div>
+                    </div>
+                ))}
             </div>
         </section>
     );

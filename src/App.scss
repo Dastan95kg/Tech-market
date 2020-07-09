@@ -1,0 +1,41 @@
+@import "./utils/variables.scss";
+
+.main-container {
+    background: #e5e5e5;
+    font-family: $Montserrat;
+    padding: 55px 0;
+    position: relative;
+    min-height: 630px;
+}
+
+.content__container {
+    margin: 0 100px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+* a {
+    text-decoration: none;
+}
+
+* a:focus {
+    outline: 0;
+}
+
+* p,
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+button:focus {
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+}

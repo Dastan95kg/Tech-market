@@ -2,6 +2,7 @@ import React from 'react';
 import { Select, Input } from 'semantic-ui-react';
 import './Header.scss';
 import cartImg from '../../assets/images/supermarket.png';
+import { Link } from 'react-router-dom';
 
 const options = [
     { key: 'all', text: 'По всем категориям', value: 'all' },
@@ -12,7 +13,7 @@ const options = [
 const Header = () => {
     return (
         <div className="header">
-            <a href="/" className="header__logo">
+            <Link to="/" className="header__logo">
                 <div className="tech">
                     <span className="t">T</span>
                     E
@@ -21,18 +22,18 @@ const Header = () => {
                     <span>H</span>
                 </div>
                 <div className="market">market</div>
-            </a>
+            </Link>
             <nav className="header__nav">
                 <div className="header__nav-links">
                     <div className="title">Онлайн-магазин электроники №1 в Бишкеке!</div>
                     <div className="container">
-                        <a href="/">О нас</a>
-                        <a href="/">Доставка и оплата</a>
-                        <a href="/">Контакты</a>
+                        <Link to="/about">О нас</Link>
+                        <Link to="/delivery">Доставка и оплата</Link>
+                        <Link to="/contacts">Контакты</Link>
                     </div>
                 </div>
                 <div className="header__nav-search">
-                    <a href="/" className="track">Отслеживание товара</a>
+                    <Link to="/tracking" className="track">Отслеживание товара</Link>
                     <form className="search-form">
                         <div className="search-container">
                             <Input type="text" placeholder="Поиск..." action>
