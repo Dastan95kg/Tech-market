@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Header from './pages/header/Header';
-import Categories from './pages/home-page/Categories';
+import CategoriesContainer from './pages/categories/CategoriesContainer';
 import Main from './pages/home-page/Main';
 import Detail from './pages/detail-page/Detail';
 import List from './pages/list-page/List';
@@ -20,7 +20,7 @@ const App = () => {
         <>
             <Header />
             <div className="main-container">
-                <Categories />
+                <CategoriesContainer />
                 <div className="content__container">
                     <Switch>
                         <Route path="/" exact component={Main} />

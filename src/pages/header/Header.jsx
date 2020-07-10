@@ -1,8 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Select, Input } from 'semantic-ui-react';
 import './Header.scss';
 import cartImg from '../../assets/images/supermarket.png';
-import { Link } from 'react-router-dom';
 
 const options = [
     { key: 'all', text: 'По всем категориям', value: 'all' },

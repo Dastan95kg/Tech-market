@@ -1,7 +1,6 @@
 import React from 'react';
 import { Dropdown, Checkbox, Pagination } from 'semantic-ui-react';
 import GoodCart from '../home-page/GoodCart';
-import Categories from '../home-page/Categories';
 import PriceFilter from '../list-page/PriceFilter';
 import SearchForm from './SearchForm';
 import './Search.scss';

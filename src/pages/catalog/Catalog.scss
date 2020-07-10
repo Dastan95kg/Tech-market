@@ -14,18 +14,15 @@
         align-items: center;
         background: #000000;
         padding: 15px 10px 14px;
+        font-family: $Montserrat;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 21px;
+        line-height: 26px;
+        color: #ffffff;
 
         &-burger {
             width: 34px;
-        }
-
-        &-title {
-            font-family: $Montserrat;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 21px;
-            line-height: 26px;
-            color: #ffffff;
         }
     }
 
