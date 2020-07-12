@@ -43,6 +43,7 @@
                 font-size: 12px;
                 line-height: 12px;
                 color: #3e3e3e;
+                margin-top: 5px;
             }
 
             .ui.search.selection.dropdown {
@@ -52,12 +53,13 @@
 
         &-wrapper {
             display: flex;
+            align-items: flex-start;
         }
 
         &-categories {
             background: #ffffff;
-            padding: 6px 21px 48px;
-            width: 200px;
+            padding: 10px 20px;
+            margin-top: 43px;
 
             &-title {
                 font-size: 16px;
@@ -86,7 +88,7 @@
                 &-title {
                     font-size: 14px;
                     line-height: 14px;
-                    margin-bottom: 5px;
+                    margin: 15px 0 5px;
                 }
 
                 &-pages {
@@ -99,8 +101,13 @@
                 }
             }
 
-            .ui.search.selection.dropdown {
-                min-width: 150px;
+            .ui.search.dropdown.active > input.search,
+            .ui.search.dropdown.visible > input.search {
+                font-size: 16px;
+            }
+
+            .ui.checkbox input.hidden + label {
+                font-size: 16px;
             }
         }
 

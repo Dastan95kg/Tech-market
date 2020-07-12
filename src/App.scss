@@ -18,12 +18,13 @@
     box-sizing: border-box;
 }
 
-* a {
-    text-decoration: none;
+* a:hover {
+    text-decoration: none !important;
 }
 
 * a:focus {
-    outline: 0;
+    outline: 0 !important;
+    text-decoration: none !important;
 }
 
 * p,
@@ -34,8 +35,36 @@ h3 {
     padding: 0;
 }
 
+button {
+    cursor: pointer;
+}
+
 button:focus {
     outline: 0;
     border: 0;
     cursor: pointer;
+}
+
+.header-menu {
+    display: none;
+
+    svg {
+        width: 31px;
+        height: 31px;
+    }
+
+    button {
+        background: 0;
+        border: 0;
+    }
+}
+
+@media #{$tablet-sm} {
+    .header-menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #000;
+        padding: 10px 15px;
+    }
 }

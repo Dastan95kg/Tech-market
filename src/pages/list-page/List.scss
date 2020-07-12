@@ -38,13 +38,9 @@
             line-height: 32px;
         }
 
-        &-logic {
-            display: flex;
-            align-items: center;
-            margin-bottom: 5px;
-        }
-
         &-sort {
+            margin-bottom: 5px;
+
             &-title {
                 font-size: 16px;
                 line-height: 20px;
@@ -94,8 +90,8 @@
         }
 
         &-pages {
-            font-size: 10px;
-            line-height: 12px;
+            font-size: 14px;
+            line-height: 14px;
             display: flex;
             justify-content: flex-end;
             align-items: center;
@@ -103,8 +99,8 @@
             margin-bottom: 10px;
 
             input {
-                width: 20px;
-                height: 20px;
+                width: 30px;
+                height: 30px;
                 margin: 0 5px;
             }
         }
@@ -114,10 +110,10 @@
             justify-content: flex-end;
             align-items: center;
             padding-right: 10px;
-            font-size: 8px;
+            font-size: 14px;
             line-height: 10px;
             color: #3e3e3e;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
 
             span {
                 margin: 0 3px;
@@ -128,6 +124,53 @@
             display: flex;
             flex-wrap: wrap;
             margin-top: 40px;
+            position: relative;
+        }
+
+        &-filters {
+            position: absolute;
+            top: 0;
+            right: -150px;
+            background-color: #fff;
+            width: 170px;
+            font-size: 16px;
+            padding: 10px;
+
+            &-label {
+                display: flex;
+                justify-content: space-between;
+                cursor: pointer;
+                margin-bottom: 10px;
+
+                &-btn {
+                    background: 0;
+                    border: 0;
+                    cursor: pointer;
+                }
+
+                span {
+                    font-weight: bold;
+                    font-size: 17px;
+                }
+            }
+
+            &-checkboxes {
+                display: flex;
+                flex-direction: column;
+
+                label {
+                    font-size: 16px !important;
+                }
+
+                .ui.checkbox .box,
+                .ui.checkbox label {
+                    padding-left: 1.4em;
+                }
+
+                .ui.checkbox {
+                    margin: 10px 0;
+                }
+            }
         }
 
         &-pagination {

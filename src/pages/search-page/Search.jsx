@@ -1,8 +1,8 @@
 import React from 'react';
 import { Dropdown, Checkbox, Pagination } from 'semantic-ui-react';
 import GoodCart from '../home-page/GoodCart';
-import PriceFilter from '../list-page/PriceFilter';
 import SearchForm from './SearchForm';
+import PriceRunner from '../list-page/PriceRunner';
 import './Search.scss';
 
 const Search = () => {
@@ -33,31 +33,9 @@ const Search = () => {
                             <Dropdown search selection options={options} />
                         </div>
                     </div>
-                    <PriceFilter />
                     <div className="search__content-navbar-results">Показано 12344 результатов</div>
                 </nav>
                 <div className="search__content-wrapper">
-                    <nav className="search__content-categories">
-                        <div className="search__content-categories-title">Категории</div>
-                        <Dropdown search selection options={categories} />
-                        <div className="search__content-categories-subtitle">Подкатегории</div>
-                        <div className="search__content-categories-checkboxes">
-                            <Checkbox label="подкатегория" />
-                            <Checkbox label="подкатегория" />
-                            <Checkbox label="подкатегория" />
-                            <Checkbox label="подкатегория" />
-                            <Checkbox label="подкатегория" />
-                            <Checkbox label="подкатегория" />
-                        </div>
-                        <div className="search__content-categories-results">
-                            <div className="search__content-categories-results-title">Выводить результаты:</div>
-                            <div className="search__content-categories-results-pages">
-                                По
-                                <input type="number" value="9" />
-                                на страницу
-                            </div>
-                        </div>
-                    </nav>
                     <div className="search__content-products-wrapper">
                         <div className="search__content-products">
                             <GoodCart />
@@ -81,6 +59,28 @@ const Search = () => {
                             />
                         </div>
                     </div>
+                    <nav className="search__content-categories">
+                        <div className="search__content-categories-title">Категории</div>
+                        <Dropdown search selection options={categories} />
+                        <div className="search__content-categories-subtitle">Подкатегории</div>
+                        <div className="search__content-categories-checkboxes">
+                            <Checkbox label="подкатегория" />
+                            <Checkbox label="подкатегория" />
+                            <Checkbox label="подкатегория" />
+                            <Checkbox label="подкатегория" />
+                            <Checkbox label="подкатегория" />
+                            <Checkbox label="подкатегория" />
+                        </div>
+                        <PriceRunner />
+                        <div className="search__content-categories-results">
+                            <div className="search__content-categories-results-title">Выводить результаты:</div>
+                            <div className="search__content-categories-results-pages">
+                                По
+                                <input type="number" value="9" />
+                                на страницу
+                            </div>
+                        </div>
+                    </nav>
                 </div>
             </div>
         </section>

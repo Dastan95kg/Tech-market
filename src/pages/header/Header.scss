@@ -23,6 +23,10 @@
             color: #fff;
         }
 
+        &:focus {
+            color: #fff;
+        }
+
         & .market {
             font-family: $Montserrat-Alternates;
             font-size: 18px;
@@ -59,8 +63,8 @@
             font-family: $Montserrat;
 
             & .title {
-                font-size: 13px;
-                line-height: 16px;
+                font-size: 14px;
+                line-height: 14px;
                 color: rgba(0, 0, 0, 0.81);
             }
 
@@ -108,6 +112,7 @@
                 display: flex;
                 align-items: center;
                 height: 35px;
+                cursor: pointer;
 
                 &__data {
                     color: #fff;
@@ -116,19 +121,19 @@
                     .goods-num {
                         background: #1d97f0;
                         border-radius: 13px;
-                        width: 28px;
-                        height: 15px;
+                        font-size: 16px;
+                        line-height: 16px;
+                        width: 25px;
+                        height: 25px;
                         display: flex;
-                        align-items: center;
                         justify-content: center;
-                        font-size: 10px;
-                        line-height: 12px;
-                        margin: 0 0 3px 0;
+                        align-items: center;
                     }
 
                     .goods-label {
-                        font-size: 11px;
-                        line-height: 13px;
+                        font-size: 16px;
+                        line-height: 16px;
+                        margin-top: 5px;
                     }
                 }
             }
@@ -149,4 +154,215 @@
     font-family: $Montserrat;
     font-size: 12px;
     line-height: 15px;
+}
+
+// Media Queries
+@media #{$desktop-lg} {
+    .ui.action.input:not([class*="left action"]) > input {
+        width: 300px;
+    }
+}
+
+@media #{$desktop-md} {
+    .ui.action.input:not([class*="left action"]) > input {
+        width: 200px;
+    }
+
+    .tech {
+        font-size: 25px;
+    }
+
+    .header {
+        &__logo {
+            width: 135px;
+
+            .market {
+                font-size: 16px;
+            }
+        }
+
+        &__nav {
+            &-links {
+                height: 40px;
+            }
+
+            &-search {
+                height: 80px;
+                flex-wrap: wrap;
+
+                .ui.selection.dropdown {
+                    padding: 10px 25px 10px 5px;
+                }
+
+                .ui.selection.dropdown > .delete.icon,
+                .ui.selection.dropdown > .dropdown.icon,
+                .ui.selection.dropdown > .search.icon {
+                    padding: 11px 5px;
+                }
+            }
+        }
+    }
+}
+
+@media #{$desktop-sm} {
+    .header {
+        height: 150px;
+
+        &__nav {
+            &-links {
+                .container a {
+                    margin: 0 15px;
+                }
+            }
+
+            &-search {
+                height: 110px;
+            }
+        }
+    }
+}
+
+@media #{$tablet-lg} {
+    .header {
+        &__nav {
+            &-links {
+                padding: 0 0 0 15px;
+
+                .container {
+                    display: none;
+                }
+
+                .container a {
+                    margin: 0 10px;
+                }
+            }
+
+            &-search {
+                .cart__data {
+                    display: flex;
+                    align-items: center;
+
+                    .goods-label {
+                        margin-top: 0;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media #{$tablet-md} {
+    .header {
+        height: 130px;
+
+        &__nav {
+            &-search {
+                flex-direction: column;
+
+                .track {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media #{$tablet-sm} {
+    .ui.action.input:not([class*="left action"]) > input {
+        padding: 0.378571em 0.5em;
+        width: 280px;
+    }
+
+    .ui.action.input:not([class*="left action"]) > .button:last-child,
+    .ui.action.input:not([class*="left action"]) > .buttons:last-child > .button,
+    .ui.action.input:not([class*="left action"]) > .dropdown:last-child {
+        display: none;
+    }
+
+    .ui.action.input:not([class*="left action"]) > input {
+        border-top-right-radius: 0.28571429rem !important;
+        border-bottom-right-radius: 0.28571429rem !important;
+        border-right-color: rgba(34, 36, 38, 0.7) !important;
+        border: 1px solid rgba(34, 36, 38, 0.7);
+    }
+
+    .header {
+        height: 70px;
+
+        &__nav {
+            &-links {
+                background-color: #fff;
+                height: 30px;
+                padding: 0 15px;
+
+                .title {
+                    font-size: 13px;
+                }
+            }
+
+            &-search {
+                background-color: #fff;
+                height: 30px;
+                align-items: flex-start;
+                padding: 0 15px;
+
+                .search-form .searchSvg svg {
+                    path {
+                        fill: #000;
+                    }
+                }
+
+                .cart {
+                    display: none;
+                }
+            }
+        }
+
+        &__logo {
+            width: 80px;
+            font-size: 18px;
+            line-height: 18px;
+
+            .tech {
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+@media #{$mobile-lg} {
+    .ui.action.input:not([class*="left action"]) > input {
+        width: 250px;
+    }
+
+    .header {
+        height: 75px;
+
+        &__nav {
+            &-links {
+                padding: 0 10px;
+                margin-bottom: 5px;
+            }
+
+            &-search {
+                padding: 0 10px;
+            }
+        }
+
+        &__logo {
+            width: 70px;
+            padding: 5px;
+
+            .market {
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+@media #{$mobile-md} {
+    .ui.action.input:not([class*="left action"]) > input {
+        width: 190px;
+    }
 }

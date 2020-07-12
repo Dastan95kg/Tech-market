@@ -84,6 +84,11 @@ const OrderForm = () => {
                     К оплате:
                     <span>100500 сом</span>
                 </div>
+                <div className="order-form__change">
+                    Сдача с:
+                    <input type="number" />
+                    сом
+                </div>
             </div>
             <div className="order-form__buttons">
                 <button type="button">Вернуться</button>

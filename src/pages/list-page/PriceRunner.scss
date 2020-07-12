@@ -1,0 +1,17 @@
+.rs-row {
+    display: flex;
+    flex-direction: column;
+}
+
+.rs-col-md-10 {
+    width: 100% !important;
+    margin-bottom: 15px;
+}
+
+.rs-input-group:not(.rs-input-group-inside) {
+    width: 100% !important;
+}
+
+.rs-col-md-8 {
+    width: 100% !important;
+}

@@ -13,17 +13,15 @@ const Detail = () => {
             <div className="detail__main">
                 <DetailSlider />
                 <div className="detail__main-content">
-                    <div className="secondary-info">
-                        <div className="code">Код товара: 12345678</div>
-                        <div className="is-present">В наличии</div>
-                    </div>
+                    <div className="is-present">В наличии</div>
                     <div className="title">Телевизор Philips ABC123QZ9</div>
+                    <div className="code">Код товара: 12345678</div>
                     <div className="detail__main-rating">
                         <Rating maxRating={5} clearable size="massive" disabled />
                         <div className="votes">28 голосов</div>
                     </div>
                     <div className="detail__main-price">
-                        Цена
+                        Цена:
                         <span className="price">12999</span>
                         сом
                     </div>

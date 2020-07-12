@@ -1,9 +1,10 @@
 import React from 'react';
-import { Select, Pagination } from 'semantic-ui-react';
-import arrow from '../../assets/images/list-arrow.png';
-import './List.scss';
+import { Select, Pagination, Checkbox } from 'semantic-ui-react';
 import GoodCart from '../home-page/GoodCart';
-import PriceFilter from './PriceFilter';
+import arrow from '../../assets/images/list-arrow.png';
+import downArrow from '../../assets/images/dowт-arrow.png';
+import './List.scss';
+import PriceRunner from './PriceRunner';
 
 const List = () => {
     const options = [
@@ -23,12 +24,9 @@ const List = () => {
                         <img src={arrow} alt="arrow" className="list__content-arrow" />
                         <div className="list__content-subcategory">Смартфоны</div>
                     </div>
-                    <div className="list__content-logic">
-                        <div className="list__content-sort">
-                            <span className="list__content-sort-title">Сортировка</span>
-                            <Select placeholder="По умолчанию" options={options} />
-                        </div>
-                        <PriceFilter />
+                    <div className="list__content-sort">
+                        <span className="list__content-sort-title">Сортировка</span>
+                        <Select placeholder="По умолчанию" options={options} />
                     </div>
                     <div className="list__content-pages">
                         Выводить результаты по
@@ -54,6 +52,31 @@ const List = () => {
                     <GoodCart />
                     <GoodCart />
                     <GoodCart />
+                    <div className="list__content-filters">
+                        <div className="list__content-filter">
+                            <div className="list__content-filters-label">
+                                <span>Бренд</span>
+                                <button type="button" className="list__content-filters-label-btn">
+                                    <img src={downArrow} alt="down arrow" />
+                                </button>
+                            </div>
+                            <div className="list__content-filters-checkboxes">
+                                <Checkbox label="Samsung" />
+                                <Checkbox label="Panasonic" />
+                                <Checkbox label="LG" />
+                                <Checkbox label="Huawei" />
+                            </div>
+                        </div>
+                        <div className="list__content-filter">
+                            <div className="list__content-filters-label">
+                                <span>Цена</span>
+                                <button type="button" className="list__content-filters-label-btn">
+                                    <img src={downArrow} alt="down arrow" />
+                                </button>
+                            </div>
+                            <PriceRunner />
+                        </div>
+                    </div>
                 </div>
                 <div className="list__content-pagination">
                     <Pagination
