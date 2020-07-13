@@ -1,3 +1,5 @@
+@import "../../utils/variables.scss";
+
 .categories {
     display: flex;
     flex-direction: column;
@@ -38,5 +40,12 @@
             height: 1px;
             background-color: #000;
         }
+    }
+}
+
+// MEDIA Queries
+@media #{$tablet-sm} {
+    .categories {
+        display: none;
     }
 }

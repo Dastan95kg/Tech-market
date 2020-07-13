@@ -6,10 +6,7 @@ import './Main.scss';
 const Main = () => {
     return (
         <>
-            <section className="slider-section">
-                <Slider />
-            </section>
-
+            <Slider />
             <section className="popular">
                 <h2>Акционные товары</h2>
                 <div className="popular__goods">
