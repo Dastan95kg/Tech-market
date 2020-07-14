@@ -1,3 +1,5 @@
+@import "../../utils/variables.scss";
+
 .carousel-root {
     display: flex;
     align-items: flex-end;
@@ -50,4 +52,36 @@
 
 .selected.icon:focus {
     outline: 0;
+}
+
+// MEDIA Queries
+@media #{$desktop-xl} {
+    .carousel-root {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media #{$desktop-lg} {
+    .carousel:nth-child(2) {
+        display: none !important;
+    }
+}
+
+@media #{$desktop-sm} {
+    .carousel.carousel-slider {
+        width: 70% !important;
+        padding: 10px;
+        border-radius: 7px 7px 0px 0px;
+    }
+
+    .carousel-root {
+        align-items: center;
+    }
+}
+
+@media #{$tablet-md} {
+    .carousel.carousel-slider {
+        width: 100% !important;
+    }
 }

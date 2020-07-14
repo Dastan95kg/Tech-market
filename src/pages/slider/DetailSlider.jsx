@@ -11,9 +11,9 @@ class DetailSlider extends Component {
             <Carousel
                 showStatus={false}
                 showIndicators={false}
-                useKeyboardArrows="true"
-                autoPlay="true"
-                emulateTouch="true"
+                useKeyboardArrows
+                autoPlay
+                emulateTouch
             >
                 <div>
                     <img src={tv} />

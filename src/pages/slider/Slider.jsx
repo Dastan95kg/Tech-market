@@ -10,8 +10,16 @@ const Slider = () => {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        // autoplay: true,
-        fade: true
+        autoplay: true,
+        fade: true,
+        responsive: [
+            {
+                breakpoint: 425,
+                settings: {
+                    arrows: false
+                }
+            }
+        ]
     };
 
     return (
