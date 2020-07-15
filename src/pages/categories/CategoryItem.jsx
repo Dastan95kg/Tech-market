@@ -4,7 +4,7 @@ import './Categories.scss';
 const CategoryItem = ({ name, photo }) => {
     return (
         <div className="categories__item">
-            <img src={`${photo}`} alt={name} />
+            <img src={`https://electronics-admin.herokuapp.com/${photo}`} alt={name} />
         </div>
     );
 };

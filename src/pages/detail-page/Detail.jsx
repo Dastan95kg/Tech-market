@@ -1,13 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Rating } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import DetailSlider from '../slider/DetailSlider';
 import GoodCart from '../home-page/GoodCart';
 import './Detail.scss';
-// import Characteristics from './Characteristics';
+import Characteristics from './Characteristics';
 import Feedbacks from './Feedbacks';
+import FeedbackForm from './FeedbackForm';
 import ProductQuantity from './ProductQuantity';
 
 const Detail = () => {
+    const [characteristics, showCharacteristics] = useState(true);
+    const [feedbacks, showFeedbacks] = useState(false);
+    const [feedbackForm, showFeedbackForm] = useState(false);
+
+    const setCharacteristics = () => {
+        showCharacteristics(true);
+        showFeedbacks(false);
+        showFeedbackForm(false);
+    };
+
+    const setFeedbacks = () => {
+        showCharacteristics(false);
+        showFeedbacks(true);
+        showFeedbackForm(false);
+    };
+
+    const setForm = () => {
+        showCharacteristics(false);
+        showFeedbacks(false);
+        showFeedbackForm(true);
+    };
+
     return (
         <section className="detail">
             <div className="detail__main">
@@ -34,15 +58,17 @@ const Detail = () => {
             </div>
             <div className="detail__info">
                 <div className="detail__info-buttons">
-                    <a href="/detail" className="detail__info-btn">Характеристики</a>
-                    <a href="/detail" className="detail__info-btn">
-                        Отзывы (
-                        <span>12</span>
-                        )
-                    </a>
+                    <Link onClick={setCharacteristics} href="/detail" className={characteristics ? 'detail__info-btn active' : 'detail__info-btn'}>Характеристики</Link>
+                    <Link onClick={setFeedbacks} href="/detail" className={feedbacks ? 'detail__info-btn active' : 'detail__info-btn'}>
+                        Отзывы
+                        <span>(12)</span>
+                    </Link>
+                    <Link onClick={setForm} href="/detail" className={feedbackForm ? 'detail__info-btn active' : 'detail__info-btn'}>Оставить отзыв</Link>
                 </div>
                 <div className="detail__info-content">
-                    <Feedbacks />
+                    {characteristics && <Characteristics />}
+                    {feedbacks && <Feedbacks />}
+                    {feedbackForm && <FeedbackForm />}
                 </div>
             </div>
             <div className="detail__similar">
