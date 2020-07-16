@@ -9,7 +9,8 @@ import Feedbacks from './Feedbacks';
 import FeedbackForm from './FeedbackForm';
 import ProductQuantity from './ProductQuantity';
 
-const Detail = () => {
+const Detail = (props) => {
+    console.log(props);
     const [characteristics, showCharacteristics] = useState(true);
     const [feedbacks, showFeedbacks] = useState(false);
     const [feedbackForm, showFeedbackForm] = useState(false);

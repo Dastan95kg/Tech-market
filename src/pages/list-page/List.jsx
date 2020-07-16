@@ -1,10 +1,11 @@
 import React from 'react';
 import { Select, Pagination, Checkbox } from 'semantic-ui-react';
 import GoodCart from '../home-page/GoodCart';
+import PriceRunner from './PriceRunner';
 import arrow from '../../assets/images/list-arrow.png';
 import downArrow from '../../assets/images/dowт-arrow.png';
+import filterBtn from '../../assets/images/filter.png';
 import './List.scss';
-import PriceRunner from './PriceRunner';
 
 const List = () => {
     const options = [
@@ -28,6 +29,12 @@ const List = () => {
                         <span className="list__content-sort-title">Сортировка</span>
                         <Select placeholder="По умолчанию" options={options} />
                     </div>
+                    <div className="list__content-adaptiveFilter">
+                        <button type="button">
+                            Фильтрация
+                            <img src={filterBtn} alt="filter" />
+                        </button>
+                    </div>
                     <div className="list__content-pages">
                         Выводить результаты по
                         <input type="number" value="12" />
@@ -39,19 +46,21 @@ const List = () => {
                         результатов
                     </div>
                 </div>
-                <div className="list__content-products">
-                    <GoodCart />
-                    <GoodCart />
-                    <GoodCart />
-                    <GoodCart />
-                    <GoodCart />
-                    <GoodCart />
-                    <GoodCart />
-                    <GoodCart />
-                    <GoodCart />
-                    <GoodCart />
-                    <GoodCart />
-                    <GoodCart />
+                <div className="list__content-products-wrapper">
+                    <div className="list__content-products">
+                        <GoodCart />
+                        <GoodCart />
+                        <GoodCart />
+                        <GoodCart />
+                        <GoodCart />
+                        <GoodCart />
+                        <GoodCart />
+                        <GoodCart />
+                        <GoodCart />
+                        <GoodCart />
+                        <GoodCart />
+                        <GoodCart />
+                    </div>
                     <div className="list__content-filters">
                         <div className="list__content-filter">
                             <div className="list__content-filters-label">
