@@ -5,7 +5,7 @@ import CategoriesContainer from './pages/categories/CategoriesContainer';
 import Main from './pages/home-page/Main';
 import Detail from './pages/detail-page/Detail';
 import List from './pages/list-page/List';
-import Basket from './pages/basket-page/Basket';
+import Cart from './pages/basket-page/Cart';
 import Order from './pages/order-page/Order';
 import Search from './pages/search-page/Search';
 import Tracking from './pages/tracking-page/Tracking';
@@ -39,7 +39,7 @@ const App = () => {
                         <Route path="/" exact component={Main} />
                         <Route path="/detail/:id" component={Detail} />
                         <Route path="/list" component={List} />
-                        <Route path="/basket" component={Basket} />
+                        <Route path="/basket" component={Cart} />
                         <Route path="/order" component={Order} />
                         <Route path="/search" component={Search} />
                         <Route path="/tracking" component={Tracking} />

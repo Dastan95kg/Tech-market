@@ -22,6 +22,7 @@
         align-items: center;
         justify-content: center;
         font-family: $Montserrat;
+        padding: 0 15px;
 
         .return {
             font-size: 14px;
@@ -44,6 +45,45 @@
             cursor: pointer;
             text-align: center;
             margin-left: 13px;
+        }
+    }
+}
+
+// ------------------MEDIA Queries-------------------------------------------//
+@media #{$desktop-md} {
+    .basket {
+        &__content {
+            margin: 0;
+        }
+    }
+}
+
+@media #{$tablet-md} {
+    .basket {
+        &__content {
+            &-buttons {
+                flex-direction: column-reverse;
+
+                .proceed {
+                    margin-left: 0;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media #{$mobile-lg} {
+    .basket {
+        &__content {
+            padding: 15px 0;
+
+            &-buttons {
+                .proceed {
+                    width: 250px;
+                    height: 50px;
+                }
+            }
         }
     }
 }

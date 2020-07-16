@@ -117,13 +117,6 @@
             line-height: 16px;
             color: #000000;
             margin-bottom: 10px;
-
-            .container-btn {
-                font-size: 25px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
         }
     }
 
@@ -349,19 +342,6 @@
                 }
             }
 
-            &-quantity {
-                .container-quantity {
-                    margin: 0 10px;
-                    font-size: 16px;
-                    line-height: 16px;
-                }
-
-                .container-btn {
-                    width: 25px;
-                    height: 25px;
-                }
-            }
-
             &-rating {
                 flex-direction: column;
                 margin: 15px 0;
@@ -421,11 +401,6 @@
 
             &-quantity {
                 flex-direction: column;
-
-                .container {
-                    margin-left: 0;
-                    margin-top: 5px;
-                }
             }
         }
 

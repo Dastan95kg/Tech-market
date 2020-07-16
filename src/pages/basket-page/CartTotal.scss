@@ -1,3 +1,5 @@
+@import "../../utils/variables.scss";
+
 .basket__content-total {
     display: flex;
     align-items: center;
@@ -21,6 +23,26 @@
         span {
             color: #1d97f0;
             margin: 0 5px;
+        }
+    }
+}
+
+// ------------------MEDIA Queries-------------------------------------------//
+@media #{$tablet-md} {
+    .basket__content-total {
+        flex-direction: column;
+        align-items: baseline;
+    }
+}
+
+@media #{$mobile-lg} {
+    .basket__content-total {
+        margin-bottom: 30px;
+
+        &-price {
+            font-size: 16px;
+            line-height: 16px;
+            margin-top: 5px;
         }
     }
 }

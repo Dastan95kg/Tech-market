@@ -1,9 +1,8 @@
 import React from 'react';
-import { Select, Pagination, Checkbox } from 'semantic-ui-react';
+import { Select, Pagination } from 'semantic-ui-react';
 import GoodCart from '../home-page/GoodCart';
-import PriceRunner from './PriceRunner';
+import Filter from '../filter/Filter';
 import arrow from '../../assets/images/list-arrow.png';
-import downArrow from '../../assets/images/dowт-arrow.png';
 import filterBtn from '../../assets/images/filter.png';
 import './List.scss';
 
@@ -61,31 +60,7 @@ const List = () => {
                         <GoodCart />
                         <GoodCart />
                     </div>
-                    <div className="list__content-filters">
-                        <div className="list__content-filter">
-                            <div className="list__content-filters-label">
-                                <span>Бренд</span>
-                                <button type="button" className="list__content-filters-label-btn">
-                                    <img src={downArrow} alt="down arrow" />
-                                </button>
-                            </div>
-                            <div className="list__content-filters-checkboxes">
-                                <Checkbox label="Samsung" />
-                                <Checkbox label="Panasonic" />
-                                <Checkbox label="LG" />
-                                <Checkbox label="Huawei" />
-                            </div>
-                        </div>
-                        <div className="list__content-filter">
-                            <div className="list__content-filters-label">
-                                <span>Цена</span>
-                                <button type="button" className="list__content-filters-label-btn">
-                                    <img src={downArrow} alt="down arrow" />
-                                </button>
-                            </div>
-                            <PriceRunner />
-                        </div>
-                    </div>
+                    <Filter />
                 </div>
                 <div className="list__content-pagination">
                     <Pagination

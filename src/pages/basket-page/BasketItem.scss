@@ -12,13 +12,13 @@
     &-image {
         width: 81px;
         height: 80px;
-        margin-right: 27px;
     }
 
     &-details {
         display: flex;
         flex-direction: column;
         flex: 1;
+        margin: 0 10px 0 25px;
     }
 
     &-detail {
@@ -27,6 +27,7 @@
 
         .times {
             margin: 0 10px;
+            font-size: 16px;
         }
 
         .price {
@@ -53,6 +54,49 @@
             font-size: 21px;
             font-weight: bold;
             margin-right: 5px;
+        }
+    }
+}
+
+// ------------------MEDIA Queries-------------------------------------------//
+@media #{$tablet-md} {
+    .basket {
+        &__content {
+            &-item {
+                flex-direction: column;
+                padding: 10px;
+
+                &-detail {
+                    justify-content: center;
+
+                    .price {
+                        font-size: 18px;
+                        line-height: 22px;
+                    }
+                }
+
+                &-final {
+                    margin-right: 10px;
+
+                    span {
+                        font-size: 18px;
+                    }
+                }
+
+                &-price {
+                    flex-direction: row-reverse;
+                    align-items: center;
+                    margin-top: 10px;
+
+                    button {
+                        margin-bottom: 0;
+                    }
+                }
+
+                &-title {
+                    text-align: center;
+                }
+            }
         }
     }
 }
