@@ -10,12 +10,14 @@ import homeReducer from './pages/home-page/reducer';
 import deliveryReducer from './pages/delivery-page/reducer';
 import contactsReducer from './pages/contacts-page/reducer';
 import categoriesReducer from './pages/categories/reducer';
+import sliderReducer from './pages/slider/reducer';
 
 const reducers = combineReducers({
     home: homeReducer,
     delivery: deliveryReducer,
     contacts: contactsReducer,
-    categories: categoriesReducer
+    categories: categoriesReducer,
+    slider: sliderReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
