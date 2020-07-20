@@ -8,6 +8,35 @@
     font-weight: 300;
     color: #000000;
 
+    &__container {
+        display: flex;
+        width: 100%;
+
+        &-content {
+            width: 50%;
+        }
+
+        &-shopAddress {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+
+            span {
+                margin-right: 10px;
+            }
+        }
+
+        &-radio {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+
+            input[type="radio"] {
+                margin-right: 5px;
+            }
+        }
+    }
+
     &__userData {
         display: flex;
         flex-direction: column;
@@ -31,21 +60,6 @@
         line-height: 12px;
         color: #3e3e3e;
         margin-bottom: 15px;
-    }
-
-    &__delivery-radio {
-        display: flex;
-        margin-bottom: 18px;
-
-        label {
-            display: flex;
-            align-items: center;
-            flex-basis: 50%;
-
-            input {
-                margin-right: 5px;
-            }
-        }
     }
 
     &__delivery-address {
@@ -129,5 +143,66 @@
     button {
         font-family: $Montserrat;
         cursor: pointer;
+    }
+}
+
+// ------------------MEDIA Queries-------------------------------------------//
+@media #{$desktop-md} {
+    .order-form {
+        &__container {
+            flex-direction: column;
+
+            &-content {
+                width: 90%;
+            }
+        }
+
+        &__delivery {
+            &-comment {
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+@media #{$desktop-sm} {
+    .order-form {
+        padding: 0 15px;
+    }
+}
+
+@media #{$mobile-lg} {
+    .order-form {
+        &__container {
+            &-content {
+                width: 100%;
+            }
+
+            &-shopAddress {
+                flex-direction: column;
+                align-items: flex-start;
+
+                span {
+                    margin-right: 0;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+
+        &__buttons {
+            flex-direction: column-reverse;
+
+            button[type="button"] {
+                margin-right: 0;
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+@media #{$mobile-md} {
+    .order-form input:not([type="radio"]),
+    .order-form textarea {
+        width: 250px;
     }
 }

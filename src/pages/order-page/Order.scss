@@ -40,9 +40,49 @@
                 border-radius: 2px;
                 border: 0;
                 color: #fff;
-                font-size: 10px;
+                font-size: 14px;
                 padding: 6px 15px;
                 cursor: pointer;
+            }
+        }
+    }
+}
+
+// ------------------MEDIA Queries-------------------------------------------//
+@media #{$desktop-sm} {
+    .order {
+        &__content {
+            margin: 0 50px;
+
+            &-header {
+                padding: 0 15px;
+            }
+
+            &-promo {
+                padding: 0 15px;
+            }
+        }
+    }
+}
+
+@media #{$tablet-md} {
+    .order {
+        &__content {
+            margin: 0;
+        }
+    }
+}
+
+@media #{$mobile-lg} {
+    .order {
+        &__content {
+            &-promo {
+                flex-direction: column;
+
+                &-data {
+                    margin-right: 0;
+                    margin-bottom: 5px;
+                }
             }
         }
     }

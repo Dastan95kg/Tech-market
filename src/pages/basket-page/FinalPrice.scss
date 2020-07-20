@@ -1,3 +1,5 @@
+@import "../../utils/variables.scss";
+
 .basket__content-item-price {
     display: flex;
     flex-direction: column;
@@ -15,5 +17,11 @@
             width: 30px;
             height: 30px;
         }
+    }
+}
+
+// ------------------MEDIA Queries-------------------------------------------//
+@media #{$tablet-md} {
+    .basket__content-item-price {
     }
 }

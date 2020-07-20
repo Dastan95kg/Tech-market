@@ -1,3 +1,5 @@
+@import "../../utils/variables.scss";
+
 .order__content-item {
     padding: 15px 31px;
     display: flex;
@@ -24,5 +26,24 @@
     &-productPrice {
         font-size: 21px;
         line-height: 26px;
+    }
+}
+
+// ------------------MEDIA Queries-------------------------------------------//
+@media #{$desktop-sm} {
+    .order__content-item {
+        padding: 15px;
+    }
+}
+
+@media #{$tablet-md} {
+    .order__content-item {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .basket__content-item-price {
+            justify-content: space-between;
+            width: 100%;
+        }
     }
 }

@@ -1,8 +1,15 @@
 import React from 'react';
 import { useFormik } from 'formik';
+import { Dropdown } from 'semantic-ui-react';
 import './OrderForm.scss';
 
 const OrderForm = () => {
+    const options = [
+        { key: 1, text: 'ул. Юнусалиева 46', value: 1 },
+        { key: 2, text: 'ул. Абдрахманова 120', value: 2 },
+        { key: 3, text: 'ул. Горького 12', value: 3 },
+    ];
+
     const formik = useFormik({
         initialValues: {
             fullName: '',
@@ -49,7 +56,7 @@ const OrderForm = () => {
                 />
             </div>
             <div className="order-form__title">Доставка</div>
-            <div className="order-form__delivery-radio">
+            {/* <div className="order-form__delivery-radio">
                 <label htmlFor="courier">
                     <input id="courier" type="radio" name="delivery" checked />
                     Курьер
@@ -58,25 +65,58 @@ const OrderForm = () => {
                     <input id="self-pickup" type="radio" name="delivery" />
                     Самовывоз
                 </label>
+            </div> */}
+            <div className="order-form__container">
+                <div className="order-form__container-content">
+                    <label htmlFor="courier" className="order-form__container-radio">
+                        <input id="courier" type="radio" name="delivery" checked />
+                        Курьер
+                    </label>
+                    <div className="order-form__delivery-city">Город: Бишкек</div>
+                    <input
+                        className="order-form__delivery-address"
+                        name="deliveryAddress"
+                        placeholder="Адрес доставки"
+                        type="text"
+                        onChange={formik.handleChange}
+                        value={formik.values.deliveryAddress}
+                    />
+                    <textarea
+                        name="comment"
+                        id="comment"
+                        placeholder="Комментарий к заказу"
+                        type="text"
+                        onChange={formik.handleChange}
+                        value={formik.values.comment}
+                        className="order-form__delivery-comment"
+                    />
+                </div>
+                <div className="order-form__container-content">
+                    <label htmlFor="self-pickup" className="order-form__container-radio">
+                        <input id="self-pickup" type="radio" name="delivery" />
+                        Самовывоз
+                    </label>
+                    <div className="order-form__delivery-city">Город: Бишкек</div>
+                    <div className="order-form__container-shopAddress">
+                        <span>Адрес магазина</span>
+                        <Dropdown
+                            disabled
+                            selection
+                            options={options}
+                        />
+                    </div>
+                    <textarea
+                        disabled
+                        name="comment"
+                        id="comment"
+                        placeholder="Комментарий к заказу"
+                        type="text"
+                        onChange={formik.handleChange}
+                        value={formik.values.comment}
+                        className="order-form__delivery-comment"
+                    />
+                </div>
             </div>
-            <div className="order-form__delivery-city">Город: Бишкек</div>
-            <input
-                className="order-form__delivery-address"
-                name="deliveryAddress"
-                placeholder="Адрес доставки"
-                type="text"
-                onChange={formik.handleChange}
-                value={formik.values.deliveryAddress}
-            />
-            <textarea
-                name="comment"
-                id="comment"
-                placeholder="Комментарий к заказу"
-                type="text"
-                onChange={formik.handleChange}
-                value={formik.values.comment}
-                className="order-form__delivery-comment"
-            />
             <div className="order-form__payment">
                 <div className="order-form__title">Оплата</div>
                 <div className="order-form__subtitle">Оплата наличными при получении!</div>

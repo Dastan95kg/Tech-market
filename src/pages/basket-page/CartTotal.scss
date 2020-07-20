@@ -28,6 +28,12 @@
 }
 
 // ------------------MEDIA Queries-------------------------------------------//
+@media #{$desktop-sm} {
+    .basket__content-total {
+        padding: 15px;
+    }
+}
+
 @media #{$tablet-md} {
     .basket__content-total {
         flex-direction: column;
