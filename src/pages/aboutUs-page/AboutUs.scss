@@ -21,3 +21,21 @@
         }
     }
 }
+
+// ------------------MEDIA Queries-------------------------------------------//
+@media #{$desktop-sm} {
+    .about {
+        &__content {
+            margin: 0 50px;
+        }
+    }
+}
+
+@media #{$tablet-md} {
+    .about {
+        &__content {
+            margin: 0;
+            padding: 20px 15px;
+        }
+    }
+}
