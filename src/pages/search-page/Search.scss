@@ -4,7 +4,6 @@
     font-family: $Montserrat;
 
     &__content {
-        margin: 0 50px;
         flex: 1;
         color: #000;
 
@@ -19,12 +18,6 @@
                 margin-bottom: 10px;
             }
 
-            &-container {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
-
             &-sort {
                 display: flex;
                 align-items: center;
@@ -34,16 +27,16 @@
                 }
             }
 
-            .list__content-filter {
-                margin: 12px 0 0 0;
+            &-filter {
+                display: none;
             }
 
             &-results {
                 text-align: right;
-                font-size: 12px;
-                line-height: 12px;
+                font-size: 14px;
+                line-height: 14px;
                 color: #3e3e3e;
-                margin-top: 5px;
+                margin-top: 10px;
             }
 
             .ui.search.selection.dropdown {
@@ -133,5 +126,57 @@
         align-items: center;
         justify-content: center;
         cursor: pointer;
+    }
+}
+
+// ------------------MEDIA Queries-------------------------------------------//
+@media #{$tablet-lg} {
+    .search {
+        &__content {
+            &-navbar {
+                padding: 20px 15px;
+
+                &-sort {
+                    flex-direction: column;
+                    align-items: baseline;
+                }
+
+                .search__content-navbar-sort .ui {
+                    margin-left: 0;
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+}
+
+@media #{$tablet-md} {
+    .search {
+        &__content {
+            &-navbar {
+                &-filter {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    margin-top: 10px;
+
+                    img {
+                        margin-left: 5px;
+                    }
+                }
+
+                &-results {
+                    text-align: left;
+                }
+            }
+
+            &-categories {
+                display: none;
+            }
+
+            &-products {
+                justify-content: center;
+            }
+        }
     }
 }

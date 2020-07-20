@@ -1,9 +1,9 @@
 import React from 'react';
 import { Dropdown, Checkbox, Pagination } from 'semantic-ui-react';
 import GoodCart from '../home-page/GoodCart';
-import SearchForm from './SearchForm';
 import PriceRunner from '../list-page/PriceRunner';
 import './Search.scss';
+import filterImg from '../../assets/images/filter.png';
 
 const Search = () => {
     const options = [
@@ -26,12 +26,13 @@ const Search = () => {
             <div className="search__content">
                 <nav className="search__content-navbar">
                     <div className="search__content-navbar-title">Поиск</div>
-                    <div className="search__content-navbar-container">
-                        <SearchForm placeholder="Введите название товара" />
-                        <div className="search__content-navbar-sort">
-                            Сортировка
-                            <Dropdown search selection options={options} />
-                        </div>
+                    <div className="search__content-navbar-sort">
+                        Сортировка
+                        <Dropdown search selection options={options} />
+                    </div>
+                    <div className="search__content-navbar-filter">
+                        <div>Фильтрация</div>
+                        <img src={filterImg} alt="filter" />
                     </div>
                     <div className="search__content-navbar-results">Показано 12344 результатов</div>
                 </nav>
