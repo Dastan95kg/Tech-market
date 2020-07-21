@@ -10,7 +10,7 @@ class CategoriesContainer extends Component {
 
     render() {
         return (
-            <Categories categories={this.props.categories} />
+            <Categories {...this.props} />
         );
     }
 }

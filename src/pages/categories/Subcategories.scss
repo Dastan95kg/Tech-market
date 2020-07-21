@@ -1,0 +1,22 @@
+@import "../../utils/variables.scss";
+
+.subcategories {
+    background-color: #fff;
+    position: absolute;
+    top: 55px;
+    left: 226px;
+    z-index: 3;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 15px 15px;
+    transform: translateX(-605px);
+
+    &__item {
+        margin: 0 0 10px 0;
+    }
+
+    &.active {
+        transform: translateX(0);
+    }
+}

@@ -35,6 +35,13 @@
         align-items: center;
         padding: 10px;
         height: 66px;
+        cursor: pointer;
+
+        &:hover {
+            .catalog__item-text {
+                color: #1d97f0;
+            }
+        }
 
         &-content {
             display: flex;

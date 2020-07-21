@@ -1,8 +1,9 @@
 import axios from 'axios';
-import { GET_CATEGORIES_SUCCESS } from './actions';
+import { GET_CATEGORIES_SUCCESS, GET_SUBCATEGORIES_SUCCESS } from './actions';
 
 const initialState = {
-    categories: ''
+    categories: '',
+    subcategories: ''
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,6 +12,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 categories: action.payload
+            };
+        case 'GET_ALL_SUBCATEGORIES':
+            return {
+                ...state,
+                subcategories: action.payload
             };
         default:
             return state;
@@ -23,6 +29,11 @@ export const getCategories = () => async (dispatch) => {
     if (response.status === 200) {
         dispatch(GET_CATEGORIES_SUCCESS(response.data.categories));
     }
+};
+
+export const getSubcategories = () => async (dispatch) => {
+    const response = await axios.get('http://demo9551996.mockable.io/subcategories');
+    dispatch(GET_SUBCATEGORIES_SUCCESS(response.data));
 };
 
 export default reducer;
