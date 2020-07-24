@@ -38,6 +38,10 @@
         cursor: pointer;
 
         &:hover {
+            .catalog__item {
+                border-bottom: 1px solid #000;
+            }
+
             .catalog__item-text {
                 color: #1d97f0;
             }

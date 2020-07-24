@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import cartImage from '../../assets/images/supermarket.png';
-import './Burger.scss';
+import './MobileMenu.scss';
 
-const Burger = (props) => {
+const MobileMenu = (props) => {
     const { categories } = props;
     const [burgerOpen, setBurgerOpen] = useState(false);
 
@@ -39,9 +39,9 @@ const Burger = (props) => {
             >
                 {burgerOpen ? close : burger}
             </button>
-            <button type="button">
+            <Link to="/basket">
                 <img src={cartImage} alt="cart" />
-            </button>
+            </Link>
             <div className={burgerOpen ? 'header-menu__content show' : 'header-menu__content hide'}>
                 <Link
                     className="header-menu__content-link"
@@ -59,6 +59,7 @@ const Burger = (props) => {
                             className="header-menu__content-subcategory"
                             onClick={() => setBurgerOpen(false)}
                             key={item._id}
+                            to={`/products/${item.name}`}
                         >
                             {item.name}
                         </Link>
@@ -104,4 +105,4 @@ const Burger = (props) => {
     );
 };
 
-export default Burger;
+export default MobileMenu;

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Burger from './Burger';
+import MobileMenu from './MobileMenu';
 
 const mapStateToProps = (state) => {
     return {
@@ -7,4 +7,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, {})(Burger);
+export default connect(mapStateToProps, {})(MobileMenu);

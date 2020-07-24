@@ -81,6 +81,9 @@ const Search = () => {
                                 на страницу
                             </div>
                         </div>
+                        <button className="search__content-categories-btn" type="button">
+                            Применить
+                        </button>
                     </nav>
                 </div>
             </div>

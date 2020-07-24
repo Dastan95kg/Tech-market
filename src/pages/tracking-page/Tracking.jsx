@@ -13,13 +13,13 @@ const Tracking = () => {
                     <SearchForm placeholder="Введите номер заказа" />
                 </div>
                 <div className="tracking__results">
-                    {/* <div className="tracking__results-code">
-                            <img src={searchIcon} alt="search icon" />
-                        </div>
-                        <div className="tracking__results-content">
-                            Тут будет отслеживание вашего товара
-                        </div> */}
-                    <TrackingResult />
+                    <div className="tracking__results-code">
+                        <img src={searchIcon} alt="search icon" />
+                    </div>
+                    <div className="tracking__results-content">
+                        Тут будет отслеживание вашего товара
+                    </div>
+                    {/* <TrackingResult /> */}
                 </div>
             </div>
         </section>

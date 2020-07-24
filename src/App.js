@@ -13,14 +13,14 @@ import AboutUs from './pages/aboutUs-page/AboutUs';
 import DeliveryContainer from './pages/delivery-page/DeliveryContainer';
 import ContactsContainer from './pages/contacts-page/ContactsContainer';
 import Footer from './pages/footer/Footer';
-import BurgerContainer from './pages/header/BurgerContainer';
+import MobileMenuContainer from './pages/header/MobileMenuContainer';
 import './App.scss';
 
 const App = () => {
     return (
         <>
             <Header />
-            <BurgerContainer />
+            <MobileMenuContainer />
             <div className="main-container">
                 <CategoriesContainer />
                 <div className="content__container">

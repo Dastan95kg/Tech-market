@@ -47,13 +47,13 @@ const Header = () => {
                             </svg>
                         </a>
                     </form>
-                    <div className="cart">
+                    <Link className="cart" to="/basket">
                         <img src={cartImg} alt="cart" />
                         <div className="cart__data">
                             <p className="goods-num">0</p>
                             <p className="goods-label">Товаров в корзине</p>
                         </div>
-                    </div>
+                    </Link>
                 </div>
             </nav>
         </div>
