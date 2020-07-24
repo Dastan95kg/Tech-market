@@ -2,10 +2,14 @@ import React from 'react';
 import './Subcategories.scss';
 
 const Subcategories = (props) => {
-    const { subcategoriesActive } = props;
+    const { subcategoriesActive, setSubcategoriesActive } = props;
 
     return (
-        <div className={subcategoriesActive ? 'subcategories active' : 'subcategories'}>
+        <div
+            className={subcategoriesActive ? 'subcategories active' : 'subcategories'}
+            onMouseEnter={() => setSubcategoriesActive(true)}
+            onMouseLeave={() => setSubcategoriesActive(false)}
+        >
             <div className="subcategories__item">
                 Смартфоны
             </div>

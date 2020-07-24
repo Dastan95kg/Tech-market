@@ -26,7 +26,7 @@ const Slider = ({ photos }) => {
             <SlickSlider {...settings}>
                 {photos && photos.map(obj => (
                     <div className="slider__image-container" key={obj._id}>
-                        <img src={`https://electronics-admin.herokuapp.com${obj.photo}`} alt="placeholder" />
+                        <img src={`https://electronics-admin.herokuapp.com${obj.photo}`} alt={obj.photo} />
                     </div>
                 ))}
             </SlickSlider>

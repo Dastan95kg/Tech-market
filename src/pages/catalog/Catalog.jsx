@@ -5,7 +5,6 @@ import './Catalog.scss';
 
 const Catalog = ({ isActive, categories }) => {
     const [subcategoriesActive, setSubcategoriesActive] = useState(false);
-    const [currentCategory, setCurrentCategory] = useState('');
 
     return (
         <div className={isActive ? 'catalog active' : 'catalog'}>
@@ -21,7 +20,10 @@ const Catalog = ({ isActive, categories }) => {
                     />
                 ))}
             </div>
-            <Subcategories subcategoriesActive={subcategoriesActive} />
+            <Subcategories
+                subcategoriesActive={subcategoriesActive}
+                setSubcategoriesActive={setSubcategoriesActive}
+            />
         </div>
     );
 };

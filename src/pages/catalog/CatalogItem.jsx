@@ -6,7 +6,6 @@ const CatalogItem = (props) => {
     const { name, setSubcategoriesActive } = props;
     const activateSubcategories = () => {
         setSubcategoriesActive(true);
-
     };
 
     const disactivateSubcategories = () => {

@@ -9,7 +9,7 @@ const GoodCart = () => {
                 <img className="content__image" src={TV} alt="TV" />
                 <p className="content__title">Телевизор &quot;Phillips&quot;</p>
                 <p className="content__subtitle">Классный</p>
-                <Rating maxRating={5} clearable />
+                <Rating maxRating={5} clearable disabled />
                 <p className="content__old-price">12999 c</p>
                 <p className="content__price">10999 c</p>
             </div>
