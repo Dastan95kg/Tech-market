@@ -11,13 +11,17 @@ import deliveryReducer from './pages/delivery-page/reducer';
 import contactsReducer from './pages/contacts-page/reducer';
 import categoriesReducer from './pages/categories/reducer';
 import sliderReducer from './pages/slider/reducer';
+import listReducer from './pages/list-page/reducer';
+import cartReducer from './pages/basket-page/reducer';
 
 const reducers = combineReducers({
     home: homeReducer,
     delivery: deliveryReducer,
     contacts: contactsReducer,
     categories: categoriesReducer,
-    slider: sliderReducer
+    slider: sliderReducer,
+    list: listReducer,
+    cart: cartReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

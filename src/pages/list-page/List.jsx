@@ -6,7 +6,10 @@ import arrow from '../../assets/images/list-arrow.png';
 import filterBtn from '../../assets/images/filter.png';
 import './List.scss';
 
-const List = () => {
+const List = (props) => {
+    const { match, products, addProductToCart } = props;
+    const smartPhonesAndGadgets = products
+        && products.filter(product => product.category === '5f1216162aaccd3a86852b7c');
     const options = [
         { key: 'af', value: 'af', text: 'По умолчанию' },
         { key: 'ax', value: 'ax', text: 'По алфавиту А-Я' },
@@ -20,7 +23,7 @@ const List = () => {
             <div className="list__content">
                 <div className="list__content-filterContainer">
                     <div className="list__content-categories">
-                        <div className="list__content-category">Смартфоны и гаджеты</div>
+                        <div className="list__content-category">{match.params.category}</div>
                         <img src={arrow} alt="arrow" className="list__content-arrow" />
                         <div className="list__content-subcategory">Смартфоны</div>
                     </div>
@@ -47,18 +50,14 @@ const List = () => {
                 </div>
                 <div className="list__content-products-wrapper">
                     <div className="list__content-products">
-                        <GoodCart />
-                        <GoodCart />
-                        <GoodCart />
-                        <GoodCart />
-                        <GoodCart />
-                        <GoodCart />
-                        <GoodCart />
-                        <GoodCart />
-                        <GoodCart />
-                        <GoodCart />
-                        <GoodCart />
-                        <GoodCart />
+                        {match.params.category === 'Смартфоны и гаджеты' && (
+                            smartPhonesAndGadgets && smartPhonesAndGadgets.map(item => (
+                                <GoodCart
+                                    {...item}
+                                    addProductToCart={addProductToCart}
+                                />
+                            ))
+                        )}
                     </div>
                     <Filter />
                 </div>

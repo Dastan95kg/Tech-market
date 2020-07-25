@@ -10,7 +10,8 @@ const options = [
     { key: 'products', text: 'По популярности', value: 'products' }
 ];
 
-const Header = () => {
+const Header = (props) => {
+    const { cart } = props;
     return (
         <div className="header">
             <Link to="/" className="header__logo">
@@ -50,7 +51,7 @@ const Header = () => {
                     <Link className="cart" to="/basket">
                         <img src={cartImg} alt="cart" />
                         <div className="cart__data">
-                            <p className="goods-num">0</p>
+                            <p className="goods-num">{cart.length}</p>
                             <p className="goods-label">Товаров в корзине</p>
                         </div>
                     </Link>
