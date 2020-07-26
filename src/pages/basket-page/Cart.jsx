@@ -5,19 +5,22 @@ import EmptyCart from './EmptyCart';
 import './Cart.scss';
 
 const Cart = (props) => {
-    const { cart } = props;
+    const { products } = props;
+    const storageData = JSON.parse(localStorage.getItem('cart'));
+    const cartProducts = products && products.filter(product => storageData && storageData.includes(product._id));
+
     return (
         <>
             {
-                cart.length ? (
+                storageData && storageData.length ? (
                     <div className="basket__content">
                         <div className="basket__content-header">Корзина</div>
                         <div className="basket__content-container">
-                            <BasketItem />
-                            <BasketItem />
-                            <BasketItem />
+                            {cartProducts && cartProducts.map(product => (
+                                <BasketItem {...product} key={product._id} />
+                            ))}
                         </div>
-                        <CartTotal />
+                        <CartTotal products={cartProducts} />
                         <div className="basket__content-buttons">
                             <button type="button" className="return">Вернуться</button>
                             <button type="button" className="proceed">Перейти к оформлению заказа</button>

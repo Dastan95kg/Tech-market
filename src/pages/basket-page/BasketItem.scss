@@ -12,6 +12,11 @@
     &-image {
         width: 81px;
         height: 80px;
+
+        img {
+            width: 81px;
+            height: 80px;
+        }
     }
 
     &-details {
@@ -33,6 +38,10 @@
         .price {
             font-size: 21px;
             line-height: 26px;
+
+            span {
+                margin-right: 5px;
+            }
         }
 
         .container {

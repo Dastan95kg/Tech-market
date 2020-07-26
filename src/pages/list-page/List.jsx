@@ -10,6 +10,7 @@ const List = (props) => {
     const { match, products, addProductToCart } = props;
     const smartPhonesAndGadgets = products
         && products.filter(product => product.category === '5f1216162aaccd3a86852b7c');
+
     const options = [
         { key: 'af', value: 'af', text: 'По умолчанию' },
         { key: 'ax', value: 'ax', text: 'По алфавиту А-Я' },
@@ -54,6 +55,7 @@ const List = (props) => {
                             smartPhonesAndGadgets && smartPhonesAndGadgets.map(item => (
                                 <GoodCart
                                     {...item}
+                                    key={item._id}
                                     addProductToCart={addProductToCart}
                                 />
                             ))
