@@ -5,3 +5,7 @@ export const ADD_PRODUCT_TO_CART_SUCCESS = (id) => ({
 export const ADD_PRODUCTS_TO_LOCAL_STORAGE_SUCCESS = () => ({
     type: 'ADD_PRODUCTS_TO_LOCAL_STORAGE'
 });
+
+export const REMOVE_PRODUCT_FROM_CART_SUCCESS = (id) => ({
+    type: 'REMOVE_PRODUCT_FROM_CART', payload: id
+});

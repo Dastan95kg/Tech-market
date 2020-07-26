@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ProductQuantity from '../detail-page/ProductQuantity';
 import FinalPrice from './FinalPrice';
 import './BasketItem.scss';
 
 const BasketItem = (props) => {
-    const { name, price, photos } = props;
-    const [totalProductPrice, setTotalProductPrice] = useState(price);
+    const {
+        name, price, photos, removeProduct, _id
+    } = props;
 
     return (
         <div className="basket__content-item">
@@ -23,7 +24,7 @@ const BasketItem = (props) => {
                     </span>
                 </div>
             </div>
-            <FinalPrice totalPrice={totalProductPrice} />
+            <FinalPrice totalPrice={price} removeProduct={removeProduct} productId={_id} />
         </div>
     );
 };

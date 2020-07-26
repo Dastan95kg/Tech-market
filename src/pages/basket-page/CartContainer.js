@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Cart from './Cart';
-import { getProductsFromBasket } from './reducer';
+import { getProductsFromBasket, removeProductFromCart } from './reducer';
+import { getAllProducts } from '../list-page/reducer';
 
 class CartContainer extends Component {
     componentDidMount() {
+        this.props.getAllProducts();
         this.props.getProductsFromBasket();
     }
 
@@ -20,4 +22,8 @@ const mapStateToProps = (state) => ({
     products: state.list.products
 });
 
-export default connect(mapStateToProps, { getProductsFromBasket })(CartContainer);
+export default connect(mapStateToProps, {
+    getProductsFromBasket,
+    removeProductFromCart,
+    getAllProducts
+})(CartContainer);

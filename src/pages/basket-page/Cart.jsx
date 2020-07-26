@@ -5,19 +5,23 @@ import EmptyCart from './EmptyCart';
 import './Cart.scss';
 
 const Cart = (props) => {
-    const { products } = props;
+    const { products, removeProductFromCart } = props;
     const storageData = JSON.parse(localStorage.getItem('cart'));
     const cartProducts = products && products.filter(product => storageData && storageData.includes(product._id));
 
     return (
         <>
             {
-                storageData && storageData.length ? (
+                cartProducts && cartProducts.length ? (
                     <div className="basket__content">
                         <div className="basket__content-header">Корзина</div>
                         <div className="basket__content-container">
                             {cartProducts && cartProducts.map(product => (
-                                <BasketItem {...product} key={product._id} />
+                                <BasketItem
+                                    {...product}
+                                    key={product._id}
+                                    removeProduct={removeProductFromCart}
+                                />
                             ))}
                         </div>
                         <CartTotal products={cartProducts} />
