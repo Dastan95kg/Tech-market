@@ -3,7 +3,12 @@ import remove from '../../assets/images/close.png';
 import './FinalPrice.scss';
 
 const FinalPrice = (props) => {
-    const { totalPrice, removeProduct, productId } = props;
+    const {
+        price,
+        removeProduct,
+        productId,
+        amount
+    } = props;
 
     return (
         <div className="basket__content-item-price">
@@ -11,7 +16,7 @@ const FinalPrice = (props) => {
                 <img src={remove} alt="remove icon" />
             </button>
             <div className="basket__content-item-final">
-                <span>{totalPrice}</span>
+                <span>{price * amount}</span>
                 сом
             </div>
         </div>

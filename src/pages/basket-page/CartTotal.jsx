@@ -3,7 +3,8 @@ import './CartTotal.scss';
 
 const CartTotal = (props) => {
     const { products } = props;
-    const finalPrice = products && products.reduce((acc, product) => acc + product.price, 0);
+    const totalPrice = products
+        && products.reduce((counter, product) => counter + (product.price * product.orders_count), 0);
 
     return (
         <div className="basket__content-total">
@@ -13,7 +14,7 @@ const CartTotal = (props) => {
             </div>
             <div className="basket__content-total-price">
                 Сумма заказа:
-                <span>{finalPrice}</span>
+                <span>{totalPrice}</span>
                 сом
             </div>
         </div>

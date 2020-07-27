@@ -5,7 +5,12 @@ import EmptyCart from './EmptyCart';
 import './Cart.scss';
 
 const Cart = (props) => {
-    const { products, removeProductFromCart } = props;
+    const {
+        products,
+        removeProductFromCart,
+        increaseProductAmount,
+        decreaseProductAmount
+    } = props;
     const storageData = JSON.parse(localStorage.getItem('cart'));
     const cartProducts = products && products.filter(product => storageData && storageData.includes(product._id));
 
@@ -21,6 +26,8 @@ const Cart = (props) => {
                                     {...product}
                                     key={product._id}
                                     removeProduct={removeProductFromCart}
+                                    increaseProductAmount={increaseProductAmount}
+                                    decreaseProductAmount={decreaseProductAmount}
                                 />
                             ))}
                         </div>

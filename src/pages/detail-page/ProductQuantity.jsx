@@ -1,14 +1,19 @@
 import React from 'react';
 import './ProductQuantity.scss';
 
-const ProductQuantity = () => {
+const ProductQuantity = (props) => {
+    const {
+        increaseProductAmount, id,
+        amount, decreaseProductAmount
+    } = props;
+
     return (
         <div className="container">
-            <button type="button" className="container-btn">
+            <button type="button" className="container-btn" onClick={() => decreaseProductAmount(id)}>
                 <span>-</span>
             </button>
-            <span className="container-quantity">1</span>
-            <button type="button" className="container-btn">
+            <span className="container-quantity">{amount}</span>
+            <button type="button" className="container-btn" onClick={() => increaseProductAmount(id)}>
                 <span>+</span>
             </button>
         </div>
