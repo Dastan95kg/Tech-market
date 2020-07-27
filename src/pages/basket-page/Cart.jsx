@@ -9,10 +9,11 @@ const Cart = (props) => {
         products,
         removeProductFromCart,
         increaseProductAmount,
-        decreaseProductAmount
+        decreaseProductAmount,
+        history,
+        cart
     } = props;
-    const storageData = JSON.parse(localStorage.getItem('cart'));
-    const cartProducts = products && products.filter(product => storageData && storageData.includes(product._id));
+    const cartProducts = products && products.filter(product => cart && cart.includes(product._id));
 
     return (
         <>
@@ -33,12 +34,24 @@ const Cart = (props) => {
                         </div>
                         <CartTotal products={cartProducts} />
                         <div className="basket__content-buttons">
-                            <button type="button" className="return">Вернуться</button>
-                            <button type="button" className="proceed">Перейти к оформлению заказа</button>
+                            <button
+                                type="button"
+                                className="return"
+                                onClick={() => history.goBack()}
+                            >
+                                Вернуться
+                            </button>
+                            <button
+                                type="button"
+                                className="proceed"
+                                onClick={() => history.push('/order')}
+                            >
+                                Перейти к оформлению заказа
+                            </button>
                         </div>
                     </div>
                 )
-                    : <EmptyCart />
+                    : <EmptyCart header="Корзина" />
             }
         </>
     );

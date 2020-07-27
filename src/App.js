@@ -6,7 +6,7 @@ import Main from './pages/home-page/Main';
 import Detail from './pages/detail-page/Detail';
 import ListContainer from './pages/list-page/ListContainer';
 import CartContainer from './pages/basket-page/CartContainer';
-import Order from './pages/order-page/Order';
+import OrderContainer from './pages/order-page/OrderContainer';
 import Search from './pages/search-page/Search';
 import Tracking from './pages/tracking-page/Tracking';
 import AboutUs from './pages/aboutUs-page/AboutUs';
@@ -29,7 +29,7 @@ const App = () => {
                         <Route path="/detail/:id" component={Detail} />
                         <Route path="/products/:category" component={ListContainer} />
                         <Route path="/basket" component={CartContainer} />
-                        <Route path="/order" component={Order} />
+                        <Route path="/order" component={OrderContainer} />
                         <Route path="/search" component={Search} />
                         <Route path="/tracking" component={Tracking} />
                         <Route path="/about" component={AboutUs} />
