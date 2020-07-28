@@ -35,15 +35,27 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 182px 0;
+            padding: 110px 0 182px;
             font-size: 26px;
             line-height: 32px;
             color: #3e3e3e;
+            text-align: center;
         }
     }
 }
 
 // ------------------MEDIA Queries-------------------------------------------//
+@media #{$desktop-md} {
+    .tracking {
+        &__results {
+            &-content {
+                font-size: 20px;
+                line-height: 22px;
+            }
+        }
+    }
+}
+
 @media #{$desktop-sm} {
     .tracking {
         &__content {
@@ -55,12 +67,8 @@
         }
 
         &__results {
-            padding: 0 0 18px;
-
             &-code {
                 order: 2;
-                padding: 0 15px;
-                margin-top: 10px;
             }
 
             &-statuses {
@@ -86,14 +94,38 @@
     }
 }
 
+@media #{$tablet-sm} {
+    .tracking {
+        &__results {
+            &-content {
+                padding: 90px 0 130px;
+            }
+        }
+    }
+}
+
 @media #{$mobile-lg} {
     .tracking {
         &__results {
+            margin-top: 20px;
+
             &-code {
                 span {
                     font-size: 18px;
                     line-height: 20px;
                 }
+            }
+
+            &-content {
+                padding: 40px 0 90px;
+                font-size: 18px;
+            }
+        }
+
+        &__search {
+            &-title {
+                font-size: 20px;
+                line-height: 22px;
             }
         }
     }

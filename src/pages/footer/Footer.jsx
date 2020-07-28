@@ -8,7 +8,7 @@ const Footer = () => {
             <div className="footer__inner">
                 <div className="footer__col">
                     <Link to="/about">О нас</Link>
-                    <Link to="/delivery">Доставка и оплата</Link>
+                    <Link to="/delivery">Вопросы и ответы</Link>
                 </div>
                 <div className="footer__col">
                     <Link to="/basket">Корзина</Link>
@@ -16,7 +16,6 @@ const Footer = () => {
                 </div>
                 <div className="footer__col">
                     <Link to="/contacts">Контакты</Link>
-                    <a href="/">Служба поддержки</a>
                 </div>
             </div>
         </footer>

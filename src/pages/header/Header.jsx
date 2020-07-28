@@ -34,7 +34,7 @@ const Header = (props) => {
                     <div className="title">Онлайн-магазин электроники №1 в Бишкеке!</div>
                     <div className="container">
                         <Link to="/about">О нас</Link>
-                        <Link to="/delivery">Доставка и оплата</Link>
+                        <Link to="/delivery">Вопросы и ответы</Link>
                         <Link to="/contacts">Контакты</Link>
                     </div>
                 </div>

@@ -38,3 +38,48 @@
         cursor: pointer;
     }
 }
+
+// ------------------MEDIA Queries-------------------------------------------//
+@media #{$desktop-md} {
+    .empty-cart {
+        margin: 0 100px;
+    }
+}
+
+@media #{$desktop-sm} {
+    .empty-cart {
+        margin: 0 50px;
+    }
+}
+
+@media #{$tablet-lg} {
+    .empty-cart {
+        margin: 0;
+        padding: 15px;
+    }
+}
+
+@media #{$tablet-sm} {
+    .empty-cart {
+        &__message {
+            margin: 100px 0;
+        }
+    }
+}
+
+@media #{$mobile-lg} {
+    .empty-cart {
+        &__header {
+            font-size: 20px;
+        }
+
+        &__message {
+            font-size: 18px;
+        }
+
+        &__btn {
+            width: 250px;
+            height: 45px;
+        }
+    }
+}

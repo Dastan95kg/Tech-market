@@ -93,13 +93,6 @@ const MobileMenu = (props) => {
                 >
                     Контакты
                 </Link>
-                <Link
-                    className="header-menu__content-link"
-                    onClick={() => setBurgerOpen(false)}
-                    to="/"
-                >
-                    Служба поддержки
-                </Link>
             </div>
         </div>
     );

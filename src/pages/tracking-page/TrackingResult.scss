@@ -1,3 +1,5 @@
+@import "../../utils/variables.scss";
+
 .tracking__results {
     &-code {
         display: flex;
@@ -36,6 +38,18 @@
             line-height: 20px;
             display: flex;
             align-items: center;
+        }
+    }
+}
+
+// ------------------MEDIA Queries-------------------------------------------//
+@media #{$desktop-md} {
+    .tracking__results {
+        &-code {
+            img {
+                width: 25px;
+                height: 25px;
+            }
         }
     }
 }
