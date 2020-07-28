@@ -25,10 +25,10 @@ const Order = (props) => {
                                     />
                                 ))}
                             </div>
-                            <div className="order__content-promo">
+                            <form className="order__content-promo">
                                 <input type="text" placeholder="Промо-код" className="order__content-promo-data" />
                                 <button type="button">Активировать</button>
-                            </div>
+                            </form>
                             <CartTotal products={cartProducts} />
                             <OrderForm />
                         </div>

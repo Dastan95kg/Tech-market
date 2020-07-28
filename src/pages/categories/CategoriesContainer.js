@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Categories from './Categories';
-import { getCategories } from './reducer';
+import { getCategoriesAndSubcategories } from './reducer';
 
 class CategoriesContainer extends Component {
     componentDidMount() {
-        this.props.getCategories();
+        this.props.getCategoriesAndSubcategories();
     }
 
     render() {
@@ -16,7 +16,8 @@ class CategoriesContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    categories: state.categories.categories
+    categories: state.categories.categories,
+    subcategories: state.categories.subcategories
 });
 
-export default connect(mapStateToProps, { getCategories })(CategoriesContainer);
+export default connect(mapStateToProps, { getCategoriesAndSubcategories })(CategoriesContainer);

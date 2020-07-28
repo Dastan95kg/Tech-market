@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CatalogItem from './CatalogItem';
-import Subcategories from '../categories/Subcategories';
 import './Catalog.scss';
 
-const Catalog = ({ isActive, categories }) => {
-    const [subcategoriesActive, setSubcategoriesActive] = useState(false);
+const Catalog = (props) => {
+    const { isActive, categories, subcategories } = props;
 
     return (
         <div className={isActive ? 'catalog active' : 'catalog'}>
@@ -16,14 +15,10 @@ const Catalog = ({ isActive, categories }) => {
                     <CatalogItem
                         key={item.name}
                         {...item}
-                        setSubcategoriesActive={setSubcategoriesActive}
+                        subcategories={subcategories}
                     />
                 ))}
             </div>
-            <Subcategories
-                subcategoriesActive={subcategoriesActive}
-                setSubcategoriesActive={setSubcategoriesActive}
-            />
         </div>
     );
 };

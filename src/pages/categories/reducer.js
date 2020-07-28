@@ -24,16 +24,12 @@ const reducer = (state = initialState, action) => {
 };
 
 // Thunk creators
-export const getCategories = () => async (dispatch) => {
+export const getCategoriesAndSubcategories = () => async (dispatch) => {
     const response = await axios.get('https://electronics-admin.herokuapp.com/all-categories');
     if (response.status === 200) {
         dispatch(GET_CATEGORIES_SUCCESS(response.data.categories));
+        dispatch(GET_SUBCATEGORIES_SUCCESS(response.data.subcategories));
     }
-};
-
-export const getSubcategories = () => async (dispatch) => {
-    const response = await axios.get('http://demo9551996.mockable.io/subcategories');
-    dispatch(GET_SUBCATEGORIES_SUCCESS(response.data));
 };
 
 export default reducer;

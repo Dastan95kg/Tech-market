@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Subcategories from '../categories/Subcategories';
 import line from '../../assets/images/Line.png';
 
 const CatalogItem = (props) => {
-    const { name, setSubcategoriesActive } = props;
+    const { name, subcategories, _id: categoryId } = props;
+    const [subcategoriesActive, setSubcategoriesActive] = useState(false);
+    const subcategoriesList = subcategories && subcategories.filter(item => item.category === categoryId);
+
     const activateSubcategories = () => {
         setSubcategoriesActive(true);
     };
@@ -27,6 +31,11 @@ const CatalogItem = (props) => {
                     <img src={line} alt="line" />
                 </div>
             </div>
+            <Subcategories
+                subcategoriesActive={subcategoriesActive}
+                setSubcategoriesActive={setSubcategoriesActive}
+                subcategories={subcategoriesList}
+            />
         </Link>
     );
 };

@@ -38,7 +38,8 @@ export const addProductToCart = (id) => async (dispatch) => {
 
 export const getProductsFromBasket = () => async () => {
     const storageData = await JSON.parse(localStorage.getItem('cart'));
-    const response = await axios.post('https://electronics-admin.herokuapp.com/products_from_basket', storageData);
+    const response = await axios
+        .post('https://electronics-admin.herokuapp.com/cart-products', storageData);
 };
 
 export const removeProductFromCart = (id) => (dispatch) => {

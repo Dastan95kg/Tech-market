@@ -1,8 +1,13 @@
 import React from 'react';
 import './Subcategories.scss';
+import { Link } from 'react-router-dom';
 
 const Subcategories = (props) => {
-    const { subcategoriesActive, setSubcategoriesActive } = props;
+    const {
+        subcategoriesActive,
+        setSubcategoriesActive,
+        subcategories
+    } = props;
 
     return (
         <div
@@ -10,21 +15,15 @@ const Subcategories = (props) => {
             onMouseEnter={() => setSubcategoriesActive(true)}
             onMouseLeave={() => setSubcategoriesActive(false)}
         >
-            <div className="subcategories__item">
-                Смартфоны
-            </div>
-            <div className="subcategories__item">
-                Мобильные телефоны
-            </div>
-            <div className="subcategories__item">
-                Планшеты
-            </div>
-            <div className="subcategories__item">
-                Электронные книги
-            </div>
-            <div className="subcategories__item">
-                Прочие гаджеты
-            </div>
+            {subcategories && subcategories.map(item => (
+                <Link
+                    className="subcategories__item"
+                    key={item._id}
+                    to={`/products/${item.name}`}
+                >
+                    {item.name}
+                </Link>
+            ))}
         </div>
     );
 };
