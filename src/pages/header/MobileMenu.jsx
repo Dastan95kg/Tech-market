@@ -59,7 +59,7 @@ const MobileMenu = (props) => {
                             className="header-menu__content-subcategory"
                             onClick={() => setBurgerOpen(false)}
                             key={item._id}
-                            to={`/products/${item.name}`}
+                            to={`/products/${item._id}`}
                         >
                             {item.name}
                         </Link>

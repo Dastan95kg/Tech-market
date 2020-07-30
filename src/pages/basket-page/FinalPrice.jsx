@@ -4,10 +4,10 @@ import './FinalPrice.scss';
 
 const FinalPrice = (props) => {
     const {
-        price,
         removeProduct,
         productId,
-        amount
+        amount,
+        price
     } = props;
 
     return (
@@ -16,7 +16,7 @@ const FinalPrice = (props) => {
                 <img src={remove} alt="remove icon" />
             </button>
             <div className="basket__content-item-final">
-                <span>{price * amount}</span>
+                <span>{amount * price}</span>
                 сом
             </div>
         </div>

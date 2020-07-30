@@ -5,7 +5,6 @@ import './OrderItem.scss';
 const OrderItem = (props) => {
     const {
         name,
-        orders_count: amount,
         price,
         removeProductFromCart,
         _id: id
@@ -16,7 +15,7 @@ const OrderItem = (props) => {
             <div className="order__content-item-details">
                 <div className="order__content-item-title">{name}</div>
                 <div className="order__content-item-quantity">
-                    <span className="order__content-item-number">{amount}</span>
+                    <span className="order__content-item-number">1</span>
                     <span className="order__content-item-times">&times;</span>
                     <span className="order__content-item-productPrice">
                         <span>{price}</span>
@@ -26,8 +25,8 @@ const OrderItem = (props) => {
             </div>
             <FinalPrice
                 price={price}
-                amount={amount}
                 removeProduct={() => removeProductFromCart(id)}
+                amount={1}
             />
         </div>
     );

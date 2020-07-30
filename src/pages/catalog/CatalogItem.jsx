@@ -17,26 +17,28 @@ const CatalogItem = (props) => {
     };
 
     return (
-        <Link
-            to={`/products/${name}`}
-            className="catalog__item"
-            onMouseEnter={activateSubcategories}
-            onMouseLeave={disactivateSubcategories}
-        >
-            <div className="catalog__item-content">
-                <div className="catalog__item-text">
-                    {name}
+        <>
+            <Link
+                to={`/products/${categoryId}`}
+                className="catalog__item"
+                onMouseEnter={activateSubcategories}
+                onMouseLeave={disactivateSubcategories}
+            >
+                <div className="catalog__item-content">
+                    <div className="catalog__item-text">
+                        {name}
+                    </div>
+                    <div className="catalog__item-line">
+                        <img src={line} alt="line" />
+                    </div>
                 </div>
-                <div className="catalog__item-line">
-                    <img src={line} alt="line" />
-                </div>
-            </div>
+            </Link>
             <Subcategories
                 subcategoriesActive={subcategoriesActive}
                 setSubcategoriesActive={setSubcategoriesActive}
                 subcategories={subcategoriesList}
             />
-        </Link>
+        </>
     );
 };
 

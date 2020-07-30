@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ProductQuantity from '../detail-page/ProductQuantity';
 import FinalPrice from './FinalPrice';
 import './BasketItem.scss';
 
 const BasketItem = (props) => {
     const {
-        name, price, photos, removeProduct, _id,
-        increaseProductAmount, orders_count: amount, decreaseProductAmount
+        name, price, photos, removeProduct, _id
     } = props;
+    const [amount, setAmount] = useState(1);
 
     return (
         <div className="basket__content-item">
@@ -18,10 +18,9 @@ const BasketItem = (props) => {
                 <div className="basket__content-item-title">{name}</div>
                 <div className="basket__content-item-detail">
                     <ProductQuantity
-                        increaseProductAmount={increaseProductAmount}
-                        decreaseProductAmount={decreaseProductAmount}
-                        id={_id}
+                        setAmount={setAmount}
                         amount={amount}
+                        price={price}
                     />
                     <span className="times">&times;</span>
                     <span className="price">

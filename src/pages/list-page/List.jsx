@@ -7,9 +7,15 @@ import filterBtn from '../../assets/images/filter.png';
 import './List.scss';
 
 const List = (props) => {
-    const { match, products, addProductToCart } = props;
-    const smartPhonesAndGadgets = products
-        && products.filter(product => product.category === '5f1216162aaccd3a86852b7c');
+    const {
+        match,
+        products,
+        addProductToCart,
+        categories,
+        cart
+    } = props;
+    const categoriesId = categories && categories.map(category => category._id);
+    const categoryName = categories && categories.find(category => category._id === match.params.category).name;
 
     const options = [
         { key: 'af', value: 'af', text: 'По умолчанию' },
@@ -24,9 +30,9 @@ const List = (props) => {
             <div className="list__content">
                 <div className="list__content-filterContainer">
                     <div className="list__content-categories">
-                        <div className="list__content-category">{match.params.category}</div>
-                        <img src={arrow} alt="arrow" className="list__content-arrow" />
-                        <div className="list__content-subcategory">Смартфоны</div>
+                        <div className="list__content-category">{categoryName}</div>
+                        {/* <img src={arrow} alt="arrow" className="list__content-arrow" />
+                        <div className="list__content-subcategory">Смартфоны</div> */}
                     </div>
                     <div className="list__content-sort">
                         <span className="list__content-sort-title">Сортировка</span>
@@ -51,15 +57,19 @@ const List = (props) => {
                 </div>
                 <div className="list__content-products-wrapper">
                     <div className="list__content-products">
-                        {match.params.category === 'Смартфоны и гаджеты' && (
-                            smartPhonesAndGadgets && smartPhonesAndGadgets.map(item => (
-                                <GoodCart
-                                    {...item}
-                                    key={item._id}
-                                    addProductToCart={addProductToCart}
-                                />
-                            ))
-                        )}
+                        {categoriesId && categoriesId.map(categoryId => (
+                            match.params.category === categoryId && (
+                                products && products.filter(product => product.category === categoryId)
+                                    .map(product => (
+                                        <GoodCart
+                                            {...product}
+                                            key={product._id}
+                                            addProductToCart={addProductToCart}
+                                            cart={cart}
+                                        />
+                                    ))
+                            )
+                        ))}
                     </div>
                     <Filter />
                 </div>

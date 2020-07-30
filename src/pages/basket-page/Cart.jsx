@@ -6,14 +6,12 @@ import './Cart.scss';
 
 const Cart = (props) => {
     const {
-        products,
         removeProductFromCart,
-        increaseProductAmount,
-        decreaseProductAmount,
         history,
-        cart
+        cart,
+        categories
     } = props;
-    const cartProducts = products && products.filter(product => cart && cart.includes(product._id));
+    const { products_list: cartProducts } = cart;
 
     return (
         <>
@@ -27,8 +25,6 @@ const Cart = (props) => {
                                     {...product}
                                     key={product._id}
                                     removeProduct={removeProductFromCart}
-                                    increaseProductAmount={increaseProductAmount}
-                                    decreaseProductAmount={decreaseProductAmount}
                                 />
                             ))}
                         </div>
@@ -37,7 +33,7 @@ const Cart = (props) => {
                             <button
                                 type="button"
                                 className="return"
-                                onClick={() => history.goBack()}
+                                onClick={() => history.push('/')}
                             >
                                 Вернуться
                             </button>
@@ -51,7 +47,13 @@ const Cart = (props) => {
                         </div>
                     </div>
                 )
-                    : <EmptyCart header="Корзина" />
+                    : (
+                        <EmptyCart
+                            header="Корзина"
+                            history={history}
+                            categories={categories}
+                        />
+                    )
             }
         </>
     );

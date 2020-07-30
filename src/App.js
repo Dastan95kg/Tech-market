@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import HeaderContainer from './pages/header/HeaderContainer';
 import CategoriesContainer from './pages/categories/CategoriesContainer';
-import Main from './pages/home-page/Main';
+import MainContainer from './pages/home-page/MainContainer';
 import Detail from './pages/detail-page/Detail';
 import ListContainer from './pages/list-page/ListContainer';
 import CartContainer from './pages/basket-page/CartContainer';
@@ -25,7 +25,7 @@ const App = () => {
                 <CategoriesContainer />
                 <div className="content__container">
                     <Switch>
-                        <Route path="/" exact component={Main} />
+                        <Route path="/" exact component={MainContainer} />
                         <Route path="/detail/:id" component={Detail} />
                         <Route path="/products/:category" component={ListContainer} />
                         <Route path="/basket" component={CartContainer} />

@@ -6,8 +6,12 @@ import './Order.scss';
 import EmptyCart from '../basket-page/EmptyCart';
 
 const Order = (props) => {
-    const { products, removeProductFromCart, cart } = props;
-    const cartProducts = products && products.filter(product => cart && cart.includes(product._id));
+    const {
+        removeProductFromCart,
+        cart: { products_list: cartProducts },
+        history,
+        categories
+    } = props;
 
     return (
         <>
@@ -33,7 +37,13 @@ const Order = (props) => {
                             <OrderForm />
                         </div>
                     </section>
-                ) : <EmptyCart header="Оформление заказа" />
+                ) : (
+                        <EmptyCart
+                            header="Оформление заказа"
+                            history={history}
+                            categories={categories}
+                        />
+                    )
             }
         </>
     );

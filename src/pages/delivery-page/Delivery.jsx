@@ -5,7 +5,7 @@ const Delivery = ({ questions }) => {
     return (
         <section className="delivery">
             <div className="delivery__content">
-                <div className="delivery__content-title">Доставка и оплата</div>
+                <div className="delivery__content-title">Вопросы и ответы</div>
                 {questions && questions.map(obj => (
                     <div className="delivery__content-text" key={obj.id}>
                         <div className="delivery__content-text-question">{obj.question}</div>

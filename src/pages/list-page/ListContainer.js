@@ -14,7 +14,9 @@ class ListContainer extends Component {
 
 const mapStateToProps = (state) => ({
     products: state.list.products,
-    categories: state.categories.categories
+    categories: state.categories.categories,
+    subcategories: state.categories.subcategories,
+    cart: state.cart.tempCart
 });
 
 export default connect(mapStateToProps, { addProductToCart })(ListContainer);

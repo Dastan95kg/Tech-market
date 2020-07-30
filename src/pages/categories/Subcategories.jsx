@@ -16,13 +16,13 @@ const Subcategories = (props) => {
             onMouseLeave={() => setSubcategoriesActive(false)}
         >
             {subcategories && subcategories.map(item => (
-                <Link
+                <div
                     className="subcategories__item"
                     key={item._id}
-                    to={`/products/${item.name}`}
+                // to={`/products/${item._id}`}
                 >
                     {item.name}
-                </Link>
+                </div>
             ))}
         </div>
     );

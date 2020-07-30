@@ -12,8 +12,8 @@ class OrderContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    products: state.list.products,
-    cart: state.cart.cart
+    cart: state.cart.cart,
+    categories: state.categories.categories
 });
 
 export default connect(mapStateToProps, { removeProductFromCart })(OrderContainer);

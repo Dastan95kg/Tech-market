@@ -9,7 +9,8 @@ const GoodCart = (props) => {
         name,
         price,
         _id,
-        addProductToCart
+        addProductToCart,
+        cart
     } = props;
 
     return (
@@ -33,7 +34,9 @@ const GoodCart = (props) => {
                     <span>c</span>
                 </p>
             </div>
-            <button type="button" onClick={() => addProductToCart(_id)}>Добавить в корзину</button>
+            {cart && cart.includes(_id)
+                ? <button disabled type="button" className="content__cart-added">Добавлено в корзину</button>
+                : <button type="button" onClick={() => addProductToCart(_id)}>Добавить в корзину</button>}
         </div>
     );
 };

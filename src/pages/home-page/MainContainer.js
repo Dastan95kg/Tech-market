@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import Header from './Header';
+import Main from './Main';
 
 const mapStateToProps = (state) => ({
     cart: state.cart.tempCart
 });
 
-export default connect(mapStateToProps, {})(Header);
+export default connect(mapStateToProps, null)(Main);

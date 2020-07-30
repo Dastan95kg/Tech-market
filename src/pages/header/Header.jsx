@@ -10,13 +10,7 @@ const options = [
     { key: 'products', text: 'По популярности', value: 'products' }
 ];
 
-const Header = (props) => {
-    const { cart } = props;
-
-    const getCartLength = () => {
-        return;
-    };
-
+const Header = ({ cart }) => {
     return (
         <div className="header">
             <Link to="/" className="header__logo">
@@ -57,9 +51,7 @@ const Header = (props) => {
                         <img src={cartImg} alt="cart" />
                         <div className="cart__data">
                             <p className="goods-num">
-                                {localStorage.getItem('cart')
-                                    ? JSON.parse(localStorage.getItem('cart')).length
-                                    : 0}
+                                {cart && cart.length}
                             </p>
                             <p className="goods-label">Товаров в корзине</p>
                         </div>
