@@ -10,7 +10,9 @@ const Order = (props) => {
         removeProductFromCart,
         cart: { products_list: cartProducts },
         history,
-        categories
+        categories,
+        tempCart,
+        dispatchNewOrder
     } = props;
 
     return (
@@ -26,6 +28,7 @@ const Order = (props) => {
                                         {...product}
                                         key={product._id}
                                         removeProductFromCart={removeProductFromCart}
+                                        tempCart={tempCart}
                                     />
                                 ))}
                             </div>
@@ -33,8 +36,15 @@ const Order = (props) => {
                                 <input type="text" placeholder="Промо-код" className="order__content-promo-data" />
                                 <button type="button">Активировать</button>
                             </form>
-                            <CartTotal products={cartProducts} />
-                            <OrderForm />
+                            <CartTotal
+                                products={cartProducts}
+                                tempCart={tempCart}
+                            />
+                            <OrderForm
+                                dispatchNewOrder={dispatchNewOrder}
+                                tempCart={tempCart}
+                                products={cartProducts}
+                            />
                         </div>
                     </section>
                 ) : (

@@ -9,9 +9,12 @@ const Cart = (props) => {
         removeProductFromCart,
         history,
         cart,
-        categories
+        categories,
+        increaseProductQuantity,
+        decreaseProductQuantity,
+        tempCart
     } = props;
-    const { products_list: cartProducts } = cart;
+    const { products_list: cartProducts, total_price: totalPrice } = cart;
 
     return (
         <>
@@ -25,10 +28,17 @@ const Cart = (props) => {
                                     {...product}
                                     key={product._id}
                                     removeProduct={removeProductFromCart}
+                                    increaseProductQuantity={increaseProductQuantity}
+                                    decreaseProductQuantity={decreaseProductQuantity}
+                                    tempCart={tempCart}
                                 />
                             ))}
                         </div>
-                        <CartTotal products={cartProducts} />
+                        <CartTotal
+                            products={cartProducts}
+                            totalPrice={totalPrice}
+                            tempCart={tempCart}
+                        />
                         <div className="basket__content-buttons">
                             <button
                                 type="button"

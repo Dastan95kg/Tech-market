@@ -13,3 +13,11 @@ export const REMOVE_PRODUCT_FROM_CART_SUCCESS = (id) => ({
 export const UPDATE_PRODUCTS_IN_CART_SUCCESS = (products) => ({
     type: 'UPDATE_PRODUCTS_IN_CART', payload: products
 });
+
+export const INCREASE_PRODUCT_QUANTITY_SUCCESS = (id) => ({
+    type: 'INCREASE_PRODUCT_QUANTITY', payload: id
+});
+
+export const DECREASE_PRODUCT_QUANTITY_SUCCESS = (id) => ({
+    type: 'DECREASE_PRODUCT_QUANTITY', payload: id
+});

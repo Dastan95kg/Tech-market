@@ -6,8 +6,8 @@ const FinalPrice = (props) => {
     const {
         removeProduct,
         productId,
-        amount,
-        price
+        price,
+        cartItem
     } = props;
 
     return (
@@ -16,7 +16,7 @@ const FinalPrice = (props) => {
                 <img src={remove} alt="remove icon" />
             </button>
             <div className="basket__content-item-final">
-                <span>{amount * price}</span>
+                <span>{cartItem && price * cartItem.quantity}</span>
                 сом
             </div>
         </div>

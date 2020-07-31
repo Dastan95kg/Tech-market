@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Order from './Order';
 import { removeProductFromCart } from '../basket-page/reducer';
+import { dispatchNewOrder } from './reducer';
 
 class OrderContainer extends Component {
     render() {
@@ -13,7 +14,8 @@ class OrderContainer extends Component {
 
 const mapStateToProps = (state) => ({
     cart: state.cart.cart,
-    categories: state.categories.categories
+    categories: state.categories.categories,
+    tempCart: state.cart.tempCart
 });
 
-export default connect(mapStateToProps, { removeProductFromCart })(OrderContainer);
+export default connect(mapStateToProps, { removeProductFromCart, dispatchNewOrder })(OrderContainer);

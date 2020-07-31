@@ -3,7 +3,10 @@ import {
     ADD_PRODUCT_TO_LOCAL_STORAGE_SUCCESS,
     REMOVE_PRODUCT_FROM_CART_SUCCESS,
     UPDATE_PRODUCTS_IN_CART_SUCCESS,
-    ADD_PRODUCT_TO_CART_SUCCESS
+    ADD_PRODUCT_TO_CART_SUCCESS,
+    INCREASE_PRODUCT_QUANTITY_SUCCESS,
+    DECREASE_PRODUCT_QUANTITY_SUCCESS,
+    INIT_PRODUCT_QUANTITY_SUCCESS
 } from './actions';
 
 const initialState = {
@@ -18,7 +21,8 @@ const reducer = (state = initialState, action) => {
             if (!storageData) {
                 localStorage.setItem('cart', JSON.stringify([action.payload]));
             } else {
-                if (!storageData.includes(action.payload)) {
+                const storageId = storageData.map(item => item.id);
+                if (!storageId.includes(action.payload.id)) {
                     let storageDataCopy = null;
                     storageDataCopy = [...storageData, action.payload];
                     localStorage.setItem('cart', JSON.stringify(storageDataCopy));
@@ -27,8 +31,9 @@ const reducer = (state = initialState, action) => {
             }
             return state;
         }
-        case 'ADD_PRODUCT_TO_CART':
-            if (!state.tempCart.includes(action.payload)) {
+        case 'ADD_PRODUCT_TO_CART': {
+            const cart = state.tempCart && state.tempCart.map(item => item.id);
+            if (!cart.includes(action.payload.id)) {
                 return {
                     ...state,
                     tempCart: [...state.tempCart, action.payload]
@@ -38,17 +43,46 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 tempCart: [...state.tempCart]
             };
+        }
         case 'REMOVE_PRODUCT_FROM_CART':
             return {
                 ...state,
                 cart: { ...state.cart, products_list: state.cart.products_list.filter(product => product._id !== action.payload) },
-                tempCart: state.tempCart.filter(productId => productId !== action.payload)
+                tempCart: state.tempCart.filter(product => product.id !== action.payload)
             };
         case 'UPDATE_PRODUCTS_IN_CART':
             return {
                 ...state,
                 cart: action.payload
             };
+        case 'INCREASE_PRODUCT_QUANTITY': {
+            const tempProducts = state.tempCart.map(product => {
+                if (product.id === action.payload) {
+                    // eslint-disable-next-line no-param-reassign
+                    product = { ...product, quantity: product.quantity + 1 };
+                }
+                return product;
+            });
+            return {
+                ...state,
+                tempCart: tempProducts
+            };
+        }
+        case 'DECREASE_PRODUCT_QUANTITY': {
+            const tempProducts = state.tempCart.map(product => {
+                if (product.id === action.payload) {
+                    if (product.quantity > 1) {
+                        // eslint-disable-next-line no-param-reassign
+                        product = { ...product, quantity: product.quantity - 1 };
+                    }
+                }
+                return product;
+            });
+            return {
+                ...state,
+                tempCart: tempProducts
+            };
+        }
         default:
             return state;
     }
@@ -73,8 +107,16 @@ export const getProductsFromBasket = () => async (dispatch) => {
 export const removeProductFromCart = (id) => (dispatch) => {
     dispatch(REMOVE_PRODUCT_FROM_CART_SUCCESS(id));
     const products = JSON.parse(localStorage.getItem('cart'));
-    const newProducts = products.filter(product => product !== id);
+    const newProducts = products.filter(product => product.id !== id);
     localStorage.setItem('cart', JSON.stringify(newProducts));
+};
+
+export const increaseProductQuantity = (id) => (dispatch) => {
+    dispatch(INCREASE_PRODUCT_QUANTITY_SUCCESS(id));
+};
+
+export const decreaseProductQuantity = (id) => (dispatch) => {
+    dispatch(DECREASE_PRODUCT_QUANTITY_SUCCESS(id));
 };
 
 export default reducer;

@@ -3,24 +3,39 @@ import { useFormik } from 'formik';
 import { Dropdown } from 'semantic-ui-react';
 import './OrderForm.scss';
 
-const OrderForm = () => {
+const OrderForm = (props) => {
+    const { dispatchNewOrder, tempCart, products } = props;
+    const priceList = [];
+    products.forEach(product => {
+        tempCart.forEach(item => {
+            return item.id === product._id && priceList.push(item.quantity * product.price);
+        });
+    });
+    const totalPrice = priceList.reduce((counter, price) => counter + price, 0);
+
     const options = [
         { key: 1, text: 'ул. Юнусалиева 46', value: 1 },
         { key: 2, text: 'ул. Абдрахманова 120', value: 2 },
-        { key: 3, text: 'ул. Горького 12', value: 3 },
+        { key: 3, text: 'ул. Горького 12', value: 3 }
     ];
 
     const formik = useFormik({
         initialValues: {
-            fullName: '',
+            delivery: false,
+            name: '',
             email: '',
-            phoneNumber: null,
-            delivery: 'courier',
-            deliveryAddress: '',
+            phone_number: null,
+            adress: '',
+            products: [],
+            give_money_count: 0,
             comment: ''
         },
         onSubmit: values => {
-            alert(JSON.stringify(values, null, 2));
+            const body = {
+                ...values,
+                products: tempCart
+            };
+            dispatchNewOrder(body);
         }
     });
 
@@ -30,11 +45,11 @@ const OrderForm = () => {
             <div className="order-form__subtitle">Все поля обязательны для заполнения!</div>
             <div className="order-form__userData">
                 <input
-                    id="fullName"
-                    name="fullName"
+                    id="name"
+                    name="name"
                     type="text"
                     onChange={formik.handleChange}
-                    value={formik.values.fullName}
+                    value={formik.values.name}
                     placeholder="ФИО"
                 />
                 <input
@@ -47,53 +62,54 @@ const OrderForm = () => {
                     className="email"
                 />
                 <input
-                    id="phoneNumber"
-                    name="phoneNumber"
+                    id="phone_number"
+                    name="phone_number"
                     type="tel"
                     onChange={formik.handleChange}
-                    value={formik.values.phoneNumber}
+                    value={formik.values.phone_number}
                     placeholder="Номер телефона"
                 />
             </div>
             <div className="order-form__title">Доставка</div>
-            {/* <div className="order-form__delivery-radio">
-                <label htmlFor="courier">
-                    <input id="courier" type="radio" name="delivery" checked />
-                    Курьер
-                </label>
-                <label htmlFor="self-pickup">
-                    <input id="self-pickup" type="radio" name="delivery" />
-                    Самовывоз
-                </label>
-            </div> */}
             <div className="order-form__container">
                 <div className="order-form__container-content">
                     <label htmlFor="courier" className="order-form__container-radio">
-                        <input id="courier" type="radio" name="delivery" checked />
+                        <input
+                            id="courier"
+                            type="radio"
+                            name="delivery"
+                            checked
+                            value="true"
+                        />
                         Курьер
                     </label>
                     <div className="order-form__delivery-city">Город: Бишкек</div>
                     <input
                         className="order-form__delivery-address"
-                        name="deliveryAddress"
+                        name="adress"
                         placeholder="Адрес доставки"
                         type="text"
                         onChange={formik.handleChange}
-                        value={formik.values.deliveryAddress}
+                        value={formik.values.adress}
                     />
                     <textarea
                         name="comment"
                         id="comment"
                         placeholder="Комментарий к заказу"
                         type="text"
-                        onChange={formik.handleChange}
                         value={formik.values.comment}
+                        onChange={formik.handleChange}
                         className="order-form__delivery-comment"
                     />
                 </div>
                 <div className="order-form__container-content">
                     <label htmlFor="self-pickup" className="order-form__container-radio">
-                        <input id="self-pickup" type="radio" name="delivery" />
+                        <input
+                            id="self-pickup"
+                            type="radio"
+                            name="delivery"
+                            value="false"
+                        />
                         Самовывоз
                     </label>
                     <div className="order-form__delivery-city">Город: Бишкек</div>
@@ -108,11 +124,10 @@ const OrderForm = () => {
                     <textarea
                         disabled
                         name="comment"
-                        id="comment"
+                        id="self-pickup__comment"
                         placeholder="Комментарий к заказу"
                         type="text"
                         onChange={formik.handleChange}
-                        value={formik.values.comment}
                         className="order-form__delivery-comment"
                     />
                 </div>
@@ -122,11 +137,19 @@ const OrderForm = () => {
                 <div className="order-form__subtitle">Оплата наличными при получении!</div>
                 <div className="order-form__payment-total">
                     К оплате:
-                    <span>100500 сом</span>
+                    <div>
+                        <span>{totalPrice}</span>
+                        сом
+                    </div>
                 </div>
                 <div className="order-form__change">
                     Сдача с:
-                    <input type="number" />
+                    <input
+                        type="number"
+                        name="give_money_count"
+                        value={formik.values.give_money_count}
+                        onChange={formik.handleChange}
+                    />
                     сом
                 </div>
             </div>

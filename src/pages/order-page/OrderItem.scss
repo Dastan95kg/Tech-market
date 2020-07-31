@@ -6,6 +6,7 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #c4c4c4;
+    position: relative;
 
     &-title {
         font-size: 16px;
@@ -46,7 +47,7 @@
         align-items: flex-start;
 
         .basket__content-item-price {
-            justify-content: space-between;
+            justify-content: flex-end;
             width: 100%;
         }
     }

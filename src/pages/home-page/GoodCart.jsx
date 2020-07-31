@@ -8,9 +8,11 @@ const GoodCart = (props) => {
         photos,
         name,
         price,
+        old_price: oldPrice,
         _id,
         addProductToCart,
-        cart
+        cart,
+        discount
     } = props;
 
     return (
@@ -25,18 +27,20 @@ const GoodCart = (props) => {
                     {name}
                 </p>
                 <Rating maxRating={5} disabled rating={rating} />
-                {/* <p className="content__old-price">
-                    {features.oldPrice}
-                    c
-                </p> */}
-                <p className="content__price">
+                {discount > 0 && (
+                    <p className="content__old-price">
+                        <span>{oldPrice}</span>
+                        c
+                    </p>
+                )}
+                <p className={discount > 0 ? 'content__price' : 'content__price margin'}>
                     {price}
                     <span>c</span>
                 </p>
             </div>
-            {cart && cart.includes(_id)
+            {cart && cart.map(item => item.id).includes(_id)
                 ? <button disabled type="button" className="content__cart-added">Добавлено в корзину</button>
-                : <button type="button" onClick={() => addProductToCart(_id)}>Добавить в корзину</button>}
+                : <button type="button" onClick={() => addProductToCart({ id: _id, quantity: 1 })}>Добавить в корзину</button>}
         </div>
     );
 };

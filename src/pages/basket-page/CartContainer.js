@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Cart from './Cart';
-import { getProductsFromBasket, removeProductFromCart } from './reducer';
+import { getProductsFromBasket, removeProductFromCart, increaseProductQuantity, decreaseProductQuantity } from './reducer';
 
 class CartContainer extends Component {
     componentDidMount() {
@@ -17,10 +17,13 @@ class CartContainer extends Component {
 
 const mapStateToProps = (state) => ({
     cart: state.cart.cart,
-    categories: state.categories.categories
+    categories: state.categories.categories,
+    tempCart: state.cart.tempCart
 });
 
 export default connect(mapStateToProps, {
     getProductsFromBasket,
-    removeProductFromCart
+    removeProductFromCart,
+    increaseProductQuantity,
+    decreaseProductQuantity
 })(CartContainer);

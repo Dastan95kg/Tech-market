@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ProductQuantity from '../detail-page/ProductQuantity';
 import FinalPrice from './FinalPrice';
 import './BasketItem.scss';
 
 const BasketItem = (props) => {
     const {
-        name, price, photos, removeProduct, _id
+        name, price, photos, removeProduct, _id, increaseProductQuantity, decreaseProductQuantity,
+        tempCart
     } = props;
-    const [amount, setAmount] = useState(1);
+    const cartItem = tempCart && tempCart.find(item => item.id === _id);
 
     return (
         <div className="basket__content-item">
@@ -18,9 +19,11 @@ const BasketItem = (props) => {
                 <div className="basket__content-item-title">{name}</div>
                 <div className="basket__content-item-detail">
                     <ProductQuantity
-                        setAmount={setAmount}
-                        amount={amount}
                         price={price}
+                        id={_id}
+                        increaseProductQuantity={increaseProductQuantity}
+                        decreaseProductQuantity={decreaseProductQuantity}
+                        cartItem={cartItem}
                     />
                     <span className="times">&times;</span>
                     <span className="price">
@@ -33,7 +36,7 @@ const BasketItem = (props) => {
                 price={price}
                 removeProduct={removeProduct}
                 productId={_id}
-                amount={amount}
+                cartItem={cartItem}
             />
         </div>
     );

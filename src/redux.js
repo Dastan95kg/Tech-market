@@ -13,6 +13,7 @@ import categoriesReducer from './pages/categories/reducer';
 import sliderReducer from './pages/slider/reducer';
 import listReducer from './pages/list-page/reducer';
 import cartReducer from './pages/basket-page/reducer';
+import orderReducer from './pages/order-page/reducer';
 
 const reducers = combineReducers({
     home: homeReducer,
@@ -21,7 +22,8 @@ const reducers = combineReducers({
     categories: categoriesReducer,
     slider: sliderReducer,
     list: listReducer,
-    cart: cartReducer
+    cart: cartReducer,
+    order: orderReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

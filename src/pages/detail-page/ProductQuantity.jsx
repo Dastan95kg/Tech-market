@@ -3,16 +3,18 @@ import './ProductQuantity.scss';
 
 const ProductQuantity = (props) => {
     const {
-        amount,
-        setAmount
+        id,
+        cartItem,
+        increaseProductQuantity,
+        decreaseProductQuantity
     } = props;
 
     const handleDecreasingAmount = () => {
-        return amount > 1 && setAmount(amount - 1);
+        decreaseProductQuantity(id);
     };
 
     const handleIncreasingAmount = () => {
-        setAmount(amount + 1);
+        increaseProductQuantity(id);
     };
 
     return (
@@ -20,7 +22,7 @@ const ProductQuantity = (props) => {
             <button type="button" className="container-btn" onClick={handleDecreasingAmount}>
                 <span>-</span>
             </button>
-            <span className="container-quantity">{amount}</span>
+            <span className="container-quantity">{cartItem && cartItem.quantity}</span>
             <button type="button" className="container-btn" onClick={handleIncreasingAmount}>
                 <span>+</span>
             </button>

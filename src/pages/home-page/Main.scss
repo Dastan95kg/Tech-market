@@ -81,6 +81,10 @@
                     text-decoration-line: line-through;
                     text-transform: uppercase;
                     color: #a3a3a3;
+
+                    span {
+                        margin-right: 5px;
+                    }
                 }
 
                 &__price {
@@ -92,6 +96,10 @@
 
                     span {
                         margin-left: 5px;
+                    }
+
+                    &.margin {
+                        margin: 13px 0;
                     }
                 }
 
