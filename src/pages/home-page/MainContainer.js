@@ -21,4 +21,6 @@ const mapStateToProps = (state) => ({
     promotionProducts: state.home.promotionProducts
 });
 
-export default connect(mapStateToProps, { getPromotionProducts, addProductToCart })(MainContainer);
+export default connect(mapStateToProps, {
+    getPromotionProducts, addProductToCart
+})(MainContainer);

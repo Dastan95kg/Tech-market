@@ -21,7 +21,7 @@ const OrderForm = (props) => {
 
     const formik = useFormik({
         initialValues: {
-            delivery: false,
+            delivery: true,
             name: '',
             email: '',
             phone_number: null,
@@ -33,7 +33,8 @@ const OrderForm = (props) => {
         onSubmit: values => {
             const body = {
                 ...values,
-                products: tempCart
+                products: tempCart,
+                promo_code: '5f24aaaa7f9b5639ecf76449'
             };
             dispatchNewOrder(body);
         }

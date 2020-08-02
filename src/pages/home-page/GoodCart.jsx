@@ -1,23 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Rating } from 'semantic-ui-react';
 import TV from '../../assets/images/tv.png';
 
 const GoodCart = (props) => {
     const {
-        rating,
-        photos,
-        name,
-        price,
-        old_price: oldPrice,
-        _id,
-        addProductToCart,
-        cart,
-        discount
+        rating, photos, name,
+        price, old_price: oldPrice, _id,
+        addProductToCart, cart, discount,
     } = props;
 
     return (
         <div className="popular__goods-item">
-            <div className="content">
+            <Link
+                className="content"
+                to={`/detail/${_id}`}
+            >
                 <img
                     className="content__image"
                     src={photos && photos.length > 0 ? `https://electronics-admin.herokuapp.com/${photos[0]}` : TV}
@@ -37,7 +35,7 @@ const GoodCart = (props) => {
                     {price}
                     <span>c</span>
                 </p>
-            </div>
+            </Link>
             {cart && cart.map(item => item.id).includes(_id)
                 ? <button disabled type="button" className="content__cart-added">Добавлено в корзину</button>
                 : <button type="button" onClick={() => addProductToCart({ id: _id, quantity: 1 })}>Добавить в корзину</button>}

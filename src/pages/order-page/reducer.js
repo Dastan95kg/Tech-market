@@ -22,7 +22,7 @@ export const dispatchNewOrder = (data) => async (dispatch) => {
     console.log(data);
     const response = axios.post('https://electronics-admin.herokuapp.com/neworder', data);
     alert('Заказ успешно оформлен. Пожалуйста, проверьте вашу почту.');
-    window.location.href = '/';
+    // window.location.href = '/';
 };
 
 export default reducer;

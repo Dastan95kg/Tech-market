@@ -10,7 +10,7 @@ import FeedbackForm from './FeedbackForm';
 import ProductQuantity from './ProductQuantity';
 
 const Detail = (props) => {
-    console.log(props);
+    const { count, name, rating } = props.product;
     const [characteristics, showCharacteristics] = useState(true);
     const [feedbacks, showFeedbacks] = useState(false);
     const [feedbackForm, showFeedbackForm] = useState(false);
@@ -38,12 +38,19 @@ const Detail = (props) => {
             <div className="detail__main">
                 <DetailSlider />
                 <div className="detail__main-content">
-                    <div className="is-present">В наличии</div>
-                    <div className="title">Телевизор Philips ABC123QZ9</div>
-                    <div className="code">Код товара: 12345678</div>
+                    <div className="is-present">
+                        {count > 0 ? 'В наличии' : 'Нет на складе'}
+                    </div>
+                    <div className="title">{name}</div>
                     <div className="detail__main-rating">
-                        <Rating maxRating={5} clearable size="massive" disabled />
-                        <div className="votes">28 голосов</div>
+                        <Rating
+                            maxRating={5}
+                            clearable
+                            size="massive"
+                            disabled
+                            rating={rating}
+                        />
+                        {/* <div className="votes">28 голосов</div> */}
                     </div>
                     <div className="detail__main-price">
                         Цена:
