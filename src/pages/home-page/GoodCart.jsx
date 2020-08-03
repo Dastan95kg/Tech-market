@@ -7,7 +7,7 @@ const GoodCart = (props) => {
     const {
         rating, photos, name,
         price, old_price: oldPrice, _id,
-        addProductToCart, cart, discount,
+        addProductToCart, cart, discount
     } = props;
 
     return (
@@ -37,8 +37,22 @@ const GoodCart = (props) => {
                 </p>
             </Link>
             {cart && cart.map(item => item.id).includes(_id)
-                ? <button disabled type="button" className="content__cart-added">Добавлено в корзину</button>
-                : <button type="button" onClick={() => addProductToCart({ id: _id, quantity: 1 })}>Добавить в корзину</button>}
+                ? (
+                    <button
+                        disabled
+                        type="button"
+                        className="content__cart-added"
+                    >
+                        Добавлено в корзину
+                    </button>
+                ) : (
+                    <button
+                        type="button"
+                        onClick={() => addProductToCart({ id: _id, quantity: 1 })}
+                    >
+                        Добавить в корзину
+                    </button>
+                )}
         </div>
     );
 };

@@ -1,34 +1,29 @@
-import React, { useState } from 'react';
-import { useFormik } from 'formik';
-import { Rating } from 'semantic-ui-react';
+import React from 'react';
+import { useFormik, Field } from 'formik';
+import RatingComponent from './Rating';
 
 const FeedbackForm = () => {
-    const [stars, setStars] = useState(0);
-
     const formik = useFormik({
         initialValues: {
-            userName: '',
+            name: '',
             email: '',
             feedback: '',
-            rating: stars
+            rating: 0,
+            content: ''
         },
         onSubmit: values => {
             console.log(values);
         }
     });
 
-    const handleRate = (e, { rating }) => {
-        setStars(rating);
-    };
-
     return (
         <form className="form" onSubmit={formik.handleSubmit}>
             <input
                 type="text"
-                id="userName"
-                name="userName"
+                id="name"
+                name="name"
                 onChange={formik.handleChange}
-                value={formik.values.userName}
+                value={formik.values.name}
                 placeholder="Ваше имя"
             />
             <input
@@ -41,19 +36,18 @@ const FeedbackForm = () => {
             />
             <textarea
                 type="text"
-                id="feedback"
-                name="feedback"
+                id="content"
+                name="content"
                 onChange={formik.handleChange}
-                value={formik.values.feedback}
+                value={formik.values.content}
                 placeholder="Оставьте ваш отзыв"
             />
             <div className="form__rating">
                 Оцените товар:
-                <Rating
+                <Field
                     maxRating={5}
-                    value={formik.values.rating}
-                    onRate={handleRate}
-                    onChange={formik.handleChange}
+                    name="rating"
+                    component={RatingComponent}
                 />
             </div>
             <button className="form__btn" type="submit">Оставить комментарий</button>

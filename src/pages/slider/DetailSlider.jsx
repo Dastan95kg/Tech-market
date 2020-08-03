@@ -7,6 +7,7 @@ import bg from '../../assets/images/background.png';
 
 class DetailSlider extends Component {
     render() {
+        const { photos } = this.props;
         return (
             <Carousel
                 showStatus={false}
@@ -15,15 +16,11 @@ class DetailSlider extends Component {
                 autoPlay
                 emulateTouch
             >
-                <div>
-                    <img src={tv} />
-                </div>
-                <div>
-                    <img src={bg} />
-                </div>
-                <div>
-                    <img src={tv} />
-                </div>
+                {photos && photos.map(photo => (
+                    <div key={photo}>
+                        <img src={`https://electronics-admin.herokuapp.com/${photo}`} alt="product" />
+                    </div>
+                ))}
             </Carousel>
         );
     }

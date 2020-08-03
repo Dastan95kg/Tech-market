@@ -88,9 +88,9 @@ const reducer = (state = initialState, action) => {
 };
 
 // Thunk creators
-export const addProductToCart = (id) => async (dispatch) => {
-    dispatch(ADD_PRODUCT_TO_LOCAL_STORAGE_SUCCESS(id));
-    dispatch(ADD_PRODUCT_TO_CART_SUCCESS(id));
+export const addProductToCart = (obj) => (dispatch) => {
+    dispatch(ADD_PRODUCT_TO_LOCAL_STORAGE_SUCCESS(obj));
+    dispatch(ADD_PRODUCT_TO_CART_SUCCESS(obj));
 };
 
 export const getProductsFromBasket = () => async (dispatch) => {
