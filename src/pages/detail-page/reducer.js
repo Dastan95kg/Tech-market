@@ -21,7 +21,7 @@ const reducer = (state = initialState, action) => {
 export const getProductDetail = (id) => async (dispatch) => {
     const response = await axios.get(`https://electronics-admin.herokuapp.com/product-detail?id=${id}`);
     if (response.status === 200) {
-        dispatch(GET_PRODUCT_DETAIL_SUCCESS(response.data.product));
+        dispatch(GET_PRODUCT_DETAIL_SUCCESS(response.data));
     }
 };
 

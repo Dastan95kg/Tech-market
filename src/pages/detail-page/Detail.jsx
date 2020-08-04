@@ -9,10 +9,10 @@ import FeedbackForm from './FeedbackForm';
 
 const Detail = (props) => {
     const {
-        count, name, rating, old_price: oldPrice,
-        price, discount, photos, features, _id: productId
-    } = props.product;
-    const { addProductToCart, cart } = props;
+        product: { product, feedbacks: feedbacksList },
+        cart,
+        addProductToCart
+    } = props;
 
     const [characteristics, showCharacteristics] = useState(true);
     const [feedbacks, showFeedbacks] = useState(false);
@@ -36,40 +36,43 @@ const Detail = (props) => {
         showFeedbackForm(true);
     };
 
+    if (!product) {
+        return <div>...Загрузка</div>;
+    }
     return (
-        <section className="detail">
+        <section className="detail" >
             <div className="detail__main">
-                <DetailSlider photos={photos} />
+                <DetailSlider photos={product.photos} />
                 <div className="detail__main-content">
                     <div className="is-present">
-                        {count > 0 ? 'В наличии' : 'Нет на складе'}
+                        {product.count > 0 ? 'В наличии' : 'Нет на складе'}
                     </div>
-                    <div className="title">{name}</div>
+                    <div className="title">{product.name}</div>
                     <div className="detail__main-rating">
                         <Rating
                             maxRating={5}
                             clearable
                             size="massive"
                             disabled
-                            rating={rating}
+                            rating={product.rating}
                         />
                     </div>
-                    {discount > 0 ? (
+                    {product.discount > 0 ? (
                         <div className="detail__main-price">
                             <div className="detail__main-price-label">Цена:</div>
                             <div className="detail__main-price-content">
                                 <div className="detail__main-price-oldPrice">
-                                    <span>{oldPrice}</span>
+                                    <span>{product.old_price}</span>
                                     сом
                                 </div>
                                 <div className="detail__main-price-newPrice">
-                                    <span className="price">{price}</span>
+                                    <span className="price">{product.price}</span>
                                     сом
                                 </div>
                             </div>
                             <div className="detail__main-price-discount">
                                 -
-                                <span>{discount}</span>
+                                <span>{product.discount}</span>
                                 %
                             </div>
                         </div>
@@ -82,14 +85,7 @@ const Detail = (props) => {
                                 </div>
                             </div>
                         )}
-                    {/* <button
-                        type="button"
-                        className="add-to-cart"
-                        onClick={() => addProductToCart({ id: productId, quantity: 1 })}
-                    >
-                        Добавить в корзину
-                    </button> */}
-                    {cart && cart.map(item => item.id).includes(productId)
+                    {cart && cart.map(item => item.id).includes(product._id)
                         ? (
                             <button
                                 disabled
@@ -102,7 +98,7 @@ const Detail = (props) => {
                             <button
                                 type="button"
                                 className="add-to-cart"
-                                onClick={() => addProductToCart({ id: productId, quantity: 1 })}
+                                onClick={() => addProductToCart({ id: product._id, quantity: 1 })}
                             >
                                 Добавить в корзину
                             </button>
@@ -124,7 +120,7 @@ const Detail = (props) => {
                         className={feedbacks ? 'detail__info-btn active' : 'detail__info-btn'}
                     >
                         Отзывы
-                        <span>(12)</span>
+                        <span>{`(${feedbacksList.length})`}</span>
                     </button>
                     <button
                         onClick={setForm}
@@ -135,8 +131,8 @@ const Detail = (props) => {
                     </button>
                 </div>
                 <div className="detail__info-content">
-                    {characteristics && <Characteristics features={features} />}
-                    {feedbacks && <Feedbacks />}
+                    {characteristics && <Characteristics features={product.features} />}
+                    {feedbacks && <Feedbacks feedbacks={feedbacksList} />}
                     {feedbackForm && <FeedbackForm />}
                 </div>
             </div>
