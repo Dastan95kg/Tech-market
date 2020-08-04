@@ -16,6 +16,7 @@ import cartReducer from './pages/basket-page/reducer';
 import orderReducer from './pages/order-page/reducer';
 import aboutUsReducer from './pages/aboutUs-page/reducer';
 import detailReducer from './pages/detail-page/reducer';
+import searchReducer from './pages/search-page/reducer';
 
 const reducers = combineReducers({
     home: homeReducer,
@@ -27,7 +28,8 @@ const reducers = combineReducers({
     cart: cartReducer,
     order: orderReducer,
     aboutUs: aboutUsReducer,
-    detail: detailReducer
+    detail: detailReducer,
+    search: searchReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

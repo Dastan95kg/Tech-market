@@ -15,7 +15,8 @@ class OrderContainer extends Component {
 const mapStateToProps = (state) => ({
     cart: state.cart.cart,
     categories: state.categories.categories,
-    tempCart: state.cart.tempCart
+    tempCart: state.cart.tempCart,
+    order: state.order.order
 });
 
 export default connect(mapStateToProps, { removeProductFromCart, dispatchNewOrder })(OrderContainer);

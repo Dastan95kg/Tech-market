@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
-import { Dropdown } from 'semantic-ui-react';
+import { Dropdown, Modal } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import './OrderForm.scss';
 
 const OrderForm = (props) => {
-    const { dispatchNewOrder, tempCart, products } = props;
+    const {
+        dispatchNewOrder, tempCart, products,
+        order
+    } = props;
     const priceList = [];
     products.forEach(product => {
         tempCart.forEach(item => {
@@ -12,6 +16,7 @@ const OrderForm = (props) => {
         });
     });
     const totalPrice = priceList.reduce((counter, price) => counter + price, 0);
+    const [open, setOpen] = useState(false);
 
     const options = [
         { key: 1, text: 'ул. Юнусалиева 46', value: 1 },
@@ -157,6 +162,22 @@ const OrderForm = (props) => {
             <div className="order-form__buttons">
                 <button type="button">Вернуться</button>
                 <button type="submit">Оформить заказ</button>
+                <Modal
+                    centered={false}
+                    open={open}
+                    onClose={() => setOpen(false)}
+                    onOpen={() => setOpen(true)}
+                >
+                    <Modal.Header>Thank you!</Modal.Header>
+                    <Modal.Content>
+                        <Modal.Description>
+                            Your subscription has been confirmed
+                        </Modal.Description>
+                    </Modal.Content>
+                    <Modal.Actions>
+                        <Link to="/" onClick={() => setOpen(false)}>OK</Link>
+                    </Modal.Actions>
+                </Modal>
             </div>
         </form>
     );

@@ -1,5 +1,5 @@
-import { DISPATCH_NEW_ORDER_SUCCESS } from './actions';
 import axios from 'axios';
+import { DISPATCH_NEW_ORDER_SUCCESS } from './actions';
 
 const initialValues = {
     order: ''
@@ -19,10 +19,11 @@ const reducer = (state = initialValues, action) => {
 
 // Thunk creators
 export const dispatchNewOrder = (data) => async (dispatch) => {
-    console.log(data);
-    const response = axios.post('https://electronics-admin.herokuapp.com/neworder', data);
-    alert('Заказ успешно оформлен. Пожалуйста, проверьте вашу почту.');
-    // window.location.href = '/';
+    const response = await axios.post('https://electronics-admin.herokuapp.com/neworder', data);
+    console.log(response.data);
+    if (response.status === 200) {
+        dispatch(DISPATCH_NEW_ORDER_SUCCESS(response.data));
+    }
 };
 
 export default reducer;

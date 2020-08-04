@@ -12,7 +12,8 @@ const Order = (props) => {
         history,
         categories,
         tempCart,
-        dispatchNewOrder
+        dispatchNewOrder,
+        order
     } = props;
 
     return (
@@ -44,6 +45,7 @@ const Order = (props) => {
                                 dispatchNewOrder={dispatchNewOrder}
                                 tempCart={tempCart}
                                 products={cartProducts}
+                                order={order}
                             />
                         </div>
                     </section>

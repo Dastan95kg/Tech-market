@@ -8,7 +8,7 @@ import ListContainer from './pages/list-page/ListContainer';
 import CartContainer from './pages/basket-page/CartContainer';
 import OrderContainer from './pages/order-page/OrderContainer';
 import Search from './pages/search-page/Search';
-import Tracking from './pages/tracking-page/Tracking';
+import TrackingContainer from './pages/tracking-page/TrackingContainer';
 import AboutUsContainer from './pages/aboutUs-page/AboutUsContainer';
 import DeliveryContainer from './pages/delivery-page/DeliveryContainer';
 import ContactsContainer from './pages/contacts-page/ContactsContainer';
@@ -31,7 +31,7 @@ const App = () => {
                         <Route path="/basket" component={CartContainer} />
                         <Route path="/order" component={OrderContainer} />
                         <Route path="/search" component={Search} />
-                        <Route path="/tracking" component={Tracking} />
+                        <Route path="/tracking" component={TrackingContainer} />
                         <Route path="/about" component={AboutUsContainer} />
                         <Route path="/delivery" component={DeliveryContainer} />
                         <Route path="/contacts" component={ContactsContainer} />

@@ -1,6 +1,6 @@
 import React from 'react';
-import { useFormik, Field } from 'formik';
-import RatingComponent from './Rating';
+import { useFormik } from 'formik';
+import { Rating } from 'semantic-ui-react';
 
 const FeedbackForm = () => {
     const formik = useFormik({
@@ -8,8 +8,7 @@ const FeedbackForm = () => {
             name: '',
             email: '',
             feedback: '',
-            rating: 0,
-            content: ''
+            rating: 0
         },
         onSubmit: values => {
             console.log(values);
@@ -36,18 +35,18 @@ const FeedbackForm = () => {
             />
             <textarea
                 type="text"
-                id="content"
-                name="content"
+                id="feedback"
+                name="feedback"
                 onChange={formik.handleChange}
-                value={formik.values.content}
+                value={formik.values.feedback}
                 placeholder="Оставьте ваш отзыв"
             />
             <div className="form__rating">
                 Оцените товар:
-                <Field
-                    maxRating={5}
+                <Rating
                     name="rating"
-                    component={RatingComponent}
+                    maxRating={5}
+                    value={formik.values.rating}
                 />
             </div>
             <button className="form__btn" type="submit">Оставить комментарий</button>

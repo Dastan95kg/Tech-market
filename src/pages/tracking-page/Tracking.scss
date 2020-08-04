@@ -42,6 +42,11 @@
             text-align: center;
         }
     }
+
+    .ui.attached.negative.message,
+    .ui.negative.message .header {
+        height: 50px;
+    }
 }
 
 // ------------------MEDIA Queries-------------------------------------------//
@@ -69,6 +74,7 @@
         &__results {
             &-code {
                 order: 2;
+                margin-top: 20px;
             }
 
             &-statuses {
