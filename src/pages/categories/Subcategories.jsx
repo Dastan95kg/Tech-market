@@ -1,6 +1,6 @@
 import React from 'react';
-import './Subcategories.scss';
 import { Link } from 'react-router-dom';
+import './Subcategories.scss';
 
 const Subcategories = (props) => {
     const {
@@ -16,13 +16,13 @@ const Subcategories = (props) => {
             onMouseLeave={() => setSubcategoriesActive(false)}
         >
             {subcategories && subcategories.map(item => (
-                <div
+                <Link
                     className="subcategories__item"
                     key={item._id}
-                // to={`/products/${item._id}`}
+                    to={`/products/${item._id}`}
                 >
                     {item.name}
-                </div>
+                </Link>
             ))}
         </div>
     );

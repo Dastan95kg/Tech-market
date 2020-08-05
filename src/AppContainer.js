@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import App from './App';
-import { getAllProducts } from './pages/list-page/reducer';
 
 class AppContainer extends Component {
     componentDidMount() {
-        this.props.getAllProducts();
+        // this.props.getAllProducts();
     }
 
     render() {
@@ -19,4 +18,4 @@ const mapStateToProps = (state) => ({
     products: state.list.products
 });
 
-export default connect(mapStateToProps, { getAllProducts })(AppContainer);
+export default connect(mapStateToProps, null)(AppContainer);

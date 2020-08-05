@@ -1,8 +1,9 @@
 import axios from 'axios';
 import {
-    GET_ALL_PRODUCTS_SUCCESS,
     INCREASE_PRODUCT_AMOUNT_SUCCESS,
-    DECREASE_PRODUCT_AMOUNT_SUCCESS
+    DECREASE_PRODUCT_AMOUNT_SUCCESS,
+    GET_ALL_CATEGORY_PRODUCTS_SUCCESS,
+    GET_ALL_SUBCATEGORY_PRODUCTS_SUCCESS
 } from './actions';
 
 const initialState = {
@@ -11,7 +12,12 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'GET_ALL_PRODUCTS':
+        case 'GET_ALL_CATEGORY_PRODUCTS':
+            return {
+                ...state,
+                products: action.payload
+            };
+        case 'GET_ALL_SUBCATEGORY_PRODUCTS':
             return {
                 ...state,
                 products: action.payload
@@ -50,10 +56,18 @@ const reducer = (state = initialState, action) => {
 };
 
 // Thunk creators
-export const getAllProducts = () => async (dispatch) => {
-    const response = await axios.get('https://electronics-admin.herokuapp.com/all-products');
+export const getAllCategoryProducts = (id, page = 1) => async (dispatch) => {
+    const response = await axios.get(`https://electronics-admin.herokuapp.com/all-products/?category=${id}&page=${page}`);
     if (response.status === 200) {
-        dispatch(GET_ALL_PRODUCTS_SUCCESS(response.data.products));
+        dispatch(GET_ALL_CATEGORY_PRODUCTS_SUCCESS(response.data));
+    }
+};
+
+export const getAllSubcategoryProducts = (id, page = 1) => async (dispatch) => {
+    const response = await axios
+        .get(`https://electronics-admin.herokuapp.com/all-products/?subcategory=${id}&page=${page}`);
+    if (response.status === 200) {
+        dispatch(GET_ALL_SUBCATEGORY_PRODUCTS_SUCCESS(response.data));
     }
 };
 

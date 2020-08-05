@@ -9,13 +9,13 @@ import './List.scss';
 const List = (props) => {
     const {
         match,
-        products,
+        products: { products },
         addProductToCart,
         categories,
+        subcategories,
         cart
     } = props;
-    const categoriesId = categories && categories.map(category => category._id);
-    const categoryName = categories && categories.find(category => category._id === match.params.category).name;
+    const title = [...categories, ...subcategories].find(item => item._id === match.params.category);
 
     const options = [
         { key: 'af', value: 'af', text: 'По умолчанию' },
@@ -30,7 +30,7 @@ const List = (props) => {
             <div className="list__content">
                 <div className="list__content-filterContainer">
                     <div className="list__content-categories">
-                        <div className="list__content-category">{categoryName}</div>
+                        <div className="list__content-category">{title && title.name}</div>
                         {/* <img src={arrow} alt="arrow" className="list__content-arrow" />
                         <div className="list__content-subcategory">Смартфоны</div> */}
                     </div>
@@ -57,18 +57,13 @@ const List = (props) => {
                 </div>
                 <div className="list__content-products-wrapper">
                     <div className="list__content-products">
-                        {categoriesId && categoriesId.map(categoryId => (
-                            match.params.category === categoryId && (
-                                products && products.filter(product => product.category === categoryId)
-                                    .map(product => (
-                                        <GoodCart
-                                            {...product}
-                                            key={product._id}
-                                            addProductToCart={addProductToCart}
-                                            cart={cart}
-                                        />
-                                    ))
-                            )
+                        {products && products.map(product => (
+                            <GoodCart
+                                {...product}
+                                key={product._id}
+                                addProductToCart={addProductToCart}
+                                cart={cart}
+                            />
                         ))}
                     </div>
                     <Filter />
