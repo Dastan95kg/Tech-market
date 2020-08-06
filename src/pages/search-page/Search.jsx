@@ -1,11 +1,13 @@
 import React from 'react';
-import { Dropdown, Checkbox, Pagination } from 'semantic-ui-react';
+import {
+    Dropdown, Checkbox, Pagination, Message
+} from 'semantic-ui-react';
 import GoodCart from '../home-page/GoodCart';
 import PriceRunner from '../list-page/PriceRunner';
 import './Search.scss';
 import filterImg from '../../assets/images/filter.png';
 
-const Search = () => {
+const Search = ({ searchProducts, cart, addProductToCart }) => {
     const options = [
         { key: 'af', value: 'af', text: 'По умолчанию' },
         { key: 'ax', value: 'ax', text: 'По алфавиту А-Я' },
@@ -39,14 +41,23 @@ const Search = () => {
                 <div className="search__content-wrapper">
                     <div className="search__content-products-wrapper">
                         <div className="search__content-products">
-                            <GoodCart />
-                            <GoodCart />
-                            <GoodCart />
-                            <GoodCart />
-                            <GoodCart />
-                            <GoodCart />
-                            <GoodCart />
-                            <GoodCart />
+                            {searchProducts && searchProducts.length ? searchProducts.map(product => (
+                                <GoodCart
+                                    key={product._id}
+                                    {...product}
+                                    cart={cart}
+                                    addProductToCart={addProductToCart}
+                                />
+                            ))
+                                : (
+                                    <Message
+                                        negative
+                                        color="red"
+                                        size="large"
+                                    >
+                                        <Message.Header>По вашему запросу ничего не найдено</Message.Header>
+                                    </Message>
+                                )}
                         </div>
                         <div className="search__content-products-pagination">
                             <Pagination

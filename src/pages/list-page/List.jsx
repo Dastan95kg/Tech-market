@@ -2,7 +2,7 @@ import React from 'react';
 import { Select, Pagination } from 'semantic-ui-react';
 import GoodCart from '../home-page/GoodCart';
 import Filter from '../filter/Filter';
-import arrow from '../../assets/images/list-arrow.png';
+// import arrow from '../../assets/images/list-arrow.png';
 import filterBtn from '../../assets/images/filter.png';
 import './List.scss';
 
@@ -10,6 +10,7 @@ const List = (props) => {
     const {
         match,
         products: { products },
+        products: productsObj,
         addProductToCart,
         categories,
         subcategories,
@@ -76,7 +77,7 @@ const List = (props) => {
                         firstItem={null}
                         lastItem={null}
                         siblingRange={1}
-                        totalPages={10}
+                        totalPages={productsObj.total_pages}
                     />
                 </div>
             </div>

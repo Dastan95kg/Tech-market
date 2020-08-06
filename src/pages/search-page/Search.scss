@@ -6,6 +6,7 @@
     &__content {
         flex: 1;
         color: #000;
+        width: 100%;
 
         &-navbar {
             background: #ffffff;
@@ -53,6 +54,7 @@
             background: #ffffff;
             padding: 10px 20px;
             margin-top: 43px;
+            width: 25%;
 
             &-title {
                 font-size: 16px;
@@ -121,6 +123,10 @@
             flex-wrap: wrap;
             flex: 1;
             padding: 43px 20px;
+
+            &-wrapper {
+                width: 75%;
+            }
 
             .popular__goods-wrapper {
                 width: 33.333%;

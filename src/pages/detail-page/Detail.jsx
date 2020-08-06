@@ -11,7 +11,8 @@ const Detail = (props) => {
     const {
         product: { product, feedbacks: feedbacksList },
         cart,
-        addProductToCart
+        addProductToCart,
+        promotionProducts
     } = props;
 
     const [characteristics, showCharacteristics] = useState(true);
@@ -139,10 +140,16 @@ const Detail = (props) => {
             <div className="detail__similar">
                 <h3 className="detail__similar-title">Акционные товары</h3>
                 <div className="detail__similar-content">
-                    <GoodCart />
-                    <GoodCart />
-                    <GoodCart />
-                    <GoodCart />
+                    {promotionProducts
+                        && promotionProducts.filter(item => item._id !== product._id)
+                            .map(item => (
+                                <GoodCart
+                                    key={item._id}
+                                    {...item}
+                                    addProductToCart={addProductToCart}
+                                    cart={cart}
+                                />
+                            ))}
                 </div>
             </div>
         </section>

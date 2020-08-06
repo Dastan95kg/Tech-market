@@ -57,7 +57,8 @@ const reducer = (state = initialState, action) => {
 
 // Thunk creators
 export const getAllCategoryProducts = (id, page = 1) => async (dispatch) => {
-    const response = await axios.get(`https://electronics-admin.herokuapp.com/all-products/?category=${id}&page=${page}`);
+    const response = await axios
+        .get(`https://electronics-admin.herokuapp.com/all-products/?category=${id}&page=${page}&limit=2`);
     if (response.status === 200) {
         dispatch(GET_ALL_CATEGORY_PRODUCTS_SUCCESS(response.data));
     }
