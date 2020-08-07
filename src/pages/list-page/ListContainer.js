@@ -8,6 +8,7 @@ import {
     sortingByField
 } from './reducer';
 import { getCategoriesAndSubcategories } from '../categories/reducer';
+import Preloader from '../preloader/Preloader';
 
 class ListContainer extends Component {
     async componentDidMount() {
@@ -33,7 +34,9 @@ class ListContainer extends Component {
 
     render() {
         return (
-            <List {...this.props} />
+            <>
+                {this.props.isLoading ? <Preloader /> : <List {...this.props} />}
+            </>
         );
     }
 }
@@ -43,7 +46,8 @@ const mapStateToProps = (state) => ({
     products: state.list.products,
     categories: state.categories.categories,
     subcategories: state.categories.subcategories,
-    cart: state.cart.tempCart
+    cart: state.cart.tempCart,
+    isLoading: state.search.isLoading
 });
 
 export default connect(mapStateToProps, {

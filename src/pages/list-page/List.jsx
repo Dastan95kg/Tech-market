@@ -29,7 +29,9 @@ const List = (props) => {
     ];
 
     const getValue = (event, { value }) => {
-        sortingByField(value, match.params.category);
+        const name = categories.map(item => item._id)
+            .includes(match.params.category) ? 'category' : 'subcategory';
+        sortingByField(value, match.params.category, name);
     };
 
     return (

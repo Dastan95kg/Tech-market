@@ -13,3 +13,7 @@ export const FIND_PRODUCTS_SUCCESS = (data) => ({
 export const CLEAR_SEARCH_RESULTS_SUCCESS = () => ({
     type: 'CLEAR_SEARCH_RESULTS'
 });
+
+export const TOGGLE_IS_LOADING_SUCCESS = (isLoading) => ({
+    type: 'TOGGLE_IS_LOADING', payload: isLoading
+});

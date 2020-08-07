@@ -45,7 +45,7 @@ const TrackingResult = (props) => {
                         <input
                             id="received"
                             type="radio"
-                            checked={status === 'Принято'}
+                            checked={status === 'Заказ принят'}
                         />
                         Принято
                     </label>
@@ -55,7 +55,7 @@ const TrackingResult = (props) => {
                         <input
                             id="atCourier"
                             type="radio"
-                            checked={status === 'У курьера'}
+                            checked={status === 'Заказ передан курьеру'}
                         />
                         У курьера
                     </label>
@@ -65,7 +65,7 @@ const TrackingResult = (props) => {
                         <input
                             id="delivered"
                             type="radio"
-                            checked={status === 'Доставлено'}
+                            checked={status === 'Заказ доставлен'}
                         />
                         Доставлено
                     </label>
@@ -75,7 +75,7 @@ const TrackingResult = (props) => {
                         <input
                             id="cancelled"
                             type="radio"
-                            checked={status === 'Отмена'}
+                            checked={status === 'Заказ отменен'}
                         />
                         Отмена
                     </label>

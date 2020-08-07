@@ -11,9 +11,11 @@ import {
     SORTING_BY_NAME_ZA_SUCCESS,
     SORTING_BY_DEFAULT_SUCCESS
 } from './actions';
+import { TOGGLE_IS_LOADING_SUCCESS } from '../search-page/actions';
 
 const initialState = {
-    products: ''
+    products: '',
+    isLoading: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -68,19 +70,23 @@ const reducer = (state = initialState, action) => {
 
 // Thunk creators
 export const getAllCategoryProducts = (id, page = 1) => async (dispatch) => {
+    dispatch(TOGGLE_IS_LOADING_SUCCESS(true));
     const response = await axios
         .get(`https://electronics-admin.herokuapp.com/all-products/?category=${id}&page=${page}`);
     if (response.status === 200) {
         dispatch(GET_ALL_CATEGORY_PRODUCTS_SUCCESS(response.data));
     }
+    dispatch(TOGGLE_IS_LOADING_SUCCESS(false));
 };
 
 export const getAllSubcategoryProducts = (id, page = 1) => async (dispatch) => {
+    dispatch(TOGGLE_IS_LOADING_SUCCESS(true));
     const response = await axios
         .get(`https://electronics-admin.herokuapp.com/all-products/?subcategory=${id}&page=${page}`);
     if (response.status === 200) {
         dispatch(GET_ALL_SUBCATEGORY_PRODUCTS_SUCCESS(response.data));
     }
+    dispatch(TOGGLE_IS_LOADING_SUCCESS(false));
 };
 
 export const increaseProductAmount = (id) => (dispatch) => {
@@ -91,46 +97,46 @@ export const decreaseProductAmount = (id) => (dispatch) => {
     dispatch(DECREASE_PRODUCT_AMOUNT_SUCCESS(id));
 };
 
-export const sortingByField = (obj, categoryId) => async (dispatch) => {
+export const sortingByField = (obj, id, name) => async (dispatch) => {
     if (obj.field === 'price') {
         if (obj.sorting === -1) {
             const response = await axios
-                .get(`https://electronics-admin.herokuapp.com/all-products/?category=${categoryId}&field=${obj.field}`);
+                .get(`https://electronics-admin.herokuapp.com/all-products/?${name}=${id}&field=${obj.field}`);
             if (response.status === 200) {
                 dispatch(SORTING_BY_INCREASING_PRICE_SUCCESS(response.data));
             }
         }
         if (obj.sorting === 1) {
             const response = await axios
-                .get(`https://electronics-admin.herokuapp.com/all-products/?category=${categoryId}&field=${obj.field}&sorting=${1}`);
+                .get(`https://electronics-admin.herokuapp.com/all-products/?${name}=${id}&field=${obj.field}&sorting=${1}`);
             if (response.status === 200) {
                 dispatch(SORTING_BY_DECREASING_PRICE_SUCCESS(response.data));
             }
         }
     } else if (obj.field === 'orders_count') {
         const response = await axios
-            .get(`https://electronics-admin.herokuapp.com/all-products/?category=${categoryId}&field=${obj.field}`);
+            .get(`https://electronics-admin.herokuapp.com/all-products/?${name}=${id}&field=${obj.field}`);
         if (response.status === 200) {
             dispatch(SORTING_BY_POPULAR_SUCCESS(response.data));
         }
     } else if (obj.field === 'name') {
         if (obj.sorting === 1) {
             const response = await axios
-                .get(`https://electronics-admin.herokuapp.com/all-products/?category=${categoryId}&field=${obj.field}&sorting=-1`);
+                .get(`https://electronics-admin.herokuapp.com/all-products/?${name}=${id}&field=${obj.field}&sorting=-1`);
             if (response.status === 200) {
                 dispatch(SORTING_BY_NAME_AZ_SUCCESS(response.data));
             }
         }
         if (obj.sorting === -1) {
             const response = await axios
-                .get(`https://electronics-admin.herokuapp.com/all-products/?category=${categoryId}&field=${obj.field}&sorting=1`);
+                .get(`https://electronics-admin.herokuapp.com/all-products/?${name}=${id}&field=${obj.field}&sorting=1`);
             if (response.status === 200) {
                 dispatch(SORTING_BY_NAME_ZA_SUCCESS(response.data));
             }
         }
     } else {
         const response = await axios
-            .get(`https://electronics-admin.herokuapp.com/all-products/?category=${categoryId}`);
+            .get(`https://electronics-admin.herokuapp.com/all-products/?${name}=${id}`);
         if (response.status === 200) {
             dispatch(SORTING_BY_DEFAULT_SUCCESS(response.data));
         }
