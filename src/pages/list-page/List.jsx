@@ -14,17 +14,23 @@ const List = (props) => {
         addProductToCart,
         categories,
         subcategories,
-        cart
+        cart,
+        sortingByField
     } = props;
     const title = [...categories, ...subcategories].find(item => item._id === match.params.category);
 
     const options = [
-        { key: 'af', value: 'af', text: 'По умолчанию' },
-        { key: 'ax', value: 'ax', text: 'По алфавиту А-Я' },
-        { key: 'ay', value: 'ay', text: 'По алфавиту Я-А' },
-        { key: 'az', value: 'az', text: 'По возрастанию цены' },
-        { key: 'ac', value: 'ac', text: 'По убыванию цены' }
+        { key: '1', value: { field: 'default', sorting: 1 }, text: 'По умолчанию' },
+        { key: '2', value: { field: 'price', sorting: -1 }, text: 'По возрастанию цены' },
+        { key: '3', value: { field: 'price', sorting: 1 }, text: 'По убыванию цены' },
+        { key: '4', value: { field: 'orders_count', sorting: -1 }, text: 'По популярности' },
+        { key: '5', value: { field: 'name', sorting: -1 }, text: 'По алфавиту А-Я' },
+        { key: '6', value: { field: 'name', sorting: 1 }, text: 'По алфавиту Я-А' }
     ];
+
+    const getValue = (event, { value }) => {
+        sortingByField(value, match.params.category);
+    };
 
     return (
         <section className="list">
@@ -37,7 +43,7 @@ const List = (props) => {
                     </div>
                     <div className="list__content-sort">
                         <span className="list__content-sort-title">Сортировка</span>
-                        <Select placeholder="По умолчанию" options={options} />
+                        <Select placeholder="По умолчанию" options={options} onChange={getValue} />
                     </div>
                     <div className="list__content-adaptiveFilter">
                         <button type="button">

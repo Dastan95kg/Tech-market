@@ -5,7 +5,8 @@ import {
     UPDATE_PRODUCTS_IN_CART_SUCCESS,
     ADD_PRODUCT_TO_CART_SUCCESS,
     INCREASE_PRODUCT_QUANTITY_SUCCESS,
-    DECREASE_PRODUCT_QUANTITY_SUCCESS
+    DECREASE_PRODUCT_QUANTITY_SUCCESS,
+    SYNC_LOCAL_STORAGE_WITH_STATE_SUCCESS
 } from './actions';
 
 const initialState = {
@@ -82,6 +83,13 @@ const reducer = (state = initialState, action) => {
                 tempCart: tempProducts
             };
         }
+        case 'SYNC_LOCAL_STORAGE_WITH_STATE': {
+            const storageData = JSON.parse(localStorage.getItem('cart'));
+            return {
+                ...state,
+                tempCart: storageData
+            };
+        }
         default:
             return state;
     }
@@ -116,6 +124,10 @@ export const increaseProductQuantity = (id) => (dispatch) => {
 
 export const decreaseProductQuantity = (id) => (dispatch) => {
     dispatch(DECREASE_PRODUCT_QUANTITY_SUCCESS(id));
+};
+
+export const syncLocalStorageWithState = () => (dispatch) => {
+    dispatch(SYNC_LOCAL_STORAGE_WITH_STATE_SUCCESS());
 };
 
 export default reducer;

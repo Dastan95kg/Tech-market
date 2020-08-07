@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from './Header';
 import { findProducts } from '../search-page/reducer';
+import { syncLocalStorageWithState } from '../basket-page/reducer';
 
 class HeaderContainer extends Component {
+    componentDidMount() {
+        this.props.syncLocalStorageWithState();
+    }
+
     render() {
         return (
             <Header {...this.props} />
@@ -17,4 +22,6 @@ const mapStateToProps = (state) => ({
     redirect: state.search.redirect
 });
 
-export default connect(mapStateToProps, { findProducts })(HeaderContainer);
+export default connect(mapStateToProps, {
+    findProducts, syncLocalStorageWithState
+})(HeaderContainer);

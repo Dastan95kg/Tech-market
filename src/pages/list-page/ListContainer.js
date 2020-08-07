@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import List from './List';
 import { addProductToCart } from '../basket-page/reducer';
-import { getAllCategoryProducts, getAllSubcategoryProducts } from './reducer';
+import {
+    getAllCategoryProducts,
+    getAllSubcategoryProducts,
+    sortingByField
+} from './reducer';
 import { getCategoriesAndSubcategories } from '../categories/reducer';
 
 class ListContainer extends Component {
@@ -46,5 +50,6 @@ export default connect(mapStateToProps, {
     addProductToCart,
     getAllCategoryProducts,
     getAllSubcategoryProducts,
-    getCategoriesAndSubcategories
+    getCategoriesAndSubcategories,
+    sortingByField
 })(ListContainer);

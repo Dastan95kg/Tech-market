@@ -12,6 +12,12 @@ class DetailContainer extends Component {
         this.props.getProductDetail(id);
     }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.match.params.id !== this.props.match.params.id) {
+            this.props.getProductDetail(this.props.match.params.id)
+        }
+    }
+
     render() {
         return (
             <Detail {...this.props} />

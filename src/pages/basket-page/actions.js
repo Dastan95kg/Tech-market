@@ -21,3 +21,7 @@ export const INCREASE_PRODUCT_QUANTITY_SUCCESS = (id) => ({
 export const DECREASE_PRODUCT_QUANTITY_SUCCESS = (id) => ({
     type: 'DECREASE_PRODUCT_QUANTITY', payload: id
 });
+
+export const SYNC_LOCAL_STORAGE_WITH_STATE_SUCCESS = () => ({
+    type: 'SYNC_LOCAL_STORAGE_WITH_STATE'
+});
