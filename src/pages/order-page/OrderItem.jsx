@@ -8,7 +8,9 @@ const OrderItem = (props) => {
         price,
         removeProductFromCart,
         _id: id,
-        tempCart
+        tempCart,
+        old_price: oldPrice,
+        discount
     } = props;
     const quantity = tempCart && tempCart.find(item => item.id === id).quantity;
     const cartItem = tempCart && tempCart.find(item => item.id === id);
@@ -26,12 +28,28 @@ const OrderItem = (props) => {
                     </span>
                 </div>
             </div>
-            <FinalPrice
-                price={price}
-                removeProduct={() => removeProductFromCart(id)}
-                productId={id}
-                cartItem={cartItem}
-            />
+            <div className="order__content-item-price">
+                {discount > 0 && (
+                    <div className="order__content-item-discount-wrapper">
+                        <div className="order__content-item-oldPrice">
+                            <span className="order__content-item-oldPrice-content">{oldPrice}</span>
+                            сом
+                        </div>
+                        <span className="order__content-item-minus">-</span>
+                        <div className="order__content-item-discount">
+                            {discount}
+                            %
+                        </div>
+                        <span className="order__content-item-equal">=</span>
+                    </div>
+                )}
+                <FinalPrice
+                    price={price}
+                    removeProduct={() => removeProductFromCart(id)}
+                    productId={id}
+                    cartItem={cartItem}
+                />
+            </div>
         </div>
     );
 };

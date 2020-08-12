@@ -1,18 +1,32 @@
 import React, { useState } from 'react';
-import { Checkbox } from 'semantic-ui-react';
 import PriceRunner from '../list-page/PriceRunner';
 import downArrow from '../../assets/images/dowт-arrow.png';
 import upArrow from '../../assets/images/up-arrow.png';
 import './Filter.scss';
+import FilterItem from './FilterItem';
 
-const Filter = () => {
+const Filter = (props) => {
+    const {
+        subcategory: { features },
+        toggleCheckboxes
+    } = props;
     const [filterOn, setFilterOn] = useState(true);
 
     return (
         <div className="list__content-filters">
+            {features && Object.keys(features)
+                .filter(key => features[key].length > 0)
+                .map(key => (
+                    <FilterItem
+                        key={key}
+                        title={key}
+                        checkboxes={features[key]}
+                        toggleCheckboxes={toggleCheckboxes}
+                    />
+                ))}
             <div className="list__content-filter">
                 <div className="list__content-filters-label">
-                    <span>Бренд</span>
+                    <span>Цена</span>
                     <button
                         type="button"
                         className="list__content-filters-label-btn"
@@ -23,25 +37,13 @@ const Filter = () => {
                             : <img src={upArrow} alt="up arrow" />}
                     </button>
                 </div>
-                {filterOn && (
-                    <div className="list__content-filters-checkboxes">
-                        <Checkbox label="Samsung" />
-                        <Checkbox label="Panasonic" />
-                        <Checkbox label="LG" />
-                        <Checkbox label="Huawei" />
-                    </div>
-                )}
+                {filterOn && <PriceRunner />}
             </div>
-            <div className="list__content-filter">
-                <div className="list__content-filters-label">
-                    <span>Цена</span>
-                    <button type="button" className="list__content-filters-label-btn">
-                        <img src={downArrow} alt="down arrow" />
-                    </button>
-                </div>
-                <PriceRunner />
-            </div>
-            <button className="list__content-filters-btn" type="button">
+            <button
+                className="list__content-filters-btn"
+                type="button"
+                onClick={() => alert('ok')}
+            >
                 Применить
             </button>
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Select, Pagination } from 'semantic-ui-react';
 import GoodCart from '../home-page/GoodCart';
-import Filter from '../filter/Filter';
+import FilterContainer from '../filter/FilterContainer';
 // import arrow from '../../assets/images/list-arrow.png';
 import filterBtn from '../../assets/images/filter.png';
 import './List.scss';
@@ -75,7 +75,12 @@ const List = (props) => {
                             />
                         ))}
                     </div>
-                    <Filter />
+                    {subcategories && subcategories.map(item => item._id)
+                        .includes(match.params.category) && (
+                            <FilterContainer
+                                subcategory={subcategories.find(item => item._id === match.params.category)}
+                            />
+                        )}
                 </div>
                 <div className="list__content-pagination">
                     <Pagination

@@ -45,6 +45,32 @@
                 cursor: pointer;
             }
         }
+
+        &-saved {
+            display: flex;
+            justify-content: flex-end;
+            padding: 0 26px;
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+
+            &-num {
+                color: #1d97f0;
+                margin: 0 5px;
+            }
+        }
+
+        .ui.small.message .discount-num {
+            margin-left: 5px;
+        }
+
+        .ui.positive.message .header {
+            height: 40px;
+        }
+
+        .ui.negative.message .header {
+            height: 40px;
+        }
     }
 }
 
@@ -69,6 +95,11 @@
     .order {
         &__content {
             margin: 0;
+
+            &-saved {
+                justify-content: flex-start;
+                padding: 0 15px;
+            }
         }
     }
 }

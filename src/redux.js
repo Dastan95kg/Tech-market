@@ -17,6 +17,7 @@ import orderReducer from './pages/order-page/reducer';
 import aboutUsReducer from './pages/aboutUs-page/reducer';
 import detailReducer from './pages/detail-page/reducer';
 import searchReducer from './pages/search-page/reducer';
+import filtersReducer from './pages/filter/reducer';
 
 const reducers = combineReducers({
     home: homeReducer,
@@ -29,7 +30,8 @@ const reducers = combineReducers({
     order: orderReducer,
     aboutUs: aboutUsReducer,
     detail: detailReducer,
-    search: searchReducer
+    search: searchReducer,
+    filters: filtersReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

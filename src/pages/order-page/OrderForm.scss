@@ -42,7 +42,7 @@
         flex-direction: column;
         margin-bottom: 70px;
 
-        .email {
+        input {
             margin: 10px 0;
         }
     }
@@ -109,11 +109,15 @@
             background: 0;
         }
 
-        button[type="button"] {
+        .goBack {
             font-size: 14px;
             line-height: 17px;
             color: #3e3e3e;
             margin-right: 12px;
+
+            &:hover {
+                color: #1d97f0;
+            }
         }
 
         button[type="submit"] {
@@ -126,6 +130,14 @@
             height: 45px;
             text-align: center;
         }
+    }
+
+    &__error {
+        color: red;
+    }
+
+    .error {
+        border-color: red !important;
     }
 
     input:not([type="radio"]),
@@ -173,6 +185,12 @@
 @media #{$desktop-sm} {
     .order-form {
         padding: 0 15px;
+    }
+}
+
+@media #{$tablet-md} {
+    .ui.modal > .actions {
+        padding: 1rem 1rem !important;
     }
 }
 

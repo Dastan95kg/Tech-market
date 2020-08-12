@@ -42,7 +42,7 @@ const Cart = (props) => {
                         <div className="basket__content-buttons">
                             <button
                                 type="button"
-                                className="return"
+                                className="goBack"
                                 onClick={() => history.push('/')}
                             >
                                 Вернуться

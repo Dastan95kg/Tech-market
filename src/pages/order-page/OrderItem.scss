@@ -32,12 +32,72 @@
             margin-right: 5px;
         }
     }
+
+    &-price {
+        display: flex;
+        align-items: flex-end;
+        margin-left: 5px;
+    }
+
+    &-discount-wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    &-oldPrice {
+        font-size: 20px;
+        line-height: 24px;
+        color: #aeaeae;
+        text-decoration: line-through;
+
+        &-content {
+            margin-right: 5px;
+        }
+    }
+
+    &-minus {
+        margin: 0 5px;
+        font-size: 25px;
+    }
+
+    &-discount {
+        font-size: 20px;
+        line-height: 24px;
+        color: #1d97f0;
+    }
+
+    &-equal {
+        margin: 0 5px;
+        font-size: 25px;
+    }
 }
 
 // ------------------MEDIA Queries-------------------------------------------//
 @media #{$desktop-sm} {
     .order__content-item {
         padding: 15px;
+    }
+}
+
+@media #{$tablet-lg} {
+    .order__content-item {
+        &-oldPrice {
+            font-size: 16px;
+            line-height: 16px;
+        }
+
+        &-minus {
+            font-size: 18px;
+        }
+
+        &-discount {
+            font-size: 16px;
+            line-height: 16px;
+        }
+
+        &-equal {
+            font-size: 18px;
+        }
     }
 }
 

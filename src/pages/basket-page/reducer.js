@@ -8,10 +8,12 @@ import {
     DECREASE_PRODUCT_QUANTITY_SUCCESS,
     SYNC_LOCAL_STORAGE_WITH_STATE_SUCCESS
 } from './actions';
+import { TOGGLE_IS_LOADING_SUCCESS } from '../search-page/actions';
 
 const initialState = {
     cart: [],
-    tempCart: []
+    tempCart: [],
+    isLoading: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -90,6 +92,11 @@ const reducer = (state = initialState, action) => {
                 tempCart: storageData
             };
         }
+        case 'TOGGLE_IS_LOADING':
+            return {
+                ...state,
+                isLoading: action.payload
+            };
         default:
             return state;
     }
@@ -102,6 +109,7 @@ export const addProductToCart = (obj) => (dispatch) => {
 };
 
 export const getProductsFromBasket = () => async (dispatch) => {
+    dispatch(TOGGLE_IS_LOADING_SUCCESS(true));
     const storageData = await JSON.parse(localStorage.getItem('cart'));
     const body = { products: storageData };
     const response = await axios
@@ -109,6 +117,7 @@ export const getProductsFromBasket = () => async (dispatch) => {
     if (response.status === 200) {
         dispatch(UPDATE_PRODUCTS_IN_CART_SUCCESS(response.data));
     }
+    dispatch(TOGGLE_IS_LOADING_SUCCESS(false));
 };
 
 export const removeProductFromCart = (id) => (dispatch) => {

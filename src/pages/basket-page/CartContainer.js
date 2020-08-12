@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Cart from './Cart';
-import { getProductsFromBasket, removeProductFromCart, increaseProductQuantity, decreaseProductQuantity } from './reducer';
+import Preloader from '../preloader/Preloader';
+import {
+    getProductsFromBasket, removeProductFromCart, increaseProductQuantity, decreaseProductQuantity
+} from './reducer';
 
 class CartContainer extends Component {
     componentDidMount() {
@@ -10,7 +13,9 @@ class CartContainer extends Component {
 
     render() {
         return (
-            <Cart {...this.props} />
+            <>
+                {this.props.isLoading ? <Preloader /> : <Cart {...this.props} />}
+            </>
         );
     }
 }
@@ -18,7 +23,8 @@ class CartContainer extends Component {
 const mapStateToProps = (state) => ({
     cart: state.cart.cart,
     categories: state.categories.categories,
-    tempCart: state.cart.tempCart
+    tempCart: state.cart.tempCart,
+    isLoading: state.cart.isLoading
 });
 
 export default connect(mapStateToProps, {
