@@ -1,7 +1,7 @@
-export const TOGGLE_CHECKBOXES_SUCCESS = (value) => ({
-    type: 'TOGGLE_CHECKBOXES', payload: value
+export const TOGGLE_CHECKBOXES_SUCCESS = (obj) => ({
+    type: 'TOGGLE_CHECKBOXES', payload: obj
 });
 
-export const FILTER_PRODUCTS_SUCCESS = () => ({
-    type: 'FILTER_PRODUCTS'
+export const CLEAR_FILTERS_SUCCESS = () => ({
+    type: 'CLEAR_FILTERS'
 });

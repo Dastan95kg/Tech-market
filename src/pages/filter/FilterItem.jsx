@@ -27,7 +27,7 @@ const FilterItem = ({
                     <Checkbox
                         label={checkbox}
                         name={checkbox}
-                        onChange={() => toggleCheckboxes(checkbox)}
+                        onChange={() => toggleCheckboxes({ title, value: checkbox })}
                     />
                 ))}
             </div>

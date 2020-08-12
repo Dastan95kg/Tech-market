@@ -143,4 +143,9 @@ export const sortingByField = (obj, id, name) => async (dispatch) => {
     }
 };
 
+export const filterProducts = (body) => async (dispatch) => {
+    const response = await axios.post('https://electronics-admin.herokuapp.com/filter', body);
+    console.log(response.data);
+};
+
 export default reducer;

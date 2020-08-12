@@ -79,6 +79,7 @@ const List = (props) => {
                         .includes(match.params.category) && (
                             <FilterContainer
                                 subcategory={subcategories.find(item => item._id === match.params.category)}
+                                products={products}
                             />
                         )}
                 </div>

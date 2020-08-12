@@ -25,7 +25,7 @@ const OrderForm = (props) => {
         return totalPrice;
     };
 
-    const [isOpen, open] = useState(true);
+    const [isOpen, open] = useState(false);
 
     const options = [
         { key: 1, text: 'ул. Юнусалиева 46', value: 1 },
@@ -50,9 +50,8 @@ const OrderForm = (props) => {
                 products: tempCart,
                 promo_code: promoCode && promoCode.promocode.code
             };
-            console.log(body);
+            dispatchNewOrder(body);
             open(true);
-            // dispatchNewOrder(body);
         },
         validationSchema: Yup.object({
             name: Yup.string()
@@ -70,6 +69,10 @@ const OrderForm = (props) => {
                 .required('Выберите вид доставки*'),
             give_money_count: Yup.number()
                 .required('Укажите сумму оплаты для сдачи*')
+                .min(promoCode
+                    ? defineFinalPrice(products, tempCart, promoCode.promocode.discount)
+                    : defineFinalPrice(products, tempCart),
+                    'Сумма оплаты должна превышать сумму заказа')
         })
     });
 
@@ -246,6 +249,8 @@ const OrderForm = (props) => {
                     open={isOpen}
                     onClose={() => open(false)}
                     onOpen={() => open(true)}
+                    closeOnDimmerClick={false}
+                    closeOnEscape={false}
                 >
                     <Modal.Header>Благодарим за заказ!</Modal.Header>
                     <Modal.Content>

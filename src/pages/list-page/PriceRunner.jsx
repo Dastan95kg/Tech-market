@@ -10,8 +10,9 @@ import {
 import './PriceRunner.scss';
 import 'rsuite/dist/styles/rsuite-default.css';
 
-const PriceRunner = () => {
-    const [value, setValue] = React.useState([10, 50]);
+const PriceRunner = ({
+    minPrice, maxPrice, value, setValue
+}) => {
     return (
         <Row>
             <Col md={10}>
@@ -23,8 +24,8 @@ const PriceRunner = () => {
                     onChange={val => {
                         setValue(val);
                     }}
-                    min={100}
-                    max={50000}
+                    min={minPrice}
+                    max={maxPrice}
                 />
             </Col>
             <Col md={8}>
