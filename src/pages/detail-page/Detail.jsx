@@ -12,7 +12,10 @@ const Detail = (props) => {
         product: { product, feedbacks: feedbacksList },
         cart,
         addProductToCart,
-        promotionProducts
+        promotionProducts,
+        submitFeedback,
+        match,
+        feedback
     } = props;
 
     const [characteristics, showCharacteristics] = useState(true);
@@ -134,7 +137,13 @@ const Detail = (props) => {
                 <div className="detail__info-content">
                     {characteristics && <Characteristics features={product.features} />}
                     {feedbacks && <Feedbacks feedbacks={feedbacksList} />}
-                    {feedbackForm && <FeedbackForm />}
+                    {feedbackForm && (
+                        <FeedbackForm
+                            submitFeedback={submitFeedback}
+                            id={match.params.id}
+                            feedback={feedback}
+                        />
+                    )}
                 </div>
             </div>
             <div className="detail__similar">

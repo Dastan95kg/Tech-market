@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Detail from './Detail';
-import { getProductDetail } from './reducer';
+import { getProductDetail, submitFeedback, clearFeedback } from './reducer';
 import { addProductToCart } from '../basket-page/reducer';
 import { getPromotionProducts } from '../home-page/reducer';
 
@@ -18,6 +18,10 @@ class DetailContainer extends Component {
         }
     }
 
+    componentWillUnmount() {
+        this.props.clearFeedback();
+    }
+
     render() {
         return (
             <Detail {...this.props} />
@@ -28,9 +32,10 @@ class DetailContainer extends Component {
 const mapStateToProps = (state) => ({
     product: state.detail.product,
     cart: state.cart.tempCart,
-    promotionProducts: state.home.promotionProducts.products
+    promotionProducts: state.home.promotionProducts.products,
+    feedback: state.detail.feedback
 });
 
 export default connect(mapStateToProps, {
-    getProductDetail, addProductToCart, getPromotionProducts
+    getProductDetail, addProductToCart, getPromotionProducts, submitFeedback, clearFeedback
 })(DetailContainer);

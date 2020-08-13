@@ -15,7 +15,8 @@ const List = (props) => {
         categories,
         subcategories,
         cart,
-        sortingByField
+        sortingByField,
+        getAllCategoryProducts
     } = props;
     const title = [...categories, ...subcategories].find(item => item._id === match.params.category);
 
@@ -92,6 +93,8 @@ const List = (props) => {
                         lastItem={null}
                         siblingRange={1}
                         totalPages={productsObj.total_pages}
+                        onPageChange={(value, page) => getAllCategoryProducts(match.params.category, page.activePage)}
+                        activePage={productsObj.current_page}
                     />
                 </div>
             </div>

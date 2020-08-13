@@ -37,3 +37,7 @@ export const SORTING_BY_NAME_ZA_SUCCESS = (data) => ({
 export const SORTING_BY_DEFAULT_SUCCESS = (data) => ({
     type: 'SORTING_BY', payload: data
 });
+
+export const FILTER_PRODUCTS_SUCCESS = (products) => ({
+    type: 'FILTER_PRODUCTS', payload: products
+});

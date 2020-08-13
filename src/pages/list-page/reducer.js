@@ -9,9 +9,11 @@ import {
     SORTING_BY_POPULAR_SUCCESS,
     SORTING_BY_NAME_AZ_SUCCESS,
     SORTING_BY_NAME_ZA_SUCCESS,
-    SORTING_BY_DEFAULT_SUCCESS
+    SORTING_BY_DEFAULT_SUCCESS,
+    FILTER_PRODUCTS_SUCCESS
 } from './actions';
 import { TOGGLE_IS_LOADING_SUCCESS } from '../search-page/actions';
+import { removeObjectProperty } from '../../utils/helpers';
 
 const initialState = {
     products: '',
@@ -63,6 +65,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 products: action.payload
             };
+        case 'FILTER_PRODUCTS':
+            return {
+                ...state,
+                products: action.payload
+            };
         default:
             return state;
     }
@@ -72,7 +79,7 @@ const reducer = (state = initialState, action) => {
 export const getAllCategoryProducts = (id, page = 1) => async (dispatch) => {
     dispatch(TOGGLE_IS_LOADING_SUCCESS(true));
     const response = await axios
-        .get(`https://electronics-admin.herokuapp.com/all-products/?category=${id}&page=${page}`);
+        .get(`https://electronics-admin.herokuapp.com/all-products/?category=${id}&page=${page}&limit=2`);
     if (response.status === 200) {
         dispatch(GET_ALL_CATEGORY_PRODUCTS_SUCCESS(response.data));
     }
@@ -144,8 +151,14 @@ export const sortingByField = (obj, id, name) => async (dispatch) => {
 };
 
 export const filterProducts = (body) => async (dispatch) => {
-    const response = await axios.post('https://electronics-admin.herokuapp.com/filter', body);
-    console.log(response.data);
+    const newBody = {
+        ...body,
+        filters: removeObjectProperty(body.filters)
+    };
+    const response = await axios.post('https://electronics-admin.herokuapp.com/filter', newBody);
+    if (response.status === 200) {
+        dispatch(FILTER_PRODUCTS_SUCCESS(response.data));
+    }
 };
 
 export default reducer;

@@ -1,18 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
-import { Rating } from 'semantic-ui-react';
+import * as Yup from 'yup';
+import { Rating, Message } from 'semantic-ui-react';
 
-const FeedbackForm = () => {
+const FeedbackForm = ({ submitFeedback, id, feedback }) => {
+    const [rating, setRating] = useState(1);
+
     const formik = useFormik({
         initialValues: {
             name: '',
             email: '',
-            feedback: '',
-            rating: 0
+            content: ''
         },
         onSubmit: values => {
-            console.log(values);
-        }
+            const body = {
+                ...values,
+                rating,
+                product_id: id
+            };
+            submitFeedback(body);
+        },
+        validationSchema: Yup.object({
+            name: Yup.string()
+                .required('Заполните это поле'),
+            email: Yup.string()
+                .email('Неверный формат электронной почты')
+                .required('Заполните это поле')
+        })
     });
 
     return (
@@ -25,6 +39,9 @@ const FeedbackForm = () => {
                 value={formik.values.name}
                 placeholder="Ваше имя"
             />
+            {formik.errors.name && formik.touched.name && (
+                <p className="order-form__error">{formik.errors.name}</p>
+            )}
             <input
                 type="email"
                 id="email"
@@ -33,12 +50,15 @@ const FeedbackForm = () => {
                 value={formik.values.email}
                 placeholder="Ваш электронный адрес"
             />
+            {formik.errors.email && formik.touched.email && (
+                <p className="order-form__error">{formik.errors.email}</p>
+            )}
             <textarea
                 type="text"
-                id="feedback"
-                name="feedback"
+                id="content"
+                name="content"
                 onChange={formik.handleChange}
-                value={formik.values.feedback}
+                value={formik.values.content}
                 placeholder="Оставьте ваш отзыв"
             />
             <div className="form__rating">
@@ -46,10 +66,18 @@ const FeedbackForm = () => {
                 <Rating
                     name="rating"
                     maxRating={5}
-                    value={formik.values.rating}
+                    value={rating}
+                    defaultRating={1}
+                    onRate={(event, data) => setRating(data.rating)}
                 />
             </div>
             <button className="form__btn" type="submit">Оставить комментарий</button>
+            {feedback && feedback.message && (
+                <Message
+                    content="Вам нужно купить товар, чтобы оставить отзыв о нем"
+                    negative
+                />
+            )}
         </form>
     );
 };

@@ -13,6 +13,7 @@
         "formik": "^2.1.4",
         "formik-antd": "^2.0.1",
         "formik-semantic-ui": "^0.10.0",
+        "lodash": "^4.17.19",
         "node-sass": "^4.14.1",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
