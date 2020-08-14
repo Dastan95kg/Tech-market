@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ProductQuantity from '../detail-page/ProductQuantity';
 import FinalPrice from './FinalPrice';
 import './BasketItem.scss';
@@ -12,9 +13,9 @@ const BasketItem = (props) => {
 
     return (
         <div className="basket__content-item">
-            <div className="basket__content-item-image">
+            <Link to={`/detail/${_id}`} className="basket__content-item-image">
                 <img src={`https://electronics-admin.herokuapp.com/${photos[0]}`} alt="basket item" />
-            </div>
+            </Link>
             <div className="basket__content-item-details">
                 <div className="basket__content-item-title">{name}</div>
                 <div className="basket__content-item-detail">
@@ -37,6 +38,7 @@ const BasketItem = (props) => {
                 removeProduct={removeProduct}
                 productId={_id}
                 cartItem={cartItem}
+                name={name}
             />
         </div>
     );

@@ -48,6 +48,7 @@ const OrderItem = (props) => {
                     removeProduct={() => removeProductFromCart(id)}
                     productId={id}
                     cartItem={cartItem}
+                    name={name}
                 />
             </div>
         </div>

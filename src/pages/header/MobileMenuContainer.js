@@ -3,7 +3,8 @@ import MobileMenu from './MobileMenu';
 
 const mapStateToProps = (state) => {
     return {
-        categories: state.categories.categories
+        categories: state.categories.categories,
+        cart: state.cart.tempCart
     };
 };
 

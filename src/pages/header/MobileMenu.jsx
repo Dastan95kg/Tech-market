@@ -4,7 +4,7 @@ import cartImage from '../../assets/images/supermarket.png';
 import './MobileMenu.scss';
 
 const MobileMenu = (props) => {
-    const { categories } = props;
+    const { categories, cart } = props;
     const [burgerOpen, setBurgerOpen] = useState(false);
 
     const burger = (
@@ -39,8 +39,11 @@ const MobileMenu = (props) => {
             >
                 {burgerOpen ? close : burger}
             </button>
-            <Link to="/basket">
+            <Link to="/basket" className="header-menu__cart">
                 <img src={cartImage} alt="cart" />
+                <p className="goods-num">
+                    {cart && cart.length}
+                </p>
             </Link>
             <div className={burgerOpen ? 'header-menu__content show' : 'header-menu__content hide'}>
                 <Link
