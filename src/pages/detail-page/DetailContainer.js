@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Detail from './Detail';
-import { getProductDetail, submitFeedback, clearFeedback } from './reducer';
+import Preloader from '../preloader/Preloader';
+import {
+    getProductDetail, submitFeedback, clearFeedback, closeFeedbackModal
+} from './reducer';
 import { addProductToCart } from '../basket-page/reducer';
 import { getPromotionProducts } from '../home-page/reducer';
 
@@ -14,7 +17,7 @@ class DetailContainer extends Component {
 
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.id !== this.props.match.params.id) {
-            this.props.getProductDetail(this.props.match.params.id)
+            this.props.getProductDetail(this.props.match.params.id);
         }
     }
 
@@ -24,7 +27,9 @@ class DetailContainer extends Component {
 
     render() {
         return (
-            <Detail {...this.props} />
+            <>
+                {this.props.isLoading ? <Preloader /> : <Detail {...this.props} />}
+            </>
         );
     }
 }
@@ -33,9 +38,17 @@ const mapStateToProps = (state) => ({
     product: state.detail.product,
     cart: state.cart.tempCart,
     promotionProducts: state.home.promotionProducts.products,
-    feedback: state.detail.feedback
+    feedback: state.detail.feedback,
+    isLoading: state.detail.isLoading,
+    isModalOn: state.detail.isModalOn,
+    error: state.detail.error
 });
 
 export default connect(mapStateToProps, {
-    getProductDetail, addProductToCart, getPromotionProducts, submitFeedback, clearFeedback
+    getProductDetail,
+    addProductToCart,
+    getPromotionProducts,
+    submitFeedback,
+    clearFeedback,
+    closeFeedbackModal
 })(DetailContainer);

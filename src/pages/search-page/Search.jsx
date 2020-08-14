@@ -83,7 +83,7 @@ const Search = ({ searchProducts, cart, addProductToCart }) => {
                             <Checkbox label="подкатегория" />
                             <Checkbox label="подкатегория" />
                         </div>
-                        <PriceRunner />
+                        {/* <PriceRunner /> */}
                         <div className="search__content-categories-results">
                             <div className="search__content-categories-results-title">Выводить результаты:</div>
                             <div className="search__content-categories-results-pages">

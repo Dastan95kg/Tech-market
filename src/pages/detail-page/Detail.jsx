@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { Rating } from 'semantic-ui-react';
 import DetailSlider from '../slider/DetailSlider';
 import GoodCart from '../home-page/GoodCart';
-import './Detail.scss';
 import Characteristics from './Characteristics';
 import Feedbacks from './Feedbacks';
 import FeedbackForm from './FeedbackForm';
+import Preloader from '../preloader/Preloader';
+import './Detail.scss';
 
 const Detail = (props) => {
     const {
@@ -15,7 +16,11 @@ const Detail = (props) => {
         promotionProducts,
         submitFeedback,
         match,
-        feedback
+        feedback,
+        history,
+        isModalOn,
+        closeFeedbackModal,
+        error
     } = props;
 
     const [characteristics, showCharacteristics] = useState(true);
@@ -41,10 +46,11 @@ const Detail = (props) => {
     };
 
     if (!product) {
-        return <div>...Загрузка</div>;
+        return <Preloader />;
     }
+
     return (
-        <section className="detail" >
+        <section className="detail">
             <div className="detail__main">
                 <DetailSlider photos={product.photos} />
                 <div className="detail__main-content">
@@ -84,7 +90,7 @@ const Detail = (props) => {
                             <div className="detail__main-price">
                                 <div className="detail__main-price-label">Цена:</div>
                                 <div className="detail__main-price-newPrice">
-                                    <span className="price">10999</span>
+                                    <span className="price">{product.price}</span>
                                     сом
                                 </div>
                             </div>
@@ -142,6 +148,12 @@ const Detail = (props) => {
                             submitFeedback={submitFeedback}
                             id={match.params.id}
                             feedback={feedback}
+                            history={history}
+                            isModalOn={isModalOn}
+                            closeFeedbackModal={closeFeedbackModal}
+                            showFeedbacks={showFeedbacks}
+                            showFeedbackForm={showFeedbackForm}
+                            error={error}
                         />
                     )}
                 </div>

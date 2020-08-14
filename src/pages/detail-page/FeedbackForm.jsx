@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Rating, Message } from 'semantic-ui-react';
+import {
+    Rating, Message, Modal, Button
+} from 'semantic-ui-react';
 
-const FeedbackForm = ({ submitFeedback, id, feedback }) => {
+const FeedbackForm = ({
+    submitFeedback, id, feedback, history,
+    isModalOn, closeFeedbackModal, showFeedbacks,
+    showFeedbackForm, error
+}) => {
     const [rating, setRating] = useState(1);
 
     const formik = useFormik({
@@ -28,6 +34,12 @@ const FeedbackForm = ({ submitFeedback, id, feedback }) => {
                 .required('Заполните это поле')
         })
     });
+
+    const handleCloseModal = () => {
+        closeFeedbackModal(false);
+        showFeedbacks(true);
+        showFeedbackForm(false);
+    };
 
     return (
         <form className="form" onSubmit={formik.handleSubmit}>
@@ -72,7 +84,20 @@ const FeedbackForm = ({ submitFeedback, id, feedback }) => {
                 />
             </div>
             <button className="form__btn" type="submit">Оставить комментарий</button>
-            {feedback && feedback.message && (
+            {isModalOn && (
+                <Modal
+                    centered={false}
+                    closeOnDimmerClick={false}
+                    closeOnEscape={false}
+                    open={isModalOn}
+                >
+                    <Modal.Header>Благодарим за оставленный отзыв!</Modal.Header>
+                    <Modal.Actions>
+                        <Button onClick={handleCloseModal}>OK</Button>
+                    </Modal.Actions>
+                </Modal>
+            )}
+            {error && (
                 <Message
                     content="Вам нужно купить товар, чтобы оставить отзыв о нем"
                     negative

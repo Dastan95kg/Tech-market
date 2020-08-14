@@ -245,7 +245,8 @@
                 }
 
                 textarea {
-                    height: 80px;
+                    min-height: 70px;
+                    max-height: 200px;
                     resize: vertical;
                     padding: 5px;
                 }
