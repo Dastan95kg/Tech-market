@@ -2,8 +2,8 @@
     "name": "electronicsr",
     "version": "0.1.0",
     "private": true,
-    "resolutions": {
-        "css-animation": "1.5.0"
+    "engines": {
+        "node": "12.13.0"
     },
     "dependencies": {
         "@testing-library/jest-dom": "^4.2.4",
