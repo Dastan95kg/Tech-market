@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Select, Pagination } from 'semantic-ui-react';
 import GoodCart from '../home-page/GoodCart';
 import FilterContainer from '../filter/FilterContainer';
-// import arrow from '../../assets/images/list-arrow.png';
 import filterBtn from '../../assets/images/filter.png';
 import './List.scss';
 
@@ -16,11 +15,15 @@ const List = (props) => {
         subcategories,
         cart,
         sortingByField,
-        getAllCategoryProducts
+        getAllCategoryProducts,
+        getAllSubcategoryProducts
     } = props;
     const title = [...categories, ...subcategories].find(item => item._id === match.params.category);
 
     const [isFiltersOn, setFiltersOn] = useState(false);
+
+    const productsPerPageFromLocalStorage = (JSON.parse(localStorage.getItem('productsPerPage'))) || 4;
+    const [productsPerPage, setProductsPerPage] = useState(productsPerPageFromLocalStorage);
 
     const options = [
         { key: '1', value: { field: 'default', sorting: 1 }, text: 'По умолчанию' },
@@ -37,14 +40,26 @@ const List = (props) => {
         sortingByField(value, match.params.category, name);
     };
 
+    const handleProductsPerPage = () => {
+        localStorage.setItem('productsPerPage', JSON.stringify(productsPerPage));
+        getAllCategoryProducts(match.params.category, 1, productsPerPage);
+    };
+
+    const handlePageChange = (value, page) => {
+        if (categories && categories.map(item => item._id)
+            .includes(match.params.category)) {
+            getAllCategoryProducts(match.params.category, page.activePage, productsPerPage);
+        } else {
+            getAllSubcategoryProducts(match.params.category, page.activePage);
+        }
+    };
+
     return (
         <section className="list">
             <div className="list__content">
                 <div className="list__content-filterContainer">
                     <div className="list__content-categories">
                         <div className="list__content-category">{title && title.name}</div>
-                        {/* <img src={arrow} alt="arrow" className="list__content-arrow" />
-                        <div className="list__content-subcategory">Смартфоны</div> */}
                     </div>
                     <div className="list__content-sort">
                         <span className="list__content-sort-title">Сортировка</span>
@@ -63,23 +78,21 @@ const List = (props) => {
                                 </button>
                             </div>
                         )}
-                    {/* <div
-                        className={isFiltersOn
-                            ? 'list__content-mobileFilter show'
-                            : 'list__content-mobileFilter'}
-                    >
-                        Hello
-                    </div> */}
-                    <div className="list__content-pages">
-                        Выводить результаты по
-                        <input type="number" value="12" />
-                        на страницу
-                    </div>
-                    <div className="list__content-results">
-                        Показано
-                        <span>12344</span>
-                        результатов
-                    </div>
+                    {categories && categories.map(item => item._id)
+                        .includes(match.params.category) && (
+                            <form
+                                className="list__content-pages"
+                                onSubmit={handleProductsPerPage}
+                            >
+                                Выводить результаты по
+                                <input
+                                    type="number"
+                                    value={productsPerPage}
+                                    onChange={e => setProductsPerPage(e.target.value)}
+                                />
+                                на страницу
+                            </form>
+                        )}
                 </div>
                 <div className="list__content-products-wrapper">
                     <div className="list__content-products">
@@ -111,7 +124,7 @@ const List = (props) => {
                         lastItem={null}
                         siblingRange={1}
                         totalPages={productsObj.total_pages}
-                        onPageChange={(value, page) => getAllCategoryProducts(match.params.category, page.activePage)}
+                        onPageChange={handlePageChange}
                         activePage={productsObj.current_page}
                     />
                 </div>

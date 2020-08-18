@@ -1,5 +1,5 @@
-import React from 'react';
-import { Message } from 'semantic-ui-react';
+import React, { useState } from 'react';
+import { Message, Accordion, Icon } from 'semantic-ui-react';
 import SearchForm from '../search-page/SearchForm';
 import TrackingResult from './TrackingResult';
 import searchIcon from '../../assets/images/IconSearch.png';
@@ -14,21 +14,40 @@ const Tracking = ({ findTrackingCode, orderStatus }) => {
         { id: 5, name: 'Отмена', description: 'Заказ отменен' }
     ];
 
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const handleClick = (e, data) => {
+        const { index } = data;
+        const newIndex = activeIndex === index ? -1 : index;
+        setActiveIndex(newIndex);
+    };
+
     return (
         <section className="tracking">
             <div className="tracking__content">
                 <div className="tracking__search">
                     <div className="tracking__search-title">Отслеживание товара</div>
                     <SearchForm placeholder="Введите номер заказа" findTrackingCode={findTrackingCode} />
-                    <Message info>
-                        <Message.Header>Статусы заказов:</Message.Header>
+                    <h5 className="tracking__search-header">Статусы заказов:</h5>
+                    <Accordion styled>
                         {statuses.map(status => (
                             <React.Fragment key={status.id}>
-                                <div>{`${status.id}) ${status.name}`}</div>
-                                <p className="tracking__search-status-description">{status.description}</p>
+                                <Accordion.Title
+                                    active={activeIndex === status.id}
+                                    index={status.id}
+                                    onClick={handleClick}
+                                >
+                                    <Icon name="dropdown" />
+                                    {status.name}
+                                </Accordion.Title>
+                                <Accordion.Content active={activeIndex === status.id}>
+                                    <p>
+                                        {status.description}
+                                    </p>
+                                </Accordion.Content>
                             </React.Fragment>
                         ))}
-                    </Message>
+                    </Accordion>
                 </div>
                 <div className="tracking__results">
                     {orderStatus

@@ -76,10 +76,10 @@ const reducer = (state = initialState, action) => {
 };
 
 // Thunk creators
-export const getAllCategoryProducts = (id, page = 1) => async (dispatch) => {
+export const getAllCategoryProducts = (id, page = 1, limit = 4) => async (dispatch) => {
     dispatch(TOGGLE_IS_LOADING_SUCCESS(true));
     const response = await axios
-        .get(`https://electronics-admin.herokuapp.com/all-products/?category=${id}&page=${page}&limit=2`);
+        .get(`https://electronics-admin.herokuapp.com/all-products/?category=${id}&page=${page}&limit=${limit}`);
     if (response.status === 200) {
         dispatch(GET_ALL_CATEGORY_PRODUCTS_SUCCESS(response.data));
     }
@@ -89,7 +89,7 @@ export const getAllCategoryProducts = (id, page = 1) => async (dispatch) => {
 export const getAllSubcategoryProducts = (id, page = 1) => async (dispatch) => {
     dispatch(TOGGLE_IS_LOADING_SUCCESS(true));
     const response = await axios
-        .get(`https://electronics-admin.herokuapp.com/all-products/?subcategory=${id}&page=${page}`);
+        .get(`https://electronics-admin.herokuapp.com/all-products/?subcategory=${id}&page=${page}&limit=4`);
     if (response.status === 200) {
         dispatch(GET_ALL_SUBCATEGORY_PRODUCTS_SUCCESS(response.data));
     }

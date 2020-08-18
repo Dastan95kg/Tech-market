@@ -13,9 +13,10 @@ import Preloader from '../preloader/Preloader';
 class ListContainer extends Component {
     async componentDidMount() {
         await this.props.getCategoriesAndSubcategories();
+        const productsPerPage = (JSON.parse(localStorage.getItem('productsPerPage'))) || 4;
         const id = this.props.match.params.category;
         if (this.props.categories.find(category => category._id === id)) {
-            this.props.getAllCategoryProducts(id);
+            this.props.getAllCategoryProducts(id, 1, productsPerPage);
         } else {
             this.props.getAllSubcategoryProducts(id);
         }
@@ -23,9 +24,10 @@ class ListContainer extends Component {
 
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.category !== this.props.match.params.category) {
+            const productsPerPage = JSON.parse(localStorage.getItem('productsPerPage'));
             const id = this.props.match.params.category;
             if (this.props.categories.find(category => category._id === id)) {
-                this.props.getAllCategoryProducts(id);
+                this.props.getAllCategoryProducts(id, 1, productsPerPage);
             } else {
                 this.props.getAllSubcategoryProducts(id);
             }

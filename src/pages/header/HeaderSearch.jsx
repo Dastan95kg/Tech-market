@@ -5,9 +5,7 @@ import { Redirect } from 'react-router-dom';
 
 const HeaderSearch = ({ findProducts, redirect }) => {
     const options = [
-        { key: 'all', text: 'По всем категориям', value: 'all' },
-        { key: 'articles', text: 'По цене', value: 'articles' },
-        { key: 'products', text: 'По популярности', value: 'products' }
+        { key: 'all', text: 'По всем категориям', value: 'all' }
     ];
 
     const formik = useFormik({
