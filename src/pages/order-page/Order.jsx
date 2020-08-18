@@ -18,7 +18,8 @@ const Order = (props) => {
         dispatchNewOrder,
         checkPromoCode,
         promo_code: promoCode,
-        isLoading
+        isLoading,
+        order
     } = props;
 
     const [message, showMessage] = useState(false);
@@ -101,6 +102,7 @@ const Order = (props) => {
                                 products={cartProducts}
                                 promoCode={promoCode}
                                 history={history}
+                                order={order}
                             />
                         </div>
                     </section>

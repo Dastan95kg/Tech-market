@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { DISPATCH_NEW_ORDER_SUCCESS, CHECK_PROMO_CODE_SUCCESS } from './actions';
+import { DISPATCH_NEW_ORDER_SUCCESS, CHECK_PROMO_CODE_SUCCESS, CLEAR_ORDER_SUCCESS } from './actions';
 import { TOGGLE_IS_LOADING_SUCCESS } from '../search-page/actions';
 
 const initialValues = {
@@ -19,6 +19,11 @@ const reducer = (state = initialValues, action) => {
             return {
                 ...state,
                 promo_code: action.payload
+            };
+        case 'CLEAR_ORDER':
+            return {
+                ...state,
+                order: ''
             };
         default:
             return state;
@@ -40,6 +45,10 @@ export const checkPromoCode = (code) => async (dispatch) => {
         dispatch(CHECK_PROMO_CODE_SUCCESS(response.data));
     }
     dispatch(TOGGLE_IS_LOADING_SUCCESS(false));
+};
+
+export const clearOrder = () => (dispatch) => {
+    dispatch(CLEAR_ORDER_SUCCESS());
 };
 
 export default reducer;

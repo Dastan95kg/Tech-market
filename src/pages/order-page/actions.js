@@ -5,3 +5,7 @@ export const DISPATCH_NEW_ORDER_SUCCESS = (data) => ({
 export const CHECK_PROMO_CODE_SUCCESS = (data) => ({
     type: 'CHECK_PROMO_CODE', payload: data
 });
+
+export const CLEAR_ORDER_SUCCESS = () => ({
+    type: 'CLEAR_ORDER'
+});

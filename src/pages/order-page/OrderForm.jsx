@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Dropdown, Modal } from 'semantic-ui-react';
+import { Dropdown, Modal, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import './OrderForm.scss';
 
 const OrderForm = (props) => {
     const {
         dispatchNewOrder, tempCart, products,
-        promoCode, history
+        promoCode, history, order
     } = props;
 
     const defineFinalPrice = (productsList, cart, discount = 0) => {
@@ -48,7 +48,7 @@ const OrderForm = (props) => {
             const body = {
                 ...values,
                 products: tempCart,
-                promo_code: promoCode && promoCode.promocode.code
+                promo_code: promoCode && (promoCode.promocode ? promoCode.promocode.code : '')
             };
             dispatchNewOrder(body);
             open(true);
@@ -69,7 +69,7 @@ const OrderForm = (props) => {
                 .required('Выберите вид доставки*'),
             give_money_count: Yup.number()
                 .required('Укажите сумму оплаты для сдачи*')
-                .min(promoCode
+                .min(promoCode.promocode
                     ? defineFinalPrice(products, tempCart, promoCode.promocode.discount)
                     : defineFinalPrice(products, tempCart),
                     'Сумма оплаты должна превышать сумму заказа')
@@ -202,14 +202,21 @@ const OrderForm = (props) => {
                 <div className="order-form__subtitle">Оплата наличными при получении!</div>
                 <div className="order-form__payment-total">
                     К оплате:
-                    {promoCode && promoCode.promocode && (
+                    {promoCode && (promoCode.promocode ? (
                         <div>
                             <span>
                                 {defineFinalPrice(products, tempCart, promoCode.promocode.discount)}
                             </span>
                             сом
                         </div>
-                    )}
+                    ) : (
+                            <div>
+                                <span>
+                                    {defineFinalPrice(products, tempCart)}
+                                </span>
+                                сом
+                            </div>
+                        ))}
                     {!promoCode && (
                         <div>
                             <span>
@@ -244,24 +251,40 @@ const OrderForm = (props) => {
                     Вернуться
                 </button>
                 <button type="submit">Оформить заказ</button>
-                <Modal
-                    centered={false}
-                    open={isOpen}
-                    onClose={() => open(false)}
-                    onOpen={() => open(true)}
-                    closeOnDimmerClick={false}
-                    closeOnEscape={false}
-                >
-                    <Modal.Header>Благодарим за заказ!</Modal.Header>
-                    <Modal.Content>
-                        <Modal.Description>
-                            Заказ успешно оформлен. Проверьте вашу почту, пожалуйста.
-                        </Modal.Description>
-                    </Modal.Content>
-                    <Modal.Actions>
-                        <Link to="/" onClick={() => open(false)}>На главную</Link>
-                    </Modal.Actions>
-                </Modal>
+                {order && (order.order ? (
+                    <Modal
+                        centered={false}
+                        open={isOpen}
+                        onClose={() => open(false)}
+                        onOpen={() => open(true)}
+                        closeOnDimmerClick={false}
+                        closeOnEscape={false}
+                    >
+                        <Modal.Header>Благодарим за заказ!</Modal.Header>
+                        <Modal.Content>
+                            <Modal.Description>
+                                Заказ успешно оформлен. Проверьте вашу почту, пожалуйста.
+                            </Modal.Description>
+                        </Modal.Content>
+                        <Modal.Actions>
+                            <Link to="/" onClick={() => open(false)}>На главную</Link>
+                        </Modal.Actions>
+                    </Modal>
+                ) : (
+                        <Modal
+                            centered={false}
+                            open={isOpen}
+                            onClose={() => open(false)}
+                            onOpen={() => open(true)}
+                            closeOnDimmerClick={false}
+                            closeOnEscape={false}
+                        >
+                            <Modal.Header>Товар отсутствует на складе. Приносим свои извинения.</Modal.Header>
+                            <Modal.Actions>
+                                <Button onClick={() => open(false)}>OK</Button>
+                            </Modal.Actions>
+                        </Modal>
+                    ))}
             </div>
         </form>
     );
