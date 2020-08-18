@@ -62,9 +62,7 @@
                 border: 0;
                 padding: 18px 10px;
                 display: block;
-                margin: 0 auto;
-                margin-top: 27px;
-                margin-bottom: 30px;
+                margin: 27px auto 0;
                 cursor: pointer;
             }
 
@@ -80,7 +78,7 @@
         &-rating {
             display: flex;
             align-items: center;
-            margin: 10px 0;
+            margin-bottom: 10px;
 
             .ui.rating {
                 display: block;
@@ -314,12 +312,12 @@
                 .title {
                     font-size: 25px;
                     line-height: 30px;
+                    margin-top: 0;
                 }
 
                 .add-to-cart,
                 .content__cart-added {
                     width: 300px;
-                    margin: 20px auto;
                 }
             }
 
@@ -336,14 +334,7 @@
 @media #{$desktop-sm} {
     .detail {
         &__main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
             &-content {
-                position: unset;
-                padding-top: 0;
-                width: 70%;
                 border-radius: 0px 0px 7px 7px;
 
                 .is-present {
@@ -351,7 +342,6 @@
                 }
 
                 .title {
-                    margin-top: 25px;
                     text-align: center;
                     font-weight: bold;
                 }
@@ -391,9 +381,6 @@
             }
 
             &-rating {
-                flex-direction: column;
-                margin: 15px 0;
-
                 .ui.rating {
                     margin-right: 0;
                 }
@@ -405,9 +392,18 @@
 @media #{$tablet-md} {
     .detail {
         &__main {
+            position: unset;
+            flex-direction: column;
+
             &-content {
-                padding: 0 15px 0;
+                padding: 10px 15px 25px;
                 width: 100%;
+                position: unset;
+
+                .add-to-cart,
+                .content__cart-added {
+                    margin: 15px auto 0;
+                }
             }
         }
 
@@ -437,7 +433,6 @@
                 .title {
                     font-size: 18px;
                     line-height: 25px;
-                    margin-top: 15px;
                 }
             }
 

@@ -91,6 +91,7 @@
                 line-height: 17px;
                 text-transform: uppercase;
                 color: #ffffff;
+                margin-right: 5px;
 
                 &:hover {
                     color: #1d97f0;
@@ -348,7 +349,6 @@
         &__nav {
             &-links {
                 padding: 0 10px;
-                margin-bottom: 5px;
             }
 
             &-search {
@@ -358,7 +358,6 @@
 
         &__logo {
             width: 70px;
-            padding: 5px;
 
             .market {
                 font-size: 15px;

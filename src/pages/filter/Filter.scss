@@ -14,7 +14,6 @@
         &-label {
             display: flex;
             justify-content: space-between;
-            cursor: pointer;
             margin-bottom: 10px;
 
             &-btn {
@@ -77,7 +76,31 @@
 @media #{$tablet-sm} {
     .list__content {
         &-filters {
-            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 5;
+            width: 100%;
+            height: auto;
+            background-color: #fff;
+            padding: 15px;
+            transform: translateX(-100%);
+
+            &.show {
+                transform: translateX(0);
+            }
+
+            &-close {
+                background: 0;
+                border: 0;
+
+                &-wrapper {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 15px;
+                }
+            }
         }
     }
 }

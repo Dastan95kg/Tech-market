@@ -11,6 +11,7 @@ const Slider = ({ photos }) => {
         slidesToScroll: 1,
         autoplay: true,
         fade: true,
+        arrows: true,
         responsive: [
             {
                 breakpoint: 500,

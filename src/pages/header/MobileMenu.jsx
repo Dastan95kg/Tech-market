@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { List } from 'semantic-ui-react';
 import cartImage from '../../assets/images/supermarket.png';
 import './MobileMenu.scss';
 
 const MobileMenu = (props) => {
-    const { categories, cart } = props;
+    const { categories, cart, subcategories } = props;
     const [burgerOpen, setBurgerOpen] = useState(false);
 
     const burger = (
@@ -58,14 +59,30 @@ const MobileMenu = (props) => {
                 </div>
                 <div className="header-menu__content-subcategories">
                     {categories && categories.map(item => (
-                        <Link
-                            className="header-menu__content-subcategory"
-                            onClick={() => setBurgerOpen(false)}
-                            key={item._id}
-                            to={`/products/${item._id}`}
-                        >
-                            {item.name}
-                        </Link>
+                        <div className="header-menu__content-subcategories-item">
+                            <Link
+                                className="header-menu__content-subcategory"
+                                onClick={() => setBurgerOpen(false)}
+                                key={item._id}
+                                to={`/products/${item._id}`}
+                            >
+                                {item.name}
+                            </Link>
+                            <List bulleted horizontal>
+                                {subcategories && subcategories
+                                    .filter(subcategory => subcategory.category === item._id)
+                                    .map(subcategory => (
+                                        <List.Item
+                                            onClick={() => setBurgerOpen(false)}
+                                            key={subcategory._id}
+                                        >
+                                            <Link to={`/products/${subcategory._id}`}>
+                                                {subcategory.name}
+                                            </Link>
+                                        </List.Item>
+                                    ))}
+                            </List>
+                        </div>
                     ))}
                 </div>
                 <Link

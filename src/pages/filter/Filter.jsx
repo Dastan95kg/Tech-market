@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import PriceRunner from '../list-page/PriceRunner';
+import FilterItem from './FilterItem';
 import downArrow from '../../assets/images/dowт-arrow.png';
 import upArrow from '../../assets/images/up-arrow.png';
+import closeIcon from '../../assets/images/close.png';
 import './Filter.scss';
-import FilterItem from './FilterItem';
 
 const Filter = (props) => {
     const {
@@ -13,7 +14,9 @@ const Filter = (props) => {
         toggleCheckboxes,
         filters,
         products,
-        filterProducts
+        filterProducts,
+        filtersShown,
+        setFiltersOn
     } = props;
 
     const [filterOn, setFilterOn] = useState(true);
@@ -41,9 +44,21 @@ const Filter = (props) => {
 
     return (
         <form
-            className="list__content-filters"
+            className={filtersShown ? 'list__content-filters show' : 'list__content-filters'}
             onSubmit={formik.handleSubmit}
         >
+            {filtersShown && (
+                <div className="list__content-filters-close-wrapper">
+                    <div>Фильтровать по:</div>
+                    <button
+                        type="button"
+                        className="list__content-filters-close"
+                        onClick={() => setFiltersOn(false)}
+                    >
+                        <img src={closeIcon} alt="close" />
+                    </button>
+                </div>
+            )}
             {features && Object.keys(features)
                 .filter(key => features[key].length > 0)
                 .map(key => (
@@ -79,6 +94,7 @@ const Filter = (props) => {
             <button
                 className="list__content-filters-btn"
                 type="submit"
+                onClick={() => setFiltersOn(false)}
             >
                 Применить
             </button>

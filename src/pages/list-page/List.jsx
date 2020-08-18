@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Select, Pagination } from 'semantic-ui-react';
 import GoodCart from '../home-page/GoodCart';
 import FilterContainer from '../filter/FilterContainer';
@@ -19,6 +19,8 @@ const List = (props) => {
         getAllCategoryProducts
     } = props;
     const title = [...categories, ...subcategories].find(item => item._id === match.params.category);
+
+    const [isFiltersOn, setFiltersOn] = useState(false);
 
     const options = [
         { key: '1', value: { field: 'default', sorting: 1 }, text: 'По умолчанию' },
@@ -48,12 +50,26 @@ const List = (props) => {
                         <span className="list__content-sort-title">Сортировка</span>
                         <Select placeholder="По умолчанию" options={options} onChange={getValue} />
                     </div>
-                    <div className="list__content-adaptiveFilter">
-                        <button type="button">
-                            Фильтрация
+                    {subcategories && subcategories
+                        .map(item => item._id)
+                        .includes(match.params.category) && (
+                            <div className="list__content-adaptiveFilter">
+                                <button
+                                    type="button"
+                                    onClick={() => setFiltersOn(!isFiltersOn)}
+                                >
+                                    Фильтрация
                             <img src={filterBtn} alt="filter" />
-                        </button>
-                    </div>
+                                </button>
+                            </div>
+                        )}
+                    {/* <div
+                        className={isFiltersOn
+                            ? 'list__content-mobileFilter show'
+                            : 'list__content-mobileFilter'}
+                    >
+                        Hello
+                    </div> */}
                     <div className="list__content-pages">
                         Выводить результаты по
                         <input type="number" value="12" />
@@ -81,6 +97,8 @@ const List = (props) => {
                             <FilterContainer
                                 subcategory={subcategories.find(item => item._id === match.params.category)}
                                 products={products}
+                                filtersShown={isFiltersOn}
+                                setFiltersOn={setFiltersOn}
                             />
                         )}
                 </div>

@@ -5,7 +5,8 @@ import './DetailSlider.scss';
 
 class DetailSlider extends Component {
     render() {
-        const { photos } = this.props;
+        // const { photos } = this.props;
+        const photos = ["/upload/AbL6cQjUD5.jpg", "/upload/AbL6cQjUD5.jpg", "/upload/AbL6cQjUD5.jpg", "/upload/AbL6cQjUD5.jpg", "/upload/AbL6cQjUD5.jpg", "/upload/AbL6cQjUD5.jpg"];
         return (
             <Carousel
                 showStatus={false}
@@ -13,6 +14,8 @@ class DetailSlider extends Component {
                 useKeyboardArrows
                 autoPlay
                 emulateTouch
+                showArrows
+                dynamicHeight
             >
                 {photos && photos.map(photo => (
                     <div key={photo}>
