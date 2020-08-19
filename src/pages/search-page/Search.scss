@@ -28,10 +28,6 @@
                 }
             }
 
-            &-filter {
-                display: none;
-            }
-
             &-results {
                 text-align: right;
                 font-size: 14px;
@@ -125,7 +121,7 @@
             padding: 43px 20px;
 
             &-wrapper {
-                width: 75%;
+                width: 100%;
             }
 
             .popular__goods-wrapper {
@@ -172,17 +168,6 @@
     .search {
         &__content {
             &-navbar {
-                &-filter {
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-end;
-                    margin-top: 10px;
-
-                    img {
-                        margin-left: 5px;
-                    }
-                }
-
                 &-results {
                     text-align: left;
                 }

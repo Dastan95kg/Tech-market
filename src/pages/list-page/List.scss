@@ -99,6 +99,7 @@
             font-size: 14px;
             line-height: 14px;
             display: flex;
+            flex-wrap: wrap;
             justify-content: flex-end;
             align-items: center;
             padding-right: 10px;
@@ -108,21 +109,13 @@
                 width: 30px;
                 height: 30px;
                 margin: 0 5px;
-            }
-        }
+                text-align: center;
 
-        &-results {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            padding-right: 10px;
-            font-size: 14px;
-            line-height: 10px;
-            color: #3e3e3e;
-            margin-bottom: 10px;
-
-            span {
-                margin: 0 3px;
+                &:focus {
+                    border: 2px solid #1d97f0;
+                    outline: 0;
+                    box-shadow: 0 0 3px;
+                }
             }
         }
 
@@ -209,11 +202,6 @@ input[type="number"]::-webkit-outer-spin-button {
             &-subcategory {
                 font-size: 18px;
                 line-height: 20px;
-            }
-
-            &-pages,
-            &-results {
-                display: none;
             }
 
             &-sort {

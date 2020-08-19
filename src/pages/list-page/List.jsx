@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Select, Pagination } from 'semantic-ui-react';
+import { Select, Pagination, Input } from 'semantic-ui-react';
 import GoodCart from '../home-page/GoodCart';
 import FilterContainer from '../filter/FilterContainer';
 import filterBtn from '../../assets/images/filter.png';
@@ -88,7 +88,7 @@ const List = (props) => {
                                 <input
                                     type="number"
                                     value={productsPerPage}
-                                    onChange={e => setProductsPerPage(e.target.value)}
+                                    onChange={event => setProductsPerPage(event.target.value)}
                                 />
                                 на страницу
                             </form>

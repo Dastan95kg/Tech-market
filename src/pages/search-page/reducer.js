@@ -1,10 +1,12 @@
 import axios from 'axios';
+import { orderBy } from 'lodash';
 import {
     GET_ORDER_STATUS_SUCCESS,
     CLEAR_ORDER_STATUS_SUCCESS,
     FIND_PRODUCTS_SUCCESS,
     CLEAR_SEARCH_RESULTS_SUCCESS,
-    TOGGLE_IS_LOADING_SUCCESS
+    TOGGLE_IS_LOADING_SUCCESS,
+    SORT_PRODUCTS_SUCCESS
 } from './actions';
 
 const initialState = {
@@ -43,6 +45,41 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 isLoading: action.payload
             };
+        case 'SORT_PRODUCTS':
+            if (action.payload === 'По алфавиту А-Я') {
+                return {
+                    ...state,
+                    searchProducts: {
+                        ...state.searchProducts,
+                        results: orderBy(state.searchProducts.results, 'name', 'asc')
+                    }
+                };
+            } if (action.payload === 'По алфавиту Я-А') {
+                return {
+                    ...state,
+                    searchProducts: {
+                        ...state.searchProducts,
+                        results: orderBy(state.searchProducts.results, 'name', 'desc')
+                    }
+                };
+            } if (action.payload === 'По возрастанию цены') {
+                return {
+                    ...state,
+                    searchProducts: {
+                        ...state.searchProducts,
+                        results: orderBy(state.searchProducts.results, 'price', 'asc')
+                    }
+                };
+            } if (action.payload === 'По убыванию цены') {
+                return {
+                    ...state,
+                    searchProducts: {
+                        ...state.searchProducts,
+                        results: orderBy(state.searchProducts.results, 'price', 'desc')
+                    }
+                };
+            }
+            return state;
         default:
             return state;
     }
@@ -73,6 +110,10 @@ export const findProducts = (body) => async (dispatch) => {
 
 export const clearSearchResults = () => (dispatch) => {
     dispatch(CLEAR_SEARCH_RESULTS_SUCCESS());
+};
+
+export const sortProducts = (value) => (dispatch) => {
+    dispatch(SORT_PRODUCTS_SUCCESS(value));
 };
 
 export default reducer;

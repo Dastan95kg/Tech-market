@@ -11,6 +11,18 @@
         flex-direction: column;
         align-self: baseline;
 
+        &-close {
+            background: 0;
+            border: 0;
+
+            &-wrapper {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 15px;
+            }
+        }
+
         &-label {
             display: flex;
             justify-content: space-between;
@@ -88,18 +100,6 @@
 
             &.show {
                 transform: translateX(0);
-            }
-
-            &-close {
-                background: 0;
-                border: 0;
-
-                &-wrapper {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    margin-bottom: 15px;
-                }
             }
         }
     }

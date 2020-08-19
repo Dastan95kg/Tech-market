@@ -14,6 +14,19 @@
         border-radius: 7px 7px 7px 0px;
         padding: 27px 38px 42px;
 
+        &-header {
+            margin-top: 20px;
+        }
+
+        .ui.styled.accordion,
+        .ui.styled.accordion .accordion {
+            margin-top: 10px !important;
+        }
+
+        .ui.styled.accordion .active.title {
+            color: #1d97f0 !important;
+        }
+
         &-title {
             font-size: 24px;
             line-height: 29px;
@@ -69,19 +82,6 @@
 
         &__search {
             padding: 27px 15px 42px;
-
-            &-header {
-                margin-top: 20px;
-            }
-
-            .ui.styled.accordion,
-            .ui.styled.accordion .accordion {
-                margin-top: 10px;
-            }
-
-            .ui.styled.accordion .active.title {
-                color: #1d97f0;
-            }
         }
 
         &__results {

@@ -5,8 +5,8 @@ import './DetailSlider.scss';
 
 class DetailSlider extends Component {
     render() {
-        // const { photos } = this.props;
-        const photos = ["/upload/AbL6cQjUD5.jpg", "/upload/AbL6cQjUD5.jpg", "/upload/AbL6cQjUD5.jpg", "/upload/AbL6cQjUD5.jpg", "/upload/AbL6cQjUD5.jpg", "/upload/AbL6cQjUD5.jpg"];
+        const { photos } = this.props;
+
         return (
             <Carousel
                 showStatus={false}

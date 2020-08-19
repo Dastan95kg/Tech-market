@@ -17,3 +17,7 @@ export const CLEAR_SEARCH_RESULTS_SUCCESS = () => ({
 export const TOGGLE_IS_LOADING_SUCCESS = (isLoading) => ({
     type: 'TOGGLE_IS_LOADING', payload: isLoading
 });
+
+export const SORT_PRODUCTS_SUCCESS = (value) => ({
+    type: 'SORT_PRODUCTS', payload: value
+});

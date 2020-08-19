@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Search from './Search';
 import { addProductToCart } from '../basket-page/reducer';
-import { clearSearchResults } from './reducer';
+import { clearSearchResults, sortProducts } from './reducer';
 import Preloader from '../preloader/Preloader';
 
 class SearchContainer extends Component {
@@ -25,4 +25,6 @@ const mapStateToProps = (state) => ({
     isLoading: state.search.isLoading
 });
 
-export default connect(mapStateToProps, { addProductToCart, clearSearchResults })(SearchContainer);
+export default connect(mapStateToProps, {
+    addProductToCart, clearSearchResults, sortProducts
+})(SearchContainer);
