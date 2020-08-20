@@ -21,7 +21,6 @@ const mapStateToProps = (state) => ({
     categories: state.categories.categories,
     tempCart: state.cart.tempCart,
     promo_code: state.order.promo_code,
-    isLoading: state.order.isLoading,
     order: state.order.order
 });
 

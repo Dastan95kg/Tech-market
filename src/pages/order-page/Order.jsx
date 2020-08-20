@@ -18,7 +18,6 @@ const Order = (props) => {
         dispatchNewOrder,
         checkPromoCode,
         promo_code: promoCode,
-        isLoading,
         order
     } = props;
 

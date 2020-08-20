@@ -36,23 +36,17 @@ const GoodCart = (props) => {
                     <span>c</span>
                 </p>
             </Link>
-            {cart && cart.map(item => item.id).includes(_id)
-                ? (
-                    <button
-                        disabled
-                        type="button"
-                        className="content__cart-added"
-                    >
-                        Добавлено в корзину
-                    </button>
-                ) : (
-                    <button
-                        type="button"
-                        onClick={() => addProductToCart({ id: _id, quantity: 1 })}
-                    >
-                        Добавить в корзину
-                    </button>
-                )}
+            <button
+                disabled={cart && cart.map(item => item.id).includes(_id)}
+                type="button"
+                onClick={() => addProductToCart({ id: _id, quantity: 1 })}
+                className={cart && cart.map(item => item.id).includes(_id)
+                    ? 'content__cart-added'
+                    : 'content__cart-notAdded'}
+            >
+                {cart && cart.map(item => item.id).includes(_id)
+                    ? 'Добавлено в корзину' : 'Добавить в корзину'}
+            </button>
         </div>
     );
 };

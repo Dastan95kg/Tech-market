@@ -95,7 +95,7 @@ const Detail = (props) => {
                                 </div>
                             </div>
                         )}
-                    {cart && cart.map(item => item.id).includes(product._id)
+                    {/* {cart && cart.map(item => item.id).includes(product._id)
                         ? (
                             <button
                                 disabled
@@ -112,7 +112,18 @@ const Detail = (props) => {
                             >
                                 Добавить в корзину
                             </button>
-                        )}
+                        )} */}
+                    <button
+                        disabled={cart && cart.map(item => item.id).includes(product._id)}
+                        type="button"
+                        onClick={() => addProductToCart({ id: product._id, quantity: 1 })}
+                        className={cart && cart.map(item => item.id).includes(product._id)
+                            ? 'content__cart added'
+                            : 'content__cart notAdded'}
+                    >
+                        {cart && cart.map(item => item.id).includes(product._id)
+                            ? 'Добавлено в корзину' : 'Добавить в корзину'}
+                    </button>
                 </div>
             </div>
             <div className="detail__info">

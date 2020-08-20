@@ -10,8 +10,7 @@
     }
 
     button {
-        background: 0;
-        border: 0;
+        @include clear-default-btn;
     }
 
     &__open {
@@ -51,6 +50,7 @@
             width: 100%;
             height: auto;
             padding: 20px;
+            transition: 0.2s all linear;
 
             &.show {
                 transform: translateX(0);

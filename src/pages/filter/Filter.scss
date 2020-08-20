@@ -1,4 +1,5 @@
 @import "../../utils/variables.scss";
+@import "../../utils/mixins.scss";
 
 .list__content {
     &-filters {
@@ -12,8 +13,7 @@
         align-self: baseline;
 
         &-close {
-            background: 0;
-            border: 0;
+            @include clear-default-btn;
 
             &-wrapper {
                 display: flex;
@@ -97,6 +97,7 @@
             background-color: #fff;
             padding: 15px;
             transform: translateX(-100%);
+            transition: 0.2s all linear;
 
             &.show {
                 transform: translateX(0);

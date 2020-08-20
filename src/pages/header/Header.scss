@@ -114,6 +114,12 @@
                     width: 24px;
                     height: 24px;
                 }
+
+                .search-container {
+                    .search-field:focus {
+                        @include input-focus;
+                    }
+                }
             }
 
             .cart {

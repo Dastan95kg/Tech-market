@@ -1,4 +1,5 @@
 @import "../../utils/variables.scss";
+@import "../../utils/mixins.scss";
 
 .order {
     &__content {
@@ -29,20 +30,21 @@
                 width: 230px !important;
                 padding: 5px;
                 margin-right: 10px;
-                border-color: #1d97f0;
                 background: #ffffff;
-                border: 1px solid #1d97f0;
-                box-sizing: border-box;
+                border: 1px solid $main-blue;
+
+                &:focus {
+                    @include order-input-focus;
+                }
             }
 
             button {
-                background: #1d97f0;
+                @include clear-default-btn;
+                background: $main-blue;
                 border-radius: 2px;
-                border: 0;
                 color: #fff;
                 font-size: 14px;
                 padding: 6px 15px;
-                cursor: pointer;
             }
         }
 
@@ -55,7 +57,7 @@
             font-weight: bold;
 
             &-num {
-                color: #1d97f0;
+                color: $main-blue;
                 margin: 0 5px;
             }
         }

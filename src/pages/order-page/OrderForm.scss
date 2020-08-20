@@ -1,4 +1,5 @@
 @import "../../utils/variables.scss";
+@import "../../utils/mixins.scss";
 
 .order-form {
     display: flex;
@@ -78,7 +79,7 @@
             display: flex;
 
             div {
-                color: #1d97f0;
+                color: $main-blue;
                 margin-left: 5px;
 
                 span {
@@ -105,8 +106,7 @@
         margin-bottom: 10px;
 
         button {
-            border: 0;
-            background: 0;
+            @include clear-default-btn;
         }
 
         .goBack {
@@ -116,19 +116,23 @@
             margin-right: 12px;
 
             &:hover {
-                color: #1d97f0;
+                color: $main-blue;
             }
         }
 
-        button[type="submit"] {
+        .submit {
             font-size: 18px;
             line-height: 22px;
             color: #ffffff;
-            background: #1d97f0;
+            background: $main-blue;
             border-radius: 7px;
             width: 220px;
             height: 45px;
             text-align: center;
+
+            &:hover {
+                background: $blue-focus-btn;
+            }
         }
     }
 
@@ -145,21 +149,22 @@
         padding: 5px 10px;
         width: 300px;
         background: #ffffff;
-        border: 1px solid #1d97f0;
+        border: 1px solid $main-blue;
+
+        &:focus {
+            @include order-input-focus;
+        }
     }
 
     textarea {
         resize: vertical;
+        min-height: 50px;
+        max-height: 200px;
     }
 
     input::placeholder,
     textarea::placeholder {
         color: #c4c4c4;
-    }
-
-    button {
-        font-family: $Montserrat;
-        cursor: pointer;
     }
 }
 

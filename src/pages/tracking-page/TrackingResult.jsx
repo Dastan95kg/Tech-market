@@ -1,7 +1,7 @@
 import React from 'react';
 import { Message } from 'semantic-ui-react';
 import TrackingStatus from './TrackingStatus';
-import searchIcon from '../../assets/images/IconSearch.png';
+import searchSVG from '../../assets/search-black.svg';
 import './TrackingResult.scss';
 
 const TrackingResult = (props) => {
@@ -25,7 +25,7 @@ const TrackingResult = (props) => {
     return (
         <div className="tracking__results-wrapper">
             <div className="tracking__results-code">
-                <img src={searchIcon} alt="search icon" />
+                <img src={searchSVG} alt="search icon" />
                 <span>{trackingCode}</span>
             </div>
             <TrackingStatus orderStatus={orderStatus} />

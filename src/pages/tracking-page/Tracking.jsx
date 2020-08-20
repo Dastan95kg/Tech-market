@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Message, Accordion, Icon } from 'semantic-ui-react';
+import { Accordion, Icon } from 'semantic-ui-react';
 import SearchForm from '../search-page/SearchForm';
 import TrackingResult from './TrackingResult';
-import searchIcon from '../../assets/images/IconSearch.png';
+import searchSVG from '../../assets/search-black.svg';
 import './Tracking.scss';
 
 const Tracking = ({ findTrackingCode, orderStatus }) => {
@@ -55,10 +55,10 @@ const Tracking = ({ findTrackingCode, orderStatus }) => {
                         : (
                             <>
                                 <div className="tracking__results-code">
-                                    <img src={searchIcon} alt="search icon" />
+                                    <img src={searchSVG} alt="search icon" />
                                 </div>
                                 <div className="tracking__results-content">
-                                    Тут будет отслеживание вашего товара
+                                    Здесь отобразится результат поиска
                                 </div>
                             </>
                         )}

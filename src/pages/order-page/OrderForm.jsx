@@ -250,7 +250,7 @@ const OrderForm = (props) => {
                 >
                     Вернуться
                 </button>
-                <button type="submit">Оформить заказ</button>
+                <button type="submit" className="submit">Оформить заказ</button>
                 {order && (order.order ? (
                     <Modal
                         centered={false}
