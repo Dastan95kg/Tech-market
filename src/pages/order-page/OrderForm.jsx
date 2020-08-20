@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Dropdown, Modal, Button } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
 import './OrderForm.scss';
 
 const OrderForm = (props) => {

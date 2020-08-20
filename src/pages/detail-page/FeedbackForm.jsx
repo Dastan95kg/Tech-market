@@ -6,7 +6,7 @@ import {
 } from 'semantic-ui-react';
 
 const FeedbackForm = ({
-    submitFeedback, id, feedback, history,
+    submitFeedback, id,
     isModalOn, closeFeedbackModal, showFeedbacks,
     showFeedbackForm, error
 }) => {

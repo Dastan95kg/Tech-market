@@ -95,24 +95,6 @@ const Detail = (props) => {
                                 </div>
                             </div>
                         )}
-                    {/* {cart && cart.map(item => item.id).includes(product._id)
-                        ? (
-                            <button
-                                disabled
-                                type="button"
-                                className="content__cart-added"
-                            >
-                                Добавлено в корзину
-                            </button>
-                        ) : (
-                            <button
-                                type="button"
-                                className="add-to-cart"
-                                onClick={() => addProductToCart({ id: product._id, quantity: 1 })}
-                            >
-                                Добавить в корзину
-                            </button>
-                        )} */}
                     <button
                         disabled={cart && cart.map(item => item.id).includes(product._id)}
                         type="button"
@@ -158,8 +140,6 @@ const Detail = (props) => {
                         <FeedbackForm
                             submitFeedback={submitFeedback}
                             id={match.params.id}
-                            feedback={feedback}
-                            history={history}
                             isModalOn={isModalOn}
                             closeFeedbackModal={closeFeedbackModal}
                             showFeedbacks={showFeedbacks}
