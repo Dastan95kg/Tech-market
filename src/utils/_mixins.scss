@@ -30,3 +30,8 @@
     background: 0;
     cursor: pointer;
 }
+
+@mixin passive_inputs {
+    border: 1px solid gray !important;
+    opacity: 0.5;
+}

@@ -62,6 +62,7 @@ const Cart = (props) => {
                             header="Корзина"
                             history={history}
                             categories={categories}
+                            text="Пока в вашей корзине ничего нет!"
                         />
                     )
             }

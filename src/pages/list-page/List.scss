@@ -112,7 +112,7 @@
                 text-align: center;
 
                 &:focus {
-                    border: 2px solid #1d97f0;
+                    border: 2px solid $main-blue;
                     outline: 0;
                     box-shadow: 0 0 3px;
                 }
@@ -138,7 +138,7 @@
             margin-bottom: 20px;
 
             .ui.pagination.menu .item {
-                color: #1d97f0;
+                color: $main-blue;
             }
         }
     }

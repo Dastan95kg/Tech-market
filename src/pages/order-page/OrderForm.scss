@@ -27,6 +27,12 @@
             }
         }
 
+        &-label {
+            &.passive {
+                opacity: 0.3;
+            }
+        }
+
         &-radio {
             display: flex;
             align-items: center;
@@ -63,12 +69,28 @@
         margin-bottom: 15px;
     }
 
-    &__delivery-address {
-        margin: 10px 0;
-    }
+    &__delivery {
+        &-address {
+            margin: 10px 0;
 
-    &__delivery-comment {
-        margin-bottom: 80px;
+            &.passive {
+                @include passive_inputs;
+            }
+        }
+
+        &-comment {
+            margin-bottom: 80px;
+
+            &.passive {
+                @include passive_inputs;
+            }
+        }
+
+        &-city {
+            &.passive {
+                opacity: 0.3;
+            }
+        }
     }
 
     &__payment {

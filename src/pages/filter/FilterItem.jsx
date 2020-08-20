@@ -17,9 +17,10 @@ const FilterItem = ({
                     className="list__content-filters-label-btn"
                     onClick={() => setFilterOn(!filterOn)}
                 >
-                    {filterOn
-                        ? <img src={downArrow} alt="down arrow" />
-                        : <img src={upArrow} alt="up arrow" />}
+                    <img
+                        src={filterOn ? downArrow : upArrow}
+                        alt="hide icon"
+                    />
                 </button>
             </div>
             <div className="list__content-filters-checkboxes">

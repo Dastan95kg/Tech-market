@@ -20,7 +20,7 @@ const CatalogItem = (props) => {
         <>
             <Link
                 to={`/products/${categoryId}`}
-                className="catalog__item"
+                className={subcategoriesActive ? 'catalog__item active' : 'catalog__item'}
                 onMouseEnter={activateSubcategories}
                 onMouseLeave={disactivateSubcategories}
             >

@@ -110,6 +110,7 @@ const Order = (props) => {
                             header="Оформление заказа"
                             history={history}
                             categories={categories}
+                            text="Перейдите на страницу корзины пожалуйста"
                         />
                     )
             }

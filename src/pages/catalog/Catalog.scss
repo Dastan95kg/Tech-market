@@ -36,7 +36,6 @@
         align-items: center;
         padding: 10px;
         height: 66px;
-        cursor: pointer;
 
         &:hover {
             .catalog__item {
@@ -44,8 +43,12 @@
             }
 
             .catalog__item-text {
-                color: #1d97f0;
+                color: $main-blue;
             }
+        }
+
+        &.active {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.5);
         }
 
         &-content {
@@ -75,12 +78,11 @@
             width: 12px;
             display: flex;
             align-items: center;
-            cursor: pointer;
         }
     }
 
     &.active {
         transform: translateX(0);
-        transition: transform 0.1s linear;
+        transition: transform 0.2s linear;
     }
 }

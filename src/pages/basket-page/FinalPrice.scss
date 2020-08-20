@@ -1,4 +1,5 @@
 @import "../../utils/variables.scss";
+@import "../../utils/mixins.scss";
 
 .basket__content-item-price {
     display: flex;
@@ -6,9 +7,7 @@
     align-items: flex-end;
 
     button {
-        border: 0;
-        background: 0;
-        cursor: pointer;
+        @include clear-default-btn;
         width: 30px;
         height: 30px;
         margin-bottom: 10px;
@@ -17,11 +16,5 @@
             width: 30px;
             height: 30px;
         }
-    }
-}
-
-// ------------------MEDIA Queries-------------------------------------------//
-@media #{$tablet-md} {
-    .basket__content-item-price {
     }
 }

@@ -1,7 +1,7 @@
 @import "../../utils/variables.scss";
 
 .tracking-status {
-    background: #1d97f0;
+    background: $main-blue;
     display: flex;
     align-items: center;
     padding: 10px 23px;
@@ -27,8 +27,4 @@
         font-size: 14px;
         line-height: 14px;
     }
-}
-
-// ------------------MEDIA Queries-------------------------------------------//
-@media #{$mobile-lg} {
 }

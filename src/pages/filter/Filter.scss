@@ -29,9 +29,7 @@
             margin-bottom: 10px;
 
             &-btn {
-                background: 0;
-                border: 0;
-                cursor: pointer;
+                @include clear-default-btn;
             }
 
             span {
@@ -63,7 +61,7 @@
             align-items: center;
             justify-content: center;
             margin: 15px auto 0;
-            background: #1d97f0;
+            background: $main-blue;
             color: #fff;
             border: 0;
             width: 100%;

@@ -143,9 +143,16 @@ const OrderForm = (props) => {
                         />
                         Курьер
                     </label>
-                    <div className="order-form__delivery-city">Город: Бишкек</div>
+                    <div className={(formik.values.delivery === 'true')
+                        ? 'order-form__delivery-city'
+                        : 'order-form__delivery-city passive'}
+                    >
+                        Город: Бишкек
+                    </div>
                     <input
-                        className="order-form__delivery-address"
+                        className={(formik.values.delivery === 'true')
+                            ? 'order-form__delivery-address'
+                            : 'order-form__delivery-address passive'}
                         name="adress"
                         placeholder="Адрес доставки"
                         type="text"
@@ -159,7 +166,9 @@ const OrderForm = (props) => {
                         type="text"
                         value={formik.values.comment}
                         onChange={formik.handleChange}
-                        className="order-form__delivery-comment"
+                        className={(formik.values.delivery === 'true')
+                            ? 'order-form__delivery-comment'
+                            : 'order-form__delivery-comment passive'}
                         name={formik.values.delivery === 'true' && 'comment'}
                         disabled={formik.values.delivery === 'false'}
                     />
@@ -176,9 +185,19 @@ const OrderForm = (props) => {
                         />
                         Самовывоз
                     </label>
-                    <div className="order-form__delivery-city">Город: Бишкек</div>
+                    <div className={(formik.values.delivery === 'false')
+                        ? 'order-form__delivery-city'
+                        : 'order-form__delivery-city passive'}
+                    >
+                        Город: Бишкек
+                    </div>
                     <div className="order-form__container-shopAddress">
-                        <span>Адрес магазина</span>
+                        <span className={(formik.values.delivery === 'false')
+                            ? 'order-form__container-label'
+                            : 'order-form__container-label passive'}
+                        >
+                            Адрес магазина
+                        </span>
                         <Dropdown
                             disabled={formik.values.delivery === 'true'}
                             selection
@@ -190,7 +209,9 @@ const OrderForm = (props) => {
                         placeholder="Комментарий к заказу"
                         type="text"
                         onChange={formik.handleChange}
-                        className="order-form__delivery-comment"
+                        className={(formik.values.delivery === 'false')
+                            ? 'order-form__delivery-comment'
+                            : 'order-form__delivery-comment passive'}
                         name={formik.values.delivery === 'false' && 'comment'}
                         disabled={formik.values.delivery === 'true'}
                     />
