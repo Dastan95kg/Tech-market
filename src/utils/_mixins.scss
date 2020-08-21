@@ -35,3 +35,26 @@
     border: 1px solid gray !important;
     opacity: 0.5;
 }
+
+@mixin cart_icon {
+    width: 32px;
+    height: 32px;
+    fill: #fff;
+}
+
+@mixin close_icon {
+    width: 30px;
+    height: 30px;
+    opacity: 0.6;
+
+    &:hover {
+        fill: $main-blue;
+        transition: 0.2s fill linear;
+    }
+}
+
+@mixin box_shadow {
+    -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}

@@ -21,6 +21,21 @@
         display: flex;
         align-items: center;
 
+        &:hover {
+            .header-menu {
+                &__cart {
+                    &-icon {
+                        fill: $main-blue;
+                        transition: 0.2s fill linear;
+                    }
+                }
+            }
+        }
+
+        &-icon {
+            @include cart_icon;
+        }
+
         .goods-num {
             @include cart-num;
             margin-left: 5px;
@@ -51,6 +66,7 @@
             height: auto;
             padding: 20px;
             transition: 0.2s all linear;
+            @include box_shadow;
 
             &.show {
                 transform: translateX(0);
