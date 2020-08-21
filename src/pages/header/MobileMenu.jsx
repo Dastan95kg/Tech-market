@@ -70,7 +70,10 @@ const MobileMenu = (props) => {
                 </div>
                 <div className="header-menu__content-subcategories">
                     {categories && categories.map(item => (
-                        <div className="header-menu__content-subcategories-item">
+                        <div
+                            key={item._id}
+                            className="header-menu__content-subcategories-item"
+                        >
                             <Link
                                 className="header-menu__content-subcategory"
                                 onClick={() => setBurgerOpen(false)}

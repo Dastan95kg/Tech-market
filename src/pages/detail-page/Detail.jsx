@@ -16,8 +16,6 @@ const Detail = (props) => {
         promotionProducts,
         submitFeedback,
         match,
-        feedback,
-        history,
         isModalOn,
         closeFeedbackModal,
         error

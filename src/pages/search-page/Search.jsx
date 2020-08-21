@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Dropdown, Checkbox, Pagination, Message
+    Dropdown, Message
 } from 'semantic-ui-react';
 import GoodCart from '../home-page/GoodCart';
 import './Search.scss';
@@ -13,13 +13,6 @@ const Search = ({ searchProducts, cart, addProductToCart, sortProducts }) => {
         { key: 'az', value: 'По возрастанию цены', text: 'По возрастанию цены' },
         { key: 'ac', value: 'По убыванию цены', text: 'По убыванию цены' }
     ];
-
-    // const categories = [
-    //     { key: 'af', value: 'af', text: 'Холодильники' },
-    //     { key: 'ax', value: 'ax', text: 'Мобильные телефоны' },
-    //     { key: 'ay', value: 'ay', text: 'Стиральные машины' },
-    //     { key: 'az', value: 'az', text: 'Телевизоры' }
-    // ];
 
     return (
         <section className="search">
@@ -62,34 +55,7 @@ const Search = ({ searchProducts, cart, addProductToCart, sortProducts }) => {
                                     </Message>
                                 ))}
                         </div>
-                        {/* <div className="search__content-products-pagination">
-                            <Pagination
-                                boundaryRange={0}
-                                defaultActivePage={1}
-                                ellipsisItem={null}
-                                firstItem={null}
-                                lastItem={null}
-                                siblingRange={1}
-                                totalPages={1}
-                            />
-                        </div> */}
                     </div>
-                    {/* <nav className="search__content-categories">
-                        <div className="search__content-categories-title">Категории</div>
-                        <Dropdown search selection options={categories} />
-                        <div className="search__content-categories-subtitle">Подкатегории</div>
-                        <div className="search__content-categories-checkboxes">
-                            <Checkbox label="подкатегория" />
-                            <Checkbox label="подкатегория" />
-                            <Checkbox label="подкатегория" />
-                            <Checkbox label="подкатегория" />
-                            <Checkbox label="подкатегория" />
-                            <Checkbox label="подкатегория" />
-                        </div>
-                        <button className="search__content-categories-btn" type="button">
-                            Применить
-                        </button>
-                    </nav> */}
                 </div>
             </div>
         </section>

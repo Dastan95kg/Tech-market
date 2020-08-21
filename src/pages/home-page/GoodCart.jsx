@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Rating } from 'semantic-ui-react';
-import TV from '../../assets/images/tv.png';
 
 const GoodCart = (props) => {
     const {
@@ -18,8 +17,8 @@ const GoodCart = (props) => {
             >
                 <img
                     className="content__image"
-                    src={photos && photos.length > 0 ? `https://electronics-admin.herokuapp.com/${photos[0]}` : TV}
-                    alt="TV"
+                    src={photos && `https://electronics-admin.herokuapp.com/${photos[0]}`}
+                    alt="product"
                 />
                 <p className="content__title">
                     {name}

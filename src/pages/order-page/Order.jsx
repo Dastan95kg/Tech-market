@@ -4,8 +4,8 @@ import { Message } from 'semantic-ui-react';
 import OrderItem from './OrderItem';
 import CartTotal from '../basket-page/CartTotal';
 import OrderForm from './OrderForm';
-import './Order.scss';
 import EmptyCart from '../basket-page/EmptyCart';
+import './Order.scss';
 
 const Order = (props) => {
     const {

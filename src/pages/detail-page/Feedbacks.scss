@@ -46,24 +46,4 @@
             color: #000000;
         }
     }
-
-    &__more {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        &-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: $Montserrat;
-            font-size: 14px;
-            line-height: 17px;
-            color: #3e3e3e;
-        }
-
-        .arrow {
-            margin-left: 10px;
-        }
-    }
 }
